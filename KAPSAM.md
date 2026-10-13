@@ -31,13 +31,21 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 | YAB | Yabancı Uyruklu Öğrenci Kabul Yönergesi | 2022 | ✅ ikincil |
 | LU_YON, LU_UE, TIP_INT, DIS | Lisansüstü, Tıp, Diş | — | v2 |
 
-## Bilinen veri sorunları (Adım 1'de çözülecek)
-1. **Eski sürüm tuzağı.** İnternette EOY'nin 2014 ve 2020 orijinal kopyaları dolaşıyor. 2023 değişikliği Eğitim Fakültesi'ni devam istisnasından çıkardı, 2024 değişikliği kayıt dondurma kurallarını değiştirdi. Derlemde yalnızca KAYSIS'teki konsolide metin kullanılmalı.
-2. **GEC 2014 tarihli.** YGS/LYS'ye atıf yapıyor, ÇAP GANO eşiği (2.72) YÖK'ün güncel yönetmeliğiyle çelişiyor olabilir. Bu belgeden üretilen cevaplara otomatik güncellik uyarısı eklenmeli.
-3. **YAZ, mülga yönetmeliğe atıf yapıyor.** Madde 7 ve 13 "Önlisans ve Lisans Öğretim Yönetmeliği"ni (2014) anıyor; bu atıf EOY olarak çözülmeli.
-4. **Süreli (geçici) maddeler.** EOY'nin geçici maddeleri belirli kayıt yıllarına uygulanır ve zamanla geçersiz hale gelir. Durumları [data/madde_durumu.json](data/madde_durumu.json) dosyasında tutulur: süresi dolanlar (Geçici 1, 2) indekse alınmaz, süreli olanlar (Geçici 3, 4) kayıt yılı etiketiyle indekslenir. Kaynak metinler değiştirilmez. **Her eğitim-öğretim yılı başında gözden geçirilmeli** (Geçici 3'ün süresi 2026-2027 sonunda doluyor).
-5. **PDF kodlama hatası.** 61283'te `Ġ→İ`, `ġ→Ş`, `Ģ→ş` bozulması vardı; elle düzeltildi, temizleme hattına kural olarak eklenmeli.
-6. **PDF kelime kırılmaları.** "öğr encilerin", "pro gramlanmış" gibi. BM25 ve embedding kalitesini düşürür, temizlenmeli.
+## Veri sorunları
+| # | Sorun | Durum |
+|---|---|---|
+| 1 | **Eski sürüm tuzağı.** EOY'nin 2014 ve 2020 orijinal kopyaları internette dolaşıyor; 2023 ve 2024 değişiklikleri önemli kuralları değiştirdi. | ✅ Yalnızca KAYSIS konsolide metni kullanılıyor; parçalar `degisiklikler` alanında RG değişiklik bilgisini taşıyor. |
+| 2 | **GEC 2014 tarihli.** YGS/LYS'ye atıf yapıyor, ÇAP GANO eşiği (2.72) güncel YÖK yönetmeliğiyle çelişiyor olabilir. | 🟡 Parçalar `guncellik: "supheli"` etiketi taşıyor; cevaba uyarı ekleme Adım 3'te. |
+| 3 | **YAZ, mülga yönetmeliğe atıf yapıyor.** Madde 7 ve 13 "Önlisans ve Lisans Öğretim Yönetmeliği"ni (2014) anıyor; fiilen EOY kastediliyor. | 🔲 Adım 3 (sistem istemi). |
+| 4 | **Süreli (geçici) maddeler.** Durumları [data/madde_durumu.json](data/madde_durumu.json) dosyasında. | ✅ Süresi dolanlar (Geçici 1, 2) indekse alınmıyor; süreli olanlar (Geçici 3, 4) `kayit_yili_en_gec` etiketi taşıyor. **Her eğitim-öğretim yılı başında gözden geçirilmeli** (Geçici 3'ün süresi 2026-2027 sonunda doluyor). |
+| 5 | **PDF kodlama hatası.** 61283'te `Ġ/ġ/Ģ` bozulması. | ✅ `uuasistan/metin.py` içinde kural; testle korunuyor. |
+| 6 | **PDF kelime kırılmaları.** pypdf "giri ş", "öğr encilerin" gibi kırıklar üretiyordu. | ✅ Metin çıkarma PyMuPDF'e taşındı; kırıklar kayboldu. |
+| 7 | **Sayfa gürültüsü.** "Senato Karar Eki" başlıkları, sayfa numaraları, üç satıra bölünen madde başları (`MADDE`/`1`/`–`). | ✅ `uuasistan/metin.py`; madde numaralarının ardışıklığı testle korunuyor. |
+
+## Parçalama (Adım 1)
+- Her madde bir parça; 1500 karakteri aşan maddeler fıkra sınırlarından, tek başına uzun fıkralar bent sınırlarından bölünür (fıkranın giriş cümlesi her alt parçada tekrarlanır). Paragraf ortasından asla bölünmez.
+- Her parça: belge, madde, başlık, bölüm, fıkra numaraları, değişiklik bilgisi, kaynak URL ve varsa güncellik/kayıt yılı etiketi taşır.
+- Başarı kriteri (testle korunuyor): test setindeki her kaynak alıntısı, doğru maddenin tek bir parçasında eksiksiz bulunur. Karşılaştırma: sabit 500/1000 karakterlik pencereler alıntıların %9/%5'ini bölüyor.
 
 ## Başarı ölçütü
 [eval/test_seti.json](eval/test_seti.json) üzerinde:
