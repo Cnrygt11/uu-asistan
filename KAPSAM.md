@@ -44,10 +44,9 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 
 ## Dönem başı bakım
 Mevzuat değiştiğinde asistan sessizce yanlış bilgi vermeye başlar. Her eğitim-öğretim dönemi başında:
-1. `python scripts/guncellik_kontrol.py`: EOY ve YAZ'ın değişiklik geçmişini mevzuat.gov.tr ile karşılaştırır (son kontrol: Ekim 2026, ikisi de güncel).
-2. KAYSIS'te Senato yönergelerinin (UYG, OZEL, GEC, YAB) yeni sürümü var mı, elle bakılır.
-3. [data/madde_durumu.json](data/madde_durumu.json) gözden geçirilir; süresi dolan geçici maddeler `suresi_dolmus` yapılır.
-4. Değişiklik varsa: PDF güncellenir → `python -m uuasistan.hazirla` → `python -m pytest` → etkilenen test soruları yeniden onaylanır.
+1. KAYSIS'teki belgelerin yeni sürümü var mı, bakılır (kaynak bağlantıları: [data/belgeler.json](data/belgeler.json); son indirme: Ekim 2026).
+2. [data/madde_durumu.json](data/madde_durumu.json) gözden geçirilir; süresi dolan geçici maddeler `suresi_dolmus` yapılır.
+3. Değişiklik varsa: PDF güncellenir → `python -m uuasistan.hazirla` → `python -m pytest` → etkilenen test soruları yeniden onaylanır.
 
 ## Parçalama (Adım 1)
 - Her madde bir parça; 1500 karakteri aşan maddeler fıkra sınırlarından, tek başına uzun fıkralar bent sınırlarından bölünür (fıkranın giriş cümlesi her alt parçada tekrarlanır). Paragraf ortasından asla bölünmez.
