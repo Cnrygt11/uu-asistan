@@ -499,7 +499,7 @@
     "zorluk": "zor",
     "not": "TUZAK: Geçici Madde 4'teki 2.50 sınırı yalnızca 2019-2020 ve öncesinde kayıt olanlar içindir; 2023 kaydına uygulanırsa cevap yanlış sayılır. (2019 kayıtlı 4 yıllık öğrenci 2026'da azami süreyi aşmış olacağı için zaten değerlendirmeye alınmaz, EOY 35/2-d; bu yüzden gerçekçi senaryo olarak güncel bir kayıt yılı seçildi.)",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S039",
@@ -852,6 +852,6 @@
     "zorluk": "zor",
     "not": "Eş: S038 (2023 kaydı, yıl soruda verilmiş → sormamalı, sınır 3.00). Geçici 4 süreli bir madde (madde_durumu.json); 2030-2031'den sonra bu soru kaldırılmalı.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   }
 ]
