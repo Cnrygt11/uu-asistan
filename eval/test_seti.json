@@ -1,0 +1,835 @@
+[
+  {
+    "id": "S001",
+    "soru": "Devamsızlık sınırı ne kadar? Teorik derse ve laba en az yüzde kaç gelmem lazım?",
+    "beklenen_cevap": "Kuramsal (teorik) derslere en az %70, uygulama, laboratuvar, işyeri eğitimi ve benzeri çalışmalara en az %80 devam zorunludur. Bu şart sağlanmazsa öğrenci o ders için devamsız sayılır, sınavlara alınmaz ve not çizelgesine D (Devamsız) yazılır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "kuramsal derslere en az %70, uygulama, laboratuvar, işyeri eğitimi ve benzeri çalışmalara en az %80 oranında devamı zorunludur"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S002",
+    "soru": "Geçen sene devamını alıp kaldığım teorik dersi tekrar alıyorum. Yine derslere girmek zorunda mıyım?",
+    "netlestirme": {
+      "konu": "fakulte",
+      "ornek_soru": "Bu durum fakülteye göre değişiyor. Hangi fakültede ya da meslek yüksekokulunda okuyorsun?",
+      "ogrenci_yaniti": "Mühendislik Fakültesindeyim."
+    },
+    "beklenen_cevap": "Hayır. Mühendislik Fakültesi, tekrar alınan derste devamın zorunlu olduğu birimler arasında değil. Daha önce devam şartını sağladığın salt teorik bir dersi (ve derse bağlı uygulama/laboratuvarı) tekrar alırken devam şartı aranmaz.",
+    "beklenen_davranis": ["netlestirme_sorar"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "bir kez devam şartı sağlanmış olan salt teorik dersler ile derse bağlı uygulama ve laboratuvar derslerinin tekrar alınması durumunda devam zorunluluğu aranmaz"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "not": "İstisna olmayan fakülte örneği. Eşleri: S003 (Tıp, devam zorunlu), S004 (Eğitim, 2023'ten beri zorunlu değil).",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S003",
+    "soru": "Tıp fakültesindeyim, kaldığım dersi tekrar alırken devam zorunluluğu var mı?",
+    "beklenen_cevap": "Evet. Tıp Fakültesi, tekrar alınan derslerde devam muafiyetinin uygulanmadığı birimler arasında sayılmıştır; tekrar alınan derslerde de devam şartı (teorik %70, uygulama/lab %80) aranır.",
+    "beklenen_davranis": ["netlestirme_sormaz"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "a) Tıp Fakültesi,"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S004",
+    "soru": "Eğitim Fakültesi öğrencisiyim. Devamını aldığım ama kaldığım teorik dersi tekrar alıyorum, devam zorunlu mu?",
+    "beklenen_cevap": "Hayır. Eğitim Fakültesi, 7/3/2023 tarihli değişiklikle (RG 32125) devam istisnası listesinden çıkarılmıştır. Dolayısıyla Eğitim Fakültesi öğrencileri için de bir kez devam şartı sağlanmış salt teorik derslerin tekrarında devam aranmaz.",
+    "beklenen_davranis": ["netlestirme_sormaz"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "d) (Mülga:RG-7/3/2023-32125)"}
+    ],
+    "kategori": "guncel_degisiklik",
+    "zorluk": "zor",
+    "not": "TUZAK: 2020 orijinal metninde ve eski PDF kopyalarında Eğitim Fakültesi istisnadır (devam zorunlu). Sistem eski metni kullanırsa yanlış cevap verir.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S005",
+    "soru": "Yaz okulunda aldığım dersten kaldım, güzde tekrar alacağım. Devam şartı olacak mı?",
+    "beklenen_cevap": "Evet. Yaz öğretiminde alınıp başarısız olunan dersler güz veya bahar yarıyılında yeniden alınırsa normal devam şartının (teorik %70, uygulama/lab %80) sağlanması gerekir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "yaz öğretiminde aldıkları ancak başarısız oldukları dersleri güz ya da bahar yarıyıllarında yeniden almaları halinde birinci fıkrada düzenlenen devam şartını sağlamaları gerekir"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S006",
+    "soru": "Daha önce devamını aldığım dersi yaz okulunda alıyorum, yine de derslere girmem gerekiyor mu?",
+    "beklenen_cevap": "Evet. Yaz öğretiminde ders alan öğrenciler, dersin devamını daha önce alıp almadıklarına bakılmaksızın kuramsal derslerin en az %70'ine, uygulama/laboratuvarların en az %80'ine devam etmek zorundadır.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "7", "alinti": "açılan derslerin daha önceden devamını alıp almadıklarına bakılmaksızın, kuramsal derslerin en az % 70'ine"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "not": "Normal dönemdeki tekrar-devam muafiyeti (EOY 18/3) yaz okulunda geçerli değil; sistem ikisini karıştırmamalı.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S007",
+    "soru": "Büte kimler girebiliyor? DC aldığım derse girebilir miyim?",
+    "beklenen_cevap": "Bütünleme sınavına, dönem sonu sınavına girme hakkını elde ettiği halde sınava giremeyen ya da girip FF veya FD alarak başarısız olan öğrenciler girebilir. Yönetmelikte DC veya DD notu alanların bütünlemeye girebileceğine dair hüküm yoktur. Bütünlemeye girenlerin başarı notunda final notu yerine bütünleme notu kullanılır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "29", "alinti": "sınava giremeyen veya girdiği halde bu derslerden (FF), (FD) alarak başarısız olan öğrenciler girebilirler"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S008",
+    "soru": "Yaz okulunda aldığım dersten kalırsam bütünleme hakkım var mı?",
+    "beklenen_cevap": "Hayır. Yaz öğretiminde alınan dersler için bütünleme sınavı yapılmaz. (Mezuniyeti için en çok iki dersi kalan öğrenciler yaz öğretimi sonundaki ek sınavlara katılabilir.)",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "12", "alinti": "Yaz öğretiminde alınan dersler için bütünleme sınavı yapılmaz"},
+      {"belge": "EOY", "madde": "29", "alinti": "yaz öğretiminde alınan derslere bütünleme sınav hakkı verilmez"},
+      {"belge": "YAZ", "madde": "13", "alinti": "mezuniyeti için en çok iki dersten başarısız olan öğrenciler yaz öğretimi sonunda yapılan ek sınavlara katılabilirler"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S009",
+    "soru": "Finale hastalandığım için giremedim, mazeret sınavı açılır mı?",
+    "beklenen_cevap": "Hayır. Yarıyıl sonu (final), bütünleme ve ek sınavlar için mazeret sınavı hakkı verilmez; mazeret sınavı yalnızca ara sınavlar içindir. Tek istisna sınav programındaki çakışmalardır. Finale giremeyen öğrenci, dönem sonu sınavına girme hakkını elde etmişse bütünleme sınavına girebilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "30", "alinti": "yarıyıl/yıl sonu sınavları, bütünleme sınavları ve ek sınavlar için öğrenciye mazeret sınav hakkı verilmez"},
+      {"belge": "EOY", "madde": "30", "alinti": "Sınav programdaki çakışmalar haklı ve geçerli neden kabul edilir"},
+      {"belge": "EOY", "madde": "29", "alinti": "yarıyıl/yıl sonu sınavına girme hakkı elde ettiği halde sınava giremeyen"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S010",
+    "soru": "Vizeye hastalık yüzünden giremedim, rapor aldım. Ne yapmam lazım, süre var mı?",
+    "beklenen_cevap": "Tam teşekküllü bir sağlık kurumundan alınmış sağlık kurulu raporu ile belgelenen sağlık sorunu mazeret kabul edilebilir. Mazeretin bitim tarihini izleyen en geç 5 iş günü içinde, kayıtlı olunan birime mazereti ispatlayan belgelerle yazılı başvuru yapılmalıdır. Mazeret sınavı hakkını birimin yönetim kurulu verir; mazeret sınavları en geç yarıyılın son haftasına kadar yapılır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "30", "alinti": "tam teşekküllü bir sağlık kurumu/kuruluşu tarafından düzenlenen sağlık kurulu raporu"},
+      {"belge": "EOY", "madde": "30", "alinti": "mazeretin bitim tarihini izleyen en geç 5 iş günü içinde kayıtlı oldukları birime mazeretini ispata elverişli belgelerle birlikte yazılı olarak başvurması gerekir"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S011",
+    "soru": "Yaz okulunda finale mazeretim yüzünden giremedim. Mazeret sınavı var mı?",
+    "beklenen_cevap": "Evet. Yaz öğretiminde, ara sınava veya yaz öğretimi sonu sınavına mazereti nedeniyle giremeyen ve mazereti ilgili birim yönetim kurulunca kabul edilen öğrenciler için mazeret sınavı açılır. (Bu, normal dönemden farklıdır: güz/bahar finallerine mazeret sınavı yoktur.)",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "12", "alinti": "Ara sınav veya yaz öğretimi sonu sınavına mazeretleri nedeni ile giremeyen ve bu mazeretleri ilgili birim yönetim kurullarınca kabul edilen öğrenciler için mazeret sınavı açılır"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "S009 ile çelişkili görünür; doğru cevap dönem türüne bağlı.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S012",
+    "soru": "Vize ve finalin geçme notuna etkisi yüzde kaç?",
+    "beklenen_cevap": "Yarıyıl içi çalışmaların (ara sınav, ödev, uygulama vb.) ham başarı notuna etkisi, toplamda %40'ı aşmamak üzere dersin öğretim elemanınca belirlenir. Final veya bütünleme sınavının etkisi %60'tır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "29", "alinti": "toplamda % 40’ı aşmamak şartıyla ders yürütücüsü öğretim elemanı tarafından belirlenir"},
+      {"belge": "EOY", "madde": "29", "alinti": "ham başarı notuna etkisi ise % 60’tır"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S013",
+    "soru": "Ortalamam yüksek ama finalden düşük alırsam kalır mıyım? Final barajı kaç?",
+    "beklenen_cevap": "Evet, kalabilirsin. Final veya bütünlemeden yarıyıl sonu sınav limitinin (YSSL) altında not alırsan, ortalaman ne olursa olsun dersten doğrudan FF alırsın. YSSL'nin değeri yönetmelikte yazmıyor; her eğitim-öğretim yılının başında Senato belirliyor. Güncel değeri bölümünden veya Öğrenci İşleri'nden öğrenebilirsin.",
+    "beklenen_davranis": ["uydurmaz", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "29", "alinti": "sınav limiti (YSSL) altında not alan öğrenciler başarısız kabul edilir ve başarı notu olarak doğrudan (FF) notu verilir"},
+      {"belge": "EOY", "madde": "32", "alinti": "yarıyıl/yıl sonu sınav limiti (YSSL)"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "Halüsinasyon testi: YSSL için bir sayı (ör. 40, 45) verilirse cevap yanlış sayılır.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S014",
+    "soru": "DC ile dersten geçmiş sayılır mıyım?",
+    "beklenen_cevap": "DC (1.50) ve DD (1.00) 'koşullu geçer' notlarıdır. Ancak bir öğrencinin başarılı sayılması için GANO'sunun en az 2.00 olması ve FF, FD, D veya K notu bulunmaması gerekir. Yani DC ile ders başarısız sayılmaz, fakat GANO 2.00'nin altındaysa öğrenci başarılı kabul edilmez.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "32", "alinti": "Geçer DC 1.5"},
+      {"belge": "EOY", "madde": "35", "alinti": "GANO değeri en az 2.00 olan öğrenci, herhangi bir dersinin (FF), (FD), (D) veya (K) olmaması koşulu ile başarılı kabul edilir"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S015",
+    "soru": "Devamsızlıktan kaldığım ders ortalamamı nasıl etkiler?",
+    "beklenen_cevap": "Devamsızlık durumunda verilen (D) işareti, not ortalaması hesabına FF olarak (0.00 katsayıyla) katılır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "32", "alinti": "(D), not ortalaması hesabına (FF) olarak dâhil edilir"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S016",
+    "soru": "Notum E (eksik) olarak girildi, ne yapmam gerekiyor?",
+    "beklenen_cevap": "E notu alan öğrenci, notların öğrenci işlerine teslim tarihinden itibaren 15 gün içinde eksiklerini tamamlayıp bir not almak zorundadır; aksi halde E kendiliğinden FF'ye dönüşür. Mazereti birimce kabul edilirse bölüm başkanlığının önerisi ve birim yönetim kurulunun onayıyla süre bir sonraki kayıt başına kadar uzatılabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "32", "alinti": "15 gün içinde eksiklerini tamamlayarak bir not almak zorundadır"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S017",
+    "soru": "Bir dersi tekrar aldım, ortalamaya eski not mu yeni not mu sayılıyor?",
+    "beklenen_cevap": "Tekrar edilen ders zorunlu ise alınan en son not, seçmeli ise alınan en yüksek not GANO hesabında dikkate alınır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "28", "alinti": "Tekrar edilen ders zorunlu ders ise, alınan en son not"},
+      {"belge": "EOY", "madde": "28", "alinti": "Tekrar edilen ders seçmeli ders ise, alınan en yüksek not"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S018",
+    "soru": "Seçmeli dersten kaldım. Aynı dersi tekrar almak zorunda mıyım?",
+    "beklenen_cevap": "Hayır. Seçmeli dersten başarısız olan öğrenci aynı dersi tekrar alabileceği gibi, dersin ait olduğu yarıyılda yer alan farklı bir seçmeli dersi de alabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "28", "alinti": "aynı dersi tekrar edebileceği gibi, dersin ait olduğu yarıyılda/yılda yer alan farklı bir seçmeli dersi de alabilir"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S019",
+    "soru": "GANO'm 2.45. Bir dönemde en fazla kaç AKTS ders alabilirim?",
+    "beklenen_cevap": "40 AKTS. GANO 1.80–1.99 olanlar 30, 2.00–2.99 olanlar 40, 3.00 ve üzeri olanlar 50 AKTS'ye kadar ders alabilir (yıllık derslerde bu sınırların iki katı uygulanır).",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "27", "alinti": "arası olanlara, 40 AKTS"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S020",
+    "soru": "GANO'm 1.75 oldu, bu dönem yeni ders seçebilir miyim?",
+    "beklenen_cevap": "Hayır. GANO'su 1.80'in altında olan öğrenci yeni ders alamaz. Not yükseltmek için, öncelikle başarısız olduğu derslerden başlamak ve dönemlik AKTS yükünü aşmamak kaydıyla geçmiş yıllardaki derslerine tekrar kaydolabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "27", "alinti": "GANO’su 1.80’in altında olan öğrenci yeni ders alamaz"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S021",
+    "soru": "Üst dönemden (üstten) ders almaya kaçıncı dönemde başlayabilirim?",
+    "beklenen_cevap": "Üst yarıyıl/yıldan ders alma üçüncü yarıyıldan (yıllık programlarda ikinci yıldan) itibaren başlar. Ayrıca ders muafiyeti olan öğrenciye, muaf olduğu AKTS kadar üst yarıyıldan ders alma izni verilebilir. Alınabilecek toplam AKTS, GANO'ya bağlı sınırlarla belirlenir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "27", "alinti": "Üst yarıyıl/yıldan ders alma üçüncü yarıyıldan/ikinci yıldan itibaren başlar"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S022",
+    "soru": "Lisans öğrencisiyim, meslek yüksekokulundaki bir önlisans dersini seçebilir miyim?",
+    "beklenen_cevap": "Hayır. Öğrenciler, birimin yönetim kurulu denkliği kabul ederse Üniversitenin diğer programlarından ders alabilir; ancak lisans öğrencileri önlisans programlarından, önlisans öğrencileri de lisans programlarından ders alamaz.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "27", "alinti": "lisans öğrencileri önlisans programlarından, önlisans öğrencileri ise lisans programlarından ders alamaz"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S023",
+    "soru": "Normal öğretimdeyim, ikinci öğretimden bir ders seçebilir miyim?",
+    "beklenen_cevap": "Genel olarak hayır: birinci öğretim öğrencileri ikinci öğretimden, ikinci öğretim öğrencileri birinci öğretimden ders seçemez. İstisnalar: çift anadal, yandal ve değişim programı öğrencileri ile mezuniyeti için en çok iki dersi kalan öğrenciler.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "27", "alinti": "mezuniyeti için en çok iki dersi kalan öğrenciler hariç, birinci örgün öğretim öğrencilerinin ikinci örgün öğretimden"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S024",
+    "soru": "Tek ders sınavı (ek sınav) hakkını nasıl kullanırım, şartları ne?",
+    "beklenen_cevap": "Programdaki tüm dersleri almış, devam koşulunu sağlayıp finallere girmiş öğrenciye; GANO'ya katılan en çok iki dersten FF/FD aldıysa veya en çok bir kredisiz dersten K aldıysa bir sonraki yarıyıl başına kadar ek sınav hakkı verilir. Bütünleme veya yaz öğretimi sonuçlarının açıklanmasını izleyen 2 iş günü içinde dersin verildiği bölüm/program başkanlığına dilekçeyle başvurulur. Bu hak azami öğrenim süresi içinde yalnızca bir kez kullanılabilir. Zorunlu stajı olan birimlerde staja başlamış olmak yeterlidir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "31", "alinti": "Not ortalamasına katılan en çok iki dersten (FF) veya (FD) notu alan"},
+      {"belge": "EOY", "madde": "31", "alinti": "sınav sonuçlarının açıklanmasını izleyen 2 iş günü içinde"},
+      {"belge": "EOY", "madde": "31", "alinti": "azami öğrenim süresi içinde sadece bir defa yararlanabilir"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S025",
+    "soru": "Bütün derslerimi geçtim ama GANO'm 1.95, mezun olamıyorum. Ne yapabilirim?",
+    "beklenen_cevap": "Birkaç yol var: (1) Mezuniyet için gereken 2.00 GANO'yu sağlayamayan öğrencilere GANO'yu yükseltmek için en çok iki dersten ek sınav hakkı verilir (EOY 31). (2) Tüm dersleri başarıp yalnızca GANO nedeniyle mezun olamayanlar yaz öğretimine katılarak GANO'yu yükseltip mezun olabilir (YAZ 10). (3) Bu nedenle ilişiği kesilme durumuna gelen son sınıf öğrencilerine diledikleri derslerden sınırsız sınav hakkı tanınır; dersler yarıyıl başında dilekçeyle bildirilir (EOY 15).",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "31", "alinti": "GANO’sunu yükseltebilmeleri için en çok iki dersten ek sınav hakkı verilir"},
+      {"belge": "YAZ", "madde": "10", "alinti": "yaz öğretimine katılarak yeterli GANO’yu sağladıkları takdirde mezun olabilirler"},
+      {"belge": "EOY", "madde": "15", "alinti": "not ortalamalarını yükseltmek üzere diledikleri derslerden sınırsız sınav hakkı tanınır"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S026",
+    "soru": "Mezun olmak için kaç AKTS lazım?",
+    "netlestirme": {
+      "konu": "fakulte",
+      "ornek_soru": "Gereken AKTS fakülteye göre değişiyor. Hangi fakültede ya da programda okuyorsun?",
+      "ogrenci_yaniti": "İİBF'deyim."
+    },
+    "beklenen_cevap": "İktisadi ve İdari Bilimler Fakültesi'ndeki lisans programları için en az 240 AKTS gerekir. Ayrıca GANO'nun en az 2.00 olması ve programındaki tüm derslerin yükümlülüklerini yerine getirmiş olman gerekir.",
+    "beklenen_davranis": ["netlestirme_sorar"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "37", "alinti": "lisans programında en az 240 AKTS kredilik"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "not": "Eş: S065 (Diş Hekimliği, 300 AKTS).",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S027",
+    "soru": "4 yıllık bölümü en fazla kaç yılda bitirmem gerekiyor? Hazırlık sayılıyor mu?",
+    "beklenen_cevap": "Dört yıllık lisans programları azami yedi yılda tamamlanmalıdır (2 yıllık önlisans 4, 5 yıllık 8, 6 yıllık 9 yıl). Bir yıllık yabancı dil hazırlık sınıfı bu süreye dahil değildir. Süre, kayıt yaptırıp yaptırmadığına bakılmaksızın her dönem için işler.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "15", "alinti": "öğrenim süresi dört yıl olan lisans programlarını azami yedi yıl"},
+      {"belge": "EOY", "madde": "15", "alinti": "bir yıl süreli yabancı dil hazırlık sınıfı hariç"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S028",
+    "soru": "Azami süre dolarsa okuldan atılır mıyım?",
+    "beklenen_cevap": "Duruma bağlı. Azami süre sonunda hiç almadığı veya devamsızlık nedeniyle sınav hakkı kazanamadığı ders sayısı altı veya daha fazla olanların ilişiği kesilir. Son sınıf öğrencilerine FF, FD, K aldıkları tüm dersler için iki ek sınav hakkı verilir. Ek sınavlar sonunda kalan ders sayısını beşe indiremeyenlerin ilişiği kesilir; 2–5 dersi kalanlara ek süre, tek dersi kalanlara sınırsız sınav hakkı tanınır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "15", "alinti": "ders sayısı altı veya daha fazla olan öğrencilerin Üniversite ile ilişiği kesilir"},
+      {"belge": "EOY", "madde": "15", "alinti": "ders sayısına bakılmaksızın iki ek sınav hakkı verilir"},
+      {"belge": "EOY", "madde": "15", "alinti": "başarısız oldukları dersin sınavlarına sınırsız girme hakkı tanınır"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S029",
+    "soru": "Bu dönem harcı yatırıp kaydımı yenilemezsem ne olur?",
+    "beklenen_cevap": "Kaydını yenilemeyen öğrenci o dönem derslere devam edemez, sınavlara giremez ve diğer öğrencilik haklarından yararlanamaz; kayıt yenilenmeyen dönem azami öğrenim süresinden sayılır. Azami süreler içinde sırf bu nedenle ilişik kesilmez; ancak 4 yıl üst üste katkı payı ödenmemesi ve kayıt yenilenmemesi halinde birim yönetim kurulu teklifi, Senato kararı ve YÖK onayıyla ilişik kesilebilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "10", "alinti": "Kaydını yenilemeyen öğrenci, o yarıyıl/yıldaki derslere devam edemez, sınavlara giremez"},
+      {"belge": "EOY", "madde": "39", "alinti": "4 yıl üst üste katkı payı veya öğrenim ücretinin ödenmemesi ile kayıt yenilenmemesi nedeniyle öğrencilerin ilişikleri kesilebilir"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S030",
+    "soru": "Kaydımı dondurmak istiyorum. Kaç dönem dondurabilirim, ne zamana kadar başvurmalıyım?",
+    "beklenen_cevap": "Haklı ve geçerli bir mazerete dayanarak, birim yönetim kurulu kararıyla bir defada en çok iki yarıyıl, öğrenim süresi boyunca toplam en çok dört yarıyıl izin verilebilir. İzinli geçen süre azami öğrenim süresinden sayılmaz. Akademik takvimdeki ders başlangıç tarihinden en az 10 iş günü önce kayıtlı olunan birime yazılı başvuru zorunludur.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "19", "alinti": "bir defada en çok iki yarıyıl, öğrenim süresi boyunca toplam olarak en çok dört yarıyıl izin verilebilir"},
+      {"belge": "EOY", "madde": "19", "alinti": "ders başlangıç tarihinden en az 10 iş günü öncesinde"}
+    ],
+    "kategori": "guncel_degisiklik",
+    "zorluk": "orta",
+    "not": "TUZAK: 18/8/2024 öncesi metinde 'öğrenim süresi 8 yarıyıla kadar olanlara toplam 2, aşanlara 3 yarıyıl' yazar.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S031",
+    "soru": "Dönem ortasında ciddi bir hastalık geçirdim, izin alabilir miyim? Tedavim uzun sürecek.",
+    "beklenen_cevap": "Evet. Hastalık gibi hallerde yarıyıl içinde izin verilebilir; durumun ortaya çıkmasından itibaren en geç 10 iş günü içinde belgelerle kayıtlı olunan birime başvurulmalıdır, kararı birim yönetim kurulu verir. Tedavisi devam eden öğrenciler yeniden yazılı başvuru yaparsa, mazereti kabul edilenlere azami öğrenim süresinden sayılmadan dört yarıyıldan fazla kayıt dondurma hakkı tanınabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "19", "alinti": "en geç 10 iş günü içinde durumunu kanıtlayan belgelerle kayıtlı olduğu birime başvurması gerekir"},
+      {"belge": "EOY", "madde": "19", "alinti": "azami öğrenim süresinden sayılmadan dört yarıyıldan fazla kayıt dondurma hakkı tanınabilir"}
+    ],
+    "kategori": "guncel_degisiklik",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S032",
+    "soru": "Kayıt dondurduğum dönemde sınavlara girebilir miyim?",
+    "beklenen_cevap": "Hayır. İzinli sayılan öğrenciler bu süre içinde teorik veya uygulamalı derslerin sınavlarına giremez ve diğer öğrencilik haklarından yararlanamaz. İzni kaldırıp öğrenime dönmek isteyenler birime başvurabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "19", "alinti": "teorik ya da uygulamalı derslerin sınavlarına giremezler"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S033",
+    "soru": "Uluslararası öğrenciyim, 2 yıldır kaydımı yenilemedim. Kaydım silinir mi?",
+    "beklenen_cevap": "Evet, silinebilir. 2024 değişikliğine göre, iki yıl üst üste kayıt yenilemeyen veya ücret ödemeyen ve öğrenime devam etmeyeceği kanaati oluşan uluslararası öğrencilerin ilişiği birim yönetim kurulu kararıyla kesilir. (Türk öğrenciler için bu süre 4 yıl ve YÖK onayı gerekir.)",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "39", "alinti": "uluslararası öğrencilerin ilişikleri ilgili birim yönetim kurulu kararı ile kesilir"}
+    ],
+    "kategori": "guncel_degisiklik",
+    "zorluk": "orta",
+    "not": "2024 öncesi metinde bu hüküm yok (yalnızca 4 yıl kuralı var).",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S034",
+    "soru": "Vize notumda hata olduğunu düşünüyorum, nereye ve ne zamana kadar itiraz edebilirim?",
+    "beklenen_cevap": "Ara sınav, final ve bütünleme notlarındaki maddi hatalar için sonuçların ilanını takip eden 3 iş günü içinde dersin yürütüldüğü birime yazılı başvuru yapılır. Başvuru öğretim elemanına iletilir; maddi hata varsa birim yönetim kurulunun onayıyla not düzeltilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "34", "alinti": "sınav sonucunun ilânını takip eden 3 iş günü içinde dersin yürütüldüğü birime yazılı olarak başvurabilir"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S035",
+    "soru": "Final notları sınavdan kaç gün sonra açıklanmak zorunda?",
+    "beklenen_cevap": "Yarıyıl/yıl sonu harf notları sınavların bitimini izleyen en geç 3 gün içinde ilan edilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "29", "alinti": "harf notları sınavların bitimini izleyen en geç 3 gün içinde ilân edilir"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S036",
+    "soru": "Aynı gün üç sınavım var, bu kurallara uygun mu? Vize tarihleri ne kadar önceden açıklanmalı?",
+    "beklenen_cevap": "Aynı günde aynı yarıyıla ait en çok iki dersin sınavı yapılabilir (Atatürk İlkeleri, Türk Dili, yabancı dil gibi ortak zorunlu dersler hariç). Aynı yarıyıl derslerinin sınavları aynı saate konmaz. Ara sınav tarihleri sınavların başlangıcından en az iki hafta önce ilan edilir. Programda çakışma varsa bu haklı neden sayılır ve mazeret sınavı yapılabilir.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "29", "alinti": "aynı yarıyıla/yıla ait en çok iki dersin sınavı yapılabilir"},
+      {"belge": "EOY", "madde": "29", "alinti": "sınavların başlangıcından en az iki hafta önce ilan edilir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S037",
+    "soru": "Onur ve yüksek onur öğrencisi olmak için ortalamam kaç olmalı?",
+    "beklenen_cevap": "Yarıyıl/yıl sonu ortalaması 3.00–3.49 olanlar onur, 3.50 ve üzeri olanlar yüksek onur öğrencisi sayılır. Ayrıca öğrenimi boyunca disiplin cezası almamış ve bulunduğu dönem dahil tüm dersleri almış ve başarmış olmalıdır. Yaz öğretimi bu değerlendirmeye katılmaz.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "36", "alinti": "not ortalaması 3.00-3.49 olanlar onur öğrencisi; 3.50 ve daha yüksek olanlar ise yüksek onur öğrencisi sayılır"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S038",
+    "soru": "İkinci öğretimdeyim, %10'a girersem harç ödemiyor muyum? Şartı ne? 2019'da kayıt oldum.",
+    "beklenen_cevap": "Bölümünde yarıyıl sonu sıralamasında ilk %10'a giren ikinci öğretim öğrencileri, bir sonraki dönem birinci öğretim katkı payı kadar ücret öder (tamamen muaf olmaz). Sıralama YANO'ya göre yapılır. Genel kuralda YANO'su 3.00'ün altında olanlar değerlendirmeye alınmaz; ancak 2019-2020 ve öncesinde kayıt olanlar için bu sınır 2.50'dir. 2019'da kayıt olduğunuz için sınırınız 2.50'dir. Ayrıca o dönem ve önceki dönemlerdeki tüm dersleri almış ve başarmış olmanız gerekir; yaz okulu sonuçları sayılmaz.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "35", "alinti": "birinci öğretim öğrencilerinin ödeyecekleri öğrenci katkı payı kadar öğrenim ücreti öder"},
+      {"belge": "EOY", "madde": "35", "alinti": "YANO’su 3.00’ün altında olan öğrenciler değerlendirmeye alınmaz"},
+      {"belge": "EOY", "madde": "Geçici 4", "alinti": "2.50 ve üzeri olarak uygulanır"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S039",
+    "soru": "Yaz okulunda en fazla kaç ders alabilirim?",
+    "beklenen_cevap": "Toplam 22 AKTS'yi aşmamak üzere en çok 4 ders. Mezun olabilmesi için yalnızca iki dersi kalan öğrenciler bu iki derse de yazılabilir. GANO'su 1.80'in altındaysa yalnızca başarısız ve koşullu geçtiği dersleri alabilir; en fazla iki üst yarıyıldan açılan dersler alınabilir.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "toplam 22 AKTS kredi saati aşmayacak şekilde en çok 4 (dört) ders alabilir"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S040",
+    "soru": "Yaz okulunu başka bir üniversitede okuyabilir miyim? Vakıf üniversitesi olur mu?",
+    "beklenen_cevap": "Birimin izniyle, Uludağ'da yaz öğretiminde açılmayan veya açılamayan dersleri; içerik, ders saati ve/veya AKTS'si aynı ya da daha fazla olan diğer devlet üniversitelerinin yaz okullarından alabilirsiniz. Notlar birim yönetim kurulunun onayıyla işlenir. Vakıf üniversitelerinden ders alma izni ise birim yönetim kurulu kararıyla verilir.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "diğer devlet üniversitelerinin yaz öğretimlerinde açılan derslerden alabilirler"},
+      {"belge": "YAZ", "madde": "10", "alinti": "Vakıf Üniversitelerinden ders alma izni ilgili birim yönetim kurulu kararı ile verilir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S041",
+    "soru": "Yaz okulu notları ortalamaya ve bölüm sıralamasına etki eder mi?",
+    "beklenen_cevap": "Yaz okulu notları transkriptte ayrı bir bölümde gösterilir ve GANO hesabına dahil edilir. Ancak bölüm/program başarı sıralaması bahar sonu GANO'suna göre yapılır; yaz okulu sonrası GANO sıralamayı ve mezuniyet derecesini değiştirmez, ikinci öğretim %10 muafiyetinde de dikkate alınmaz.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "13", "alinti": "Yaz öğretimi derslerinden alınan notlar GANO’nun hesaplanmasına dâhil edilir"},
+      {"belge": "YAZ", "madde": "13", "alinti": "Bölüm ya da program öğrenci başarı sıralamasını değiştirmez"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S042",
+    "soru": "Yaz okulunda kayıt olduğum dersi bırakıp parasını geri alabilir miyim?",
+    "beklenen_cevap": "Genelde hayır: yaz okulunda ekle-sil ve kesin kayıt olunan dersten çekilme yoktur, ücret iade edilmez. İstisnalar: ders açılmazsa açık başka bir derse geçilebilir ya da istenmezse ders silinip ücret iade edilir; sonradan yapılan zorunlu program değişikliği nedeniyle çakışma olursa dersten çıkılabilir ve ücret iade edilir.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "Yaz öğretiminde ders ekleme -çıkarma ve kesin kayıt olunan dersten çekilme işlemleri uygulanmaz"},
+      {"belge": "YAZ", "madde": "11", "alinti": "Kesin kayıtta açılan derslerin ücret iadesi yapılmaz"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S046",
+    "soru": "Diplomamı kaybettim, yenisini nasıl alırım?",
+    "beklenen_cevap": "Türkiye genelinde dağıtılan yerel veya ulusal bir gazetede yayımlanan kayıp ilanı ve nüfus cüzdanı örneği eklenmiş yazılı başvuruyla, üzerinde 'ikinci kez düzenlenmiştir' ibaresi bulunan yeni diploma hazırlanır.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "37", "alinti": "“ikinci kez düzenlenmiştir” ibaresi yer alan diploma hazırlanır"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S047",
+    "soru": "Lisansı bitiremezsem en azından önlisans diploması alabilir miyim?",
+    "netlestirme": {
+      "konu": "fakulte",
+      "ornek_soru": "Bu, programının süresine göre değişiyor. Hangi fakültede okuyorsun?",
+      "ogrenci_yaniti": "Mühendislik Fakültesindeyim."
+    },
+    "beklenen_cevap": "Evet. Dört yıllık bir lisans programında ilk 4 yarıyılın bütün derslerinden geçmiş ve en az 120 AKTS'yi tamamlamışsan, başvurman halinde önlisans diploması alırsın. Bu başvuru için bir süre sınırı yok.",
+    "beklenen_davranis": ["netlestirme_sorar"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "38", "alinti": "en az 120 AKTS kredisini sağlayan öğrencilere, başvurmaları halinde önlisans diploması verilir"},
+      {"belge": "EOY", "madde": "38", "alinti": "herhangi bir süre ile sınırlı değildir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "not": "Eş: S066 (Tıp, ilk 8 yarıyıl + 240 AKTS ile lisans diploması da mümkün).",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S048",
+    "soru": "Zorunlu staj kaç gün olmalı ve kaç AKTS?",
+    "beklenen_cevap": "Staj süresi birim tarafından programın niteliğine göre belirlenir ama yirmi iş gününden az olamaz. Stajlar için hesaplanan kredi toplamda 5 AKTS'den az, 10 AKTS'den fazla olamaz ve mezuniyet kredisine dahil edilir. Kesin gün sayısı bölümün kendi uygulamasına göre değişir.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "14", "alinti": "yirmi gün/iş gününden az olmamak üzere"},
+      {"belge": "UYG", "madde": "14", "alinti": "5 AKTS kredisinden az , 10 AKTS kredisinden fazla olamaz"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S049",
+    "soru": "Yaz okuluna giderken aynı yaz staj yapabilir miyim?",
+    "beklenen_cevap": "Evet, kısıtlarla. Yaz okulunda ders alan öğrenciler derslerinden arta kalan günlerde staj yapabilir; ancak kesintisiz staj uygulaması olan birimlerde yaz okulu ve staj aynı anda yapılamaz. Ders veya sınav olan günlerde staj yaptırılamaz; dönem içinde ya da yaz okulunda yapılacak staj haftada en az üç gün olmalıdır.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "derslerinden arta kalan günlerde staj yapabilirler"},
+      {"belge": "UYG", "madde": "14", "alinti": "Öğrencinin ders veya sınavının olduğu günlerde staj yaptırılamaz"},
+      {"belge": "UYG", "madde": "14", "alinti": "haftalık üç günden az olmamak şartıyla"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S050",
+    "soru": "Stajdan geçmek için kaç puan gerekiyor, nasıl değerlendiriliyor?",
+    "beklenen_cevap": "Varsayılan oranlar: öğrencinin uygulamalı eğitim dosyası ve raporu %40, işveren raporu %20, komisyon değerlendirmesi (sözlü sınav) %40. Bölüm bu oranları farklı belirleyebilir. Dosyadaki eksikler 15 iş günü içinde tamamlanır; 100 üzerinden 65 ve üstü alan başarılı sayılır. Başarısız olan stajı tekrarlamak zorundadır.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "22", "alinti": "100 üzerinden 65 ve üstü puan alan öğrenciler başarılı sayılır"},
+      {"belge": "UYG", "madde": "22", "alinti": "İşveren Raporu % 20"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S051",
+    "soru": "Bölümümle ilgili bir işte 1 yıldır çalışıyorum. Bu staj yerine sayılır mı?",
+    "beklenen_cevap": "Sayılabilir. Programla ilgili bir işte çalışmış veya çalışan öğrenciler, çalışma süresini ve unvanını belgelendirerek önceki öğrenmelerin tanınması için başvurabilir. İntibak komisyonu karar verir; olumlu karar alınırsa yalnızca ölçme ve değerlendirme işlemleri yapılır.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "20", "alinti": "çalışma sürelerini ve unvanlarını belgelendirmek koşuluyla"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S052",
+    "soru": "İsteğe bağlı fazladan staj yaparsam mezuniyet kredime eklenir mi?",
+    "beklenen_cevap": "Hayır. Komisyonun uygun görüşüyle isteğe bağlı veya programdaki süreden uzun staj yapılabilir ve bu süreler kredilendirilebilir, ancak mezuniyet kredisi hesabına dahil edilmez.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "14", "alinti": "kredilendirilebilir ancak mezuniyet kredisi hesabına dâhil edilmez"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S053",
+    "soru": "Stajımı yurt dışında yapabilir miyim? Sigortamı okul yapar mı?",
+    "beklenen_cevap": "Komisyon uygun görürse ve öğretim programı aksamayacaksa staj/işletmede mesleki eğitim yurt dışında yapılabilir; belgeler ve dosya komisyona teslim edilir. Ancak yurt dışında staj için özel sigorta şirketlerine ödenecek primler Üniversite tarafından karşılanmaz.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "19", "alinti": "Komisyon tarafından uygun görülmesi halinde yurt dışında yapabilirler"},
+      {"belge": "UYG", "madde": "19", "alinti": "Üniversite tarafından karşılanmaz"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S054",
+    "soru": "Başka bir üniversitede özel öğrenci olarak bir dönem okumak istiyorum. Şartlar neler?",
+    "beklenen_cevap": "Yönergede sayılan mazeretlerden biri (yaşamı tehdit eden sağlık sorunu, engellilik, güvenlik tehdidi, milli sporculuk, kamu kurumunda çalışma, gidilecek şehirde bakmakla yükümlü olunan birinci derece yakın, şehit yakını/gazi) varsa başvurabilirsiniz. Mazeret yoksa, farklı bir üniversite deneyimi için GANO'nuz en az 3.00 olmalıdır. Disiplin cezası veya devam eden soruşturma olmamalıdır. Birim kurulları ve Üniversite Yönetim Kurulu onayı gerekir. Özel öğrencilikte geçen süre öğrenim süresinden sayılır; bir program süresince en fazla iki yarıyıl yararlanılabilir.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "6", "alinti": "4.00’lük not sistemi üzerinden en az 3,00 olması gerekir"},
+      {"belge": "OZEL", "madde": "6", "alinti": "disiplin soruşturması bulunan öğrenciler özel öğrencilik statüsünden yararlanamaz"},
+      {"belge": "OZEL", "madde": "15", "alinti": "bir program süresince en fazla iki yarıyıl yararlanılabilir"},
+      {"belge": "OZEL", "madde": "5", "alinti": "öğrenim süresinden sayılır"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S055",
+    "soru": "Lisans 1. sınıftayım, gelecek dönem özel öğrenci olarak başka üniversiteye gidebilir miyim?",
+    "beklenen_cevap": "Mazeretiniz yoksa hayır. Yönergede sayılan mazeretler dışında lisans programlarının ilk iki yarıyılı ile son iki yarıyılına (önlisansta ilk ve son yarıyıla) özel öğrenci başvurusu kabul edilmez.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "5", "alinti": "lisans programlarının ilk iki yarıyılı ile son iki yarıyılına özel öğrenci başvurusu kabul edilmez"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S056",
+    "soru": "Çift anadal (ÇAP) yapmak için GANO'm kaç olmalı?",
+    "beklenen_cevap": "Üniversitenin 2014 tarihli yönergesine göre: başvurduğun yarıyıla kadar tüm dersleri alıp geçmiş olman, GANO'nun en az 2.72 olması ve sınıfında başarı sıralamasında ilk %20'de olman gerekir (ilk %20'de değilsen, ÇAP yapacağın programın taban puanı kadar puanın olmalı). Ancak bu yönerge 2014 tarihli ve şartlar sonradan değişmiş olabilir; başvurmadan önce güncel ÇAP ilanını veya Öğrenci İşleri'ni kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "15", "alinti": "genel akademik not ortalamasının en az 2.72 olması"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "zor",
+    "not": "GÜNCELLİK ŞÜPHELİ: YÖK'ün dayanak yönetmeliğindeki güncel ÇAP eşiğinin 3.00 olduğu düşünülüyor (doğrulanmadı). İnsan kontrolü gerekli.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S057",
+    "soru": "Yandal başvurusu için ortalama şartı ne, yandalda kalmak için GANO kaç olmalı?",
+    "beklenen_cevap": "2014 tarihli yönergeye göre yandala başvurmak için başvurduğun yarıyıla kadar tüm dersleri geçmiş olman ve GANO'nun en az 2.50 olması gerekir; başvuru en erken 3., en geç 6. yarıyılın başında yapılır. Yandala devam edebilmek için anadal GANO'nun en az 2.29 olması gerekir, altına düşersen yandal kaydın silinir. Yönerge eski olduğu için güncel yandal ilanını da kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "22", "alinti": "genel akademik not ortalamasının en az 2.50"},
+      {"belge": "GEC", "madde": "24", "alinti": "en az 4 üzerinden 2,29 olması şarttır"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "orta",
+    "not": "Kaynak yönerge 2014 tarihli; güncellik uyarısı beklenir.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S058",
+    "soru": "1. sınıftayım, bölüm içinde başka bir bölüme yatay geçiş yapabilir miyim?",
+    "beklenen_cevap": "Lisans programlarında birinci sınıfa ve son sınıfa yatay geçiş yapılamaz (önlisansta ilk ve son yarıyıla). Kurum içi yatay geçiş için ayrıca tüm derslerini alıp geçmiş olman ve GANO'nun en az 2.29 olması gerekir. Merkezi yerleştirme puanıyla geçişin kuralları farklıdır. Bu kurallar 2014 tarihli bir yönergeden; başvurmadan önce güncel yatay geçiş ilanını kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "6", "alinti": "lisans diploma programlarının birinci sınıfı ile son sınıfına yatay geçiş yapılamaz"},
+      {"belge": "GEC", "madde": "7", "alinti": "genel ağırlıklı not ortalaması en az 4 üzerinden 2.29"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S059",
+    "soru": "Bu dönem yemekhane menüsünde ne var?",
+    "beklenen_cevap": "Yemekhane menüsü elimdeki mevzuat belgelerinde yok. Güncel menü için Sağlık, Kültür ve Spor Daire Başkanlığı'nın (yemekhane) duyurularına bakabilirsin.",
+    "beklenen_davranis": ["bilgi_yok_der", "uydurmaz", "yonlendirir"],
+    "kaynaklar": [],
+    "kategori": "kapsam_disi",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S060",
+    "soru": "2026-2027 güz dönemi final sınavları hangi tarihlerde?",
+    "beklenen_cevap": "Final tarihleri elimdeki belgelerde yok. Yönetmeliğe göre akademik takvim her yıl Senato tarafından belirlenip ilan ediliyor; tarihler için güncel akademik takvime bakmalısın.",
+    "beklenen_davranis": ["bilgi_yok_der", "uydurmaz", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "13", "alinti": "eğitim-öğretim başlamadan önce Senato tarafından belirlenir ve ilân edilir"}
+    ],
+    "kategori": "kapsam_disi",
+    "zorluk": "orta",
+    "not": "Akademik takvim derlem kapsamına eklenince bu soru 'olgusal'a dönüşür.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S061",
+    "soru": "Bu yıl ikinci öğretim harcı ne kadar?",
+    "beklenen_cevap": "Ücret tutarları elimdeki belgelerde yok; her yıl ayrıca belirleniyor. Güncel tutar için Öğrenci İşleri duyurularına bakmalısın.",
+    "beklenen_davranis": ["bilgi_yok_der", "uydurmaz", "yonlendirir"],
+    "kaynaklar": [],
+    "kategori": "kapsam_disi",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S062",
+    "soru": "Hazırlık sınıfını geçmek için yeterlik sınavından kaç almam lazım?",
+    "beklenen_cevap": "Hazırlık yeterlik puanı, Yabancı Diller Yüksekokulu'nun yabancı dil eğitim-öğretim ve sınav yönetmeliğinde düzenleniyor; bu yönetmelik elimdeki belgeler arasında yok. Puan şartı için YDYO'ya veya o yönetmeliğe bakmalısın.",
+    "beklenen_davranis": ["bilgi_yok_der", "uydurmaz", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "14", "alinti": "Yabancı Diller Yüksekokulu Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliğine göre yürütülür"}
+    ],
+    "kategori": "kapsam_disi",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S063",
+    "soru": "How many semesters of leave of absence (freezing registration) can I take?",
+    "beklenen_cevap": "Under the 18 August 2024 amendment: with a valid excuse, up to two semesters at a time and up to four semesters in total during your studies, by decision of your unit's executive board. The leave period does not count toward the maximum study period. You must apply in writing at least 10 working days before classes start.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "19", "alinti": "bir defada en çok iki yarıyıl, öğrenim süresi boyunca toplam olarak en çok dört yarıyıl izin verilebilir"}
+    ],
+    "kategori": "ingilizce",
+    "zorluk": "zor",
+    "not": "TUZAK: 2024 öncesi kural (toplam 2/3 yarıyıl) verilmemeli. Cevap İngilizce verilmeli ama Türkçe konsolide metne dayanmalı.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S064",
+    "soru": "What is the minimum attendance for theoretical courses?",
+    "beklenen_cevap": "At least 70% for theoretical courses and at least 80% for practical, laboratory and workplace training. Students who do not meet this are marked D (absent) and cannot take the exams.",
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "18", "alinti": "kuramsal derslere en az %70"}
+    ],
+    "kategori": "ingilizce",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S065",
+    "soru": "Diş hekimliği fakültesindeyim, mezun olmak için kaç AKTS lazım?",
+    "beklenen_cevap": "Diş Hekimliği Fakültesinde en az 300 AKTS. Ayrıca GANO en az 2.00 olmalı ve programın tüm ders yükümlülükleri yerine getirilmiş olmalıdır.",
+    "beklenen_davranis": ["netlestirme_sormaz"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "37", "alinti": "Diş Hekimliği Fakültesi ile Veteriner Fakültesinde en az 300 AKTS kredilik"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "not": "S026'nın fakülte belirtilmiş hali; model fakülteyi tekrar sormamalı.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S066",
+    "soru": "Tıp fakültesindeyim. Okulu bitiremezsem elime bir diploma geçer mi?",
+    "beklenen_cevap": "Evet. Eğitim süresi 4 yıl ve üzerinde olan fakültelerde, en az 120 AKTS ile ilk 4 yarıyılı başarıyla tamamlayanlara önlisans diploması; en az 240 AKTS ile ilk 8 yarıyılı başarıyla tamamlayanlara lisans diploması verilir. Önlisans diploması başvurusu herhangi bir süreyle sınırlı değildir.",
+    "beklenen_davranis": ["netlestirme_sormaz"],
+    "kaynaklar": [
+      {"belge": "EOY", "madde": "38", "alinti": "en az 240 AKTS kredisini sağlayarak ilk 8 yarıyılını başarı ile tamamlayanlara da lisans diploması verilir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "not": "S047'nin fakülte belirtilmiş hali; model fakülteyi tekrar sormamalı.",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  }
+]

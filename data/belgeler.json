@@ -1,0 +1,108 @@
+[
+  {
+    "id": "EOY",
+    "ad": "Bursa Uludağ Üniversitesi Önlisans ve Lisans Eğitim Öğretim Yönetmeliği",
+    "tur": "yonetmelik",
+    "kapsam": "v1",
+    "resmi_gazete": "20/9/2020 - 31250",
+    "islenmis_degisiklikler": ["RG-7/3/2023-32125", "RG-18/8/2024-32636"],
+    "metin": "text/kaysis/167318.txt",
+    "ham": "raw/kaysis/167318.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167318",
+    "not": "KAYSIS konsolide metni; 2023 ve 2024 değişiklikleri işlenmiş. Ana kaynak."
+  },
+  {
+    "id": "YAZ",
+    "ad": "Bursa Uludağ Üniversitesi Önlisans ve Lisans Yaz Öğretimi Yönetmeliği",
+    "tur": "yonetmelik",
+    "kapsam": "v1",
+    "resmi_gazete": "1/9/2020 - 31231",
+    "metin": "text/kaysis/167130.txt",
+    "ham": "raw/kaysis/167130.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167130",
+    "not": "Madde 7 ve 13 mülga 2014 tarihli 'Önlisans ve Lisans Öğretim Yönetmeliği'ne atıf yapıyor; fiilen EOY anlaşılmalı."
+  },
+  {
+    "id": "UYG",
+    "ad": "Bursa Uludağ Üniversitesi Uygulamalı Eğitimler Yönergesi",
+    "tur": "yonerge",
+    "kapsam": "v1",
+    "yururluk": "2022-04-07",
+    "metin": "text/kaysis/187826.txt",
+    "ham": "raw/kaysis/187826.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/187826",
+    "not": "Staj, işletmede mesleki eğitim, uygulamalı ders. Eski fakülte staj yönergelerini yürürlükten kaldırdı."
+  },
+  {
+    "id": "OZEL",
+    "ad": "Bursa Uludağ Üniversitesi Önlisans ve Lisans Programları Özel Öğrenci Yönergesi",
+    "tur": "yonerge",
+    "kapsam": "v1",
+    "yururluk": "2022-06-30",
+    "metin": "text/kaysis/190545.txt",
+    "ham": "raw/kaysis/190545.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/190545"
+  },
+  {
+    "id": "GEC",
+    "ad": "Uludağ Üniversitesi Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal ve Yan Dal Yapılması Esaslarına İlişkin Yönerge",
+    "tur": "yonerge",
+    "kapsam": "v1",
+    "yururluk": "2014-07-24",
+    "metin": "text/kaysis/61283.txt",
+    "ham": "raw/kaysis/61283.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/61283",
+    "guncellik": "supheli",
+    "not": "2014 tarihli; YGS/LYS'ye atıf yapıyor. YÖK'ün dayanak yönetmeliği sonradan değişti (ör. ÇAP GANO eşiği). Cevaplarda uyarı verilmeli. PDF'te Ġ/ġ/Ģ kodlama hatası düzeltildi."
+  },
+  {
+    "id": "YAB",
+    "ad": "Bursa Uludağ Üniversitesi Yurt Dışından veya Yabancı Uyruklu Öğrenci Sınavı ile Öğrenci Kabulü Hakkında Yönerge",
+    "tur": "yonerge",
+    "kapsam": "v1-ikincil",
+    "yururluk": "2022-02-03",
+    "metin": "text/kaysis/187229.txt",
+    "ham": "raw/kaysis/187229.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/187229",
+    "not": "Aday (henüz kayıtlı olmayan) uluslararası öğrencilere yönelik."
+  },
+  {
+    "id": "LU_YON",
+    "ad": "Bursa Uludağ Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliği",
+    "tur": "yonetmelik",
+    "kapsam": "v2",
+    "resmi_gazete": "28/6/2020 - 31169",
+    "metin": "text/kaysis/163365.txt",
+    "ham": "raw/kaysis/163365.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/163365"
+  },
+  {
+    "id": "LU_UE",
+    "ad": "Bursa Uludağ Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliği Uygulama Esasları",
+    "tur": "yonerge",
+    "kapsam": "v2",
+    "metin": "text/kaysis/167136.txt",
+    "ham": "raw/kaysis/167136.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167136"
+  },
+  {
+    "id": "TIP_INT",
+    "ad": "Bursa Uludağ Üniversitesi Tıp Fakültesi İntörnlük Dönemi Eğitim Yönergesi",
+    "tur": "yonerge",
+    "kapsam": "v2",
+    "yururluk": "2020-07-23",
+    "metin": "text/kaysis/167135.txt",
+    "ham": "raw/kaysis/167135.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167135"
+  },
+  {
+    "id": "DIS",
+    "ad": "Bursa Uludağ Üniversitesi Diş Hekimliği Fakültesi Eğitim-Öğretim ve Sınav Yönergesi",
+    "tur": "yonerge",
+    "kapsam": "v2",
+    "yururluk": "2020-10-01",
+    "metin": "text/kaysis/167577.txt",
+    "ham": "raw/kaysis/167577.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167577"
+  }
+]

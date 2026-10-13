@@ -1,0 +1,897 @@
+  Senato Karar Ekidir 
+ 
+BURSA ULUDAĞ ÜNİVERSİTESİ  
+LİSANSÜSTÜ EĞİTİM VE ÖĞRETİM YÖNETMELİĞİ 
+UYGULAMA ESASLARI 
+ 
+BİRİNCİ BÖLÜM 
+ 
+Amaç ve Kapsam 
+MADDE 1 – (1) Bu Uygulama Esasları, Bursa Uludağ Üniversitesine bağlı enstitülerde 
+yürütülen lisansüstü eğitim programlarına başvuru, kabul ve kayıt ile ilgili genel ve özel 
+koşulları, “Yükseköğretim Kurulu Lisansüstü Eğitim ve Öğretim Yönetmeliği” ile “Bursa 
+Uludağ Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliği”nde belirtilmiş ilkeleri kapsar.  
+ 
+Dayanak 
+MADDE 2 – (1) Bu Esaslar, Bursa Uludağ Üniversitesi Lisansüst ü Eğitim Öğretim 
+Yönetmeliğine dayanılarak hazırlanmıştır.  
+ 
+Tanımlar 
+MADDE 3 – (1) Bu Esaslarda geçen; 
+a) Akademik takvim: Lisansüstü eğitimlerde yarıyıl, yaz dönemi, yeterlik ve benzeri tarihleri 
+içerecek şekilde Senato tarafından belirlenerek, enstitülerce ilan edilen eğitim dönemini, 
+b) AKTS: Öğrencilerin yurt içinde ve yurt dışında aldıkları ve başarılı oldukları ders 
+kredilerinin ve notlarının bir yükseköğretim kurumundan diğerine transferini sağlayan 
+Avrupa Kredi Transfer Sisteminde kullanılan krediyi,  
+c) ALES: Akademik Personel ve Lisansüstü Eğitim Giriş Sınavı veya eşdeğerliği 
+Üniversitelerarası Kurul tarafından kabul edilmiş diğer sınavları, 
+d)  Disiplinlerarası enstitü anabilim/anasanat dalı: Bir enstitüye bağlı olarak kurulan, fakülte, 
+bölüm veya enstitü anabilim dalından değişik bir ad taşıyan ve lisans eğitimi bulunmayan 
+Disiplinlerarası enstitü  anabilim/anasanat dalını, 
+e) Disiplinlerarası enstitü  anabilim/anasanat dalı Akademik Kurulu: Kadrolu öğretim üyesi 
+bulunan enstitü anabilim/anasanat dallarında kadrolu öğretim üyeleri ile birlikte 
+disiplinlerarası enstitü anabilim/anasanat dalı programlarında fiilen ders veren ve tez  
+yöneten öğretim üyelerinden oluşan kurulu. 
+f) Disiplinlerarası enstitü anabilim/anasanat dalı başkanı: İlgili dekanların görüşleri alınarak; 
+enstitü Müdürü tarafından atanan ve enstitü anabilim/anasanat dalı programlarının işleyiş 
+ve koordinasyonundan sorumlu öğretim üyesini, 
+g) Enstitü anabilim/anasanat dalı: Ensti tüde programı bulunan, kadrosu/ü nvanı ve/veya 
+enstitü anabilim dalına katkısı YÖK tarafından onaylanan öğretim üyelerinden oluşan ve 
+programın yürütülmesinden enstitüye karşı sorumlu olan Enstitü anabilim/anasanat dalını,  
+h) Enstitü anabilim/anasanat kurulu: Enstitüde programı bulunan, kadrosu/ ünvanı ve/veya 
+Enstitü anabilim dalına katkısı YÖK tarafından onaylanan öğretim üyelerinden oluşan ve 
+programın yürütülmesinden enstitüye karşı sorumlu olan Enstitü anabilim/anasanat dalı 
+kurulunu,  
+i) Bilim/sanat dalı: Enstitü anabilim/anasanat dalı içinde e ğitim-öğretim, araştırma ve 
+uygulama yapan birimi,  
+j) Bütünleşik doktora/sanatta yeterlik programı: Lisans derecesine dayalı olarak yürütülen 
+doktora/sanatta yeterlik programını,  
+k) Dış Kaynaklı Proje: İlgili Enstitü Yönetim Kurulu tarafından kabul edilen projeleri, 
+l) DOI (Dijital Object Identifier): Dijital Nesne Tanımlayıcı numarasını,  
+  Senato Karar Ekidir 
+m) Dönem projesi: Tezsiz yüksek lisans eğitimi sırasında araştırılan ve/veya incelenen 
+bilimsel bir konunun, bir bilimsel araştırma raporu biçiminde sunulmuş şeklini,  
+n) DUS: Diş Hekimliği Uzmanlık Eğitimi Giriş Sınavını, 
+o) Enstitü: Bursa Uludağ Üniversitesine bağlı olarak lisansüstü eğitim ve öğretim yapan 
+enstitüleri,  
+p) Enstitü kurulu: Müdürün başkanlığında, müdür yardımcıları ve Enstitü anabilim ve 
+anasanat dalları başkanlarından oluşan kurulu,  
+n) Enstitü yönetim kurulu: Müdürün başkanlığında, müdür yardımcıları ve enstitü kurulu 
+tarafından üç yıl için seçilen üç öğretim üyesinden oluşan kurulu,  
+o) Lisansüstü ikinci öğretim programı: Mesai saatleri dışında yapılan öğretim programını,  
+p) Lisansüstü uzaktan eğitim programı: Bilişim teknolojileri destekli internet aracılığı ile  
+gerçekleştirilen lisansüstü eğitim programını,  
+q) Öğrenci Otomasyonu: Bursa Uludağ Üniversitesi Öğrenci İşleri Otomasyonunu, 
+r)    ÖSYM: Ölçme, Seçme ve Yerleştirme Merkezini,  
+s)    ÖYP: Öğretim Elemanı Yetiştirme Programını, 
+ş) Program: Enstitü anabilim/anasanat  dallarında yürütülen tezli/tezsiz yüksek lisans ,       
+doktora/sanatta yeterlik eğitim-öğretimini,  
+t)   Rektör: Bursa Uludağ Üniversitesi Rektörünü,  
+u) Senato: Bursa Uludağ Üniversitesi Senatosunu,  
+ü)   Seminer Dersi: Yüksek lisans ve doktora öğrencilerinin, alanı ile ilgili güncel ve eğitim 
+öğretim sürecine katkı sağlayacak bir çalışmayı topluluk önünde anlatabilme ve 
+tartışabilme yeteneğini ölçen dersi, 
+v) Tez: Yüksek lisans,  doktora tezi ve sanatta yeter lik eğ itiminin amacına yönelik olarak 
+hazırlanan bilimsel bir çalışmayı,  
+y) Tez/Proje Danışmanı: Enstitüde kayıtlı öğrenciye ders ve tez/proje dönemlerinde rehberlik 
+etmek üzere Enstitü Yönetim Kurulu tarafından atanan öğretim elamanını, 
+z) TUS: Tıpta Uzmanlık Eğitimi Giriş Sınavını,  
+aa) Uzmanlık Alan Dersi: Yüksek lisans ve doktora öğrencilerine; danışmanları tarafından 
+bilimsel etik ve çalışma disiplininin, güncel literatürü  izleyebilme ve değerlendirebilme 
+yeteneğinin kazandırılması ile tez çalışmasının bilimsel temellerinin oluşturulması ve 
+yürütülebilmesi için verilen ve kredisiz kabul edilen teorik dersi,  
+bb) YDS: Yabancı Dil Bilgisi Seviye Tespit Sınavını,  
+cc) YÖKDİL: Yükseköğretim Kurumları Yabancı Dil Sınavını, 
+dd) YÖK: Yükseköğretim Kurulunu, 
+ee) ULUTÖMER: Bursa Uludağ Üniversitesi Türkçe Öğretim Merkezini, 
+ff)  Üniversite (BUÜ): Bursa Uludağ Üniversitesini, 
+ ifade eder. 
+ 
+İKİNCİ BÖLÜM 
+Lisansüstü Eğitim-Öğretimine İlişkin Esaslar 
+ 
+Özel öğrenci kabulü 
+MADDE 4  – (1) Özel öğrencilik statüsünde doktora dersi talep eden yüksek lisans 
+öğrencilerinin almış oldukları dersler yüksek lisansta ders muafiyeti sağlamaz.  
+ 
+(2) Özel öğrenci kabulü ile ilgili d iğer bütün uygulamalar anabilim/anasanat dalı kurulları/ 
+başkanlıkları tarafından yürütülür.  
+ 
+ 
+ 
+  Senato Karar Ekidir 
+ 
+Yatay geçişle öğrenci kabulü 
+MADDE 5  – (1) Yatay geçiş kontenjanları ve kontenjanlara başvurabilecek öğrencilerin 
+programları, Enstitü anabilim/anasanat dalı kurulu teklifi, enstitü kurulu kararı ve Senato onayı 
+ile belirlenerek ilan edilir. 
+ 
+(2) Üniversitede veya diğer yükseköğretim kurumlarının lisansüstü programlarında en az bir en 
+fazla iki yarıyıl öğrenim görmüş ve başarılı olmuş, geçiş yapmak istediği lisansüstü programın 
+öğrenci kabul koşullarını sağlamış öğrenciler, Üniversitede yürütülen bir lisansüstü programa 
+yatay geçiş yapmak için başvurabilirler. 
+ 
+(3) Herhangi bir programa kayıt hakkı kazanan öğrencinin daha önce aldığı bir dersten muaf 
+sayılabilmesi için dersin herhangi bir mezuniyete sayılmamış olması ve bir lisansüstü 
+programdan son beş (5) eğitim-öğretim yılı içinde alınmış olması gerekir. Bu koşulları sağlayan 
+öğrenciler, kayıt tarihinden itibaren bir ay içinde başvurmak kaydıyla muafiyet isteyebilir. 
+ 
+(4) Öğrencinin muafiyet talebi üzerine enstitü anabilim/anasanat dalının görüşü alınarak enstitü 
+yönetim kurulu kararı ile öğrenci lisansüstü programa intibak ettirilir. İntibak, dönem ders 
+öğrenim müfredatı ve kredi esası üzerinden yapılır. Muafiyet verilen derslerin kredi toplamına 
+bakılarak dönem ataması yapılır. 
+(5) Yatay geçişle bir programa kaydolan öğrencinin azami süresi hesaplanırken, daha önce 
+kayıtlı olduğu programda geçirdiği süre de dikkate alınır. 
+(6) Yatay geçişle gelen öğrenci lerin müfredat dönemi belirlenirken, öğrencinin Bursa Uludağ 
+Üniversitesinde geçiş yaptığı programa kayıt olduğu yıla ait müfredat esas alınır. 
+ 
+Lisansüstü programlar arası geçiş 
+MADDE 6 – (1) Tezsiz yüksek lisans programından tezli yüksek lisans programına geçiş 
+kontenjanları enstitü anabilim/anasanat dalı kurulu teklifi, enstitü kurulunun kararı ve Senato 
+onayı ile belirlenerek ilan edilir. 
+(2) Tezsiz yüksek lisans programından tezli yüksek lisans programına geçiş yapmak isteyen 
+öğrenciler, tezli yüksek lisans programı için Senato tarafından belirlenen şartları yerine getirmek 
+kaydıyla tezli yüksek lisans programına geçiş yapabilirler. 
+(3) Tezsiz yüksek lisans programından, tezli yüksek lisans programına geçiş  yapabilmek için 
+en az bir yarıyılın tamamlanmış olması gerekir.  
+ 
+(4) Tezsiz yüksek lisans programında alınan dersler , enstitü yönetim kurulu kararıyla tezli  
+yüksek lisans programındaki dersler ile intibak yapılabilir. Ancak bu kapsamda intibak 
+yapılacak derslerin oranı, tezli yüksek lisans programındaki derslerin %50’ sinden fazla 
+olamaz.   
+Bilimsel hazırlık programları 
+MADDE 7 – (1) Bilimsel hazırlık programı, lisans veya yüksek lisans derecesini, başvurdukları 
+yüksek lisans  veya doktora programından farklı alanda almış olan öğrencilerle, lisans veya 
+yüksek lisans derecesini, Bursa Uludağ Üniversitesi dışındaki yükseköğretim kurumlarından 
+almış olan yüksek lisans ve doktora adayları için eksikliklerini gidermek amacıyla bilims el 
+hazırlık programı uygulanabilir. Bilimsel Hazırlık Programının uygulanmasına, enstitü anabilim 
+dalı kurulu teklifi üzerine enstitü yönetim kurulu karar verir.  
+  Senato Karar Ekidir 
+(2) Bu programa alınacak öğrenciler; enstitü anabilim/anasanat dalı başkanlığının teklifi üzerine 
+ilgili enstitü yönetim kurulu tarafından, adayların kayıtlı oldukları lisans veya lisansüstü 
+programların yapısı değerlendirilerek belirlenir. Bilimsel hazırlık programındaki bir öğrenci, bir 
+takvim yılı içerisinde verilen en az  4 (dört), en fazla 8  (sekiz) ders almak ve başarılı olmak 
+zorundadır.  
+(3) Bilimsel hazırlık programına kabul edilen yüksek lisans öğrencisi bilimsel hazırlık derslerini 
+lisans, doktora/sanatta yeterlik öğrencileri lisans ve/veya yüksek lisans seviyesindeki derslerden 
+alır. 
+(4) Bilimsel hazırlıkta alınacak dersler, ilgili lisansüstü programı tamamlamak için gerekli 
+görülen derslerin yerine geçmez ve lisansüstü not ortalamasına dâhil edilmez. Ancak, bilimsel 
+hazırlıktaki bir öğrenci, bilimsel hazırlık derslerinin yanı sıra ens titü anabilim/anasanat dalı 
+kurulunun teklifi ve enstitü yönetim kurulu kararı ile lisansüstü programa yönelik dersler de 
+alabilir.    
+(5) Bilimsel hazırlık programında geçirilecek süre, en çok iki yarıyıldır. Yaz öğretimi bu süreye 
+dâhil edilmez. Bu süre dönem izinleri dışında uzatılamaz ve süre sonunda başarılı olamayan 
+öğrencinin ilişiği kesilir. Programda geçirilen süre, yüksek lisans veya doktora programı 
+sürelerine dâhil edilmez.  
+(6) Bilimsel hazırlık öğrencilerinin lisansüstü bilimsel hazırlık progr amında başarılı 
+sayılabilmeleri ve lisansüstü programa başlayabilmeleri için bilimsel hazırlık programının 
+lisans ve lisansüstü derslerinden en az CC notu almaları gerekir. 
+ 
+Yabancı uyruklu öğrenci kabulü 
+MADDE 8 – (1) Yabancı uyruklu adayların enstitü anabilim dalı başkanlığının uygun görüşü 
+ve enstitü yönetim kurulu kararı ile kabul edilen bilim ya da sanat dalında lisans/yüksek lisans 
+derecesine sahip olmaları zorunludur. 
+(2) Eğitim ve öğretimin tamamen yabancı dille yapıldığı programlar hariç, diğer yüksek lisans, 
+doktora/sanatta yeterlik programlarına kabul edilen yabancı uyruklu öğrencilerin ULUTÖMER 
+veya diğer devlet üniversiteleri tarafından yapılan Türkçe sınavından C1 düzeyinden az 
+olmamak koşuluyla e nstitü anabilim/anasanat dalı başkan lığı tarafından önerilen ve Senato 
+tarafından karara bağlanan düzeyde başarılı olmaları gerekir. Başarılı olamayanlar 
+ULUTÖMER veya Senatonun belirlediği bir merkez tarafından açılan en fazla 1 (bir) yıl süreli 
+Türkçe dil kursuna katılmak ve Türkçe sınavın da başarılı olmak zorundadır. Kursun normal 
+süresi öğrenim süresinden sayılmaz. Türkçe hazırlık sınavından başarılı olmak için azami süre  
+2 (iki) yıldır. 
+(3) Lisans veya yüksek lisansını Türkiye’de tamamlamış olan yabancı uyruklu adaylar için 
+Türkçe yeterlik belgesi aranmaz. 
+ 
+(4) Yabancı uyruklu adaylar, anadilleri dışında Üniversitelerarası Kurulca kabul edilen dillerin 
+birinden YDS’den en az 55 ( elli beş ) puan veya ÖSYM tarafından eşdeğerliği kabul edilen 
+uluslararası yabancı dil sınavından bu puan eşdeğeri puan almaları hâlinde programa kabul 
+edilebilirler.  
+ 
+(5) Lisans veya tezli yüksek lisans programını yabancı ülkelerde tamamlamış yabancı uyruklu 
+olan adayların YÖK’ten tanınma belgesi almış olması gerekir. 
+ 
+  Senato Karar Ekidir 
+(6)  Anasanat dallarındaki programlara başvuran yabancı öğrencilerin kabulünde sanatsal 
+performans/portfolyö incelemesinden en az yetmiş (70) puan alma şartı aranır.  
+ 
+ 
+Dereceye giren öğrenci kabulü 
+MADDE 9 – (1) Enstitü anabilim/anasanat dalı kurulunun teklifi, enstitü kurulunun  kararı ve 
+Senatonun onayı ile dereceye giren Bursa Uludağ Üniversitesi öğrencileri için tezli yüksek 
+lisans kontenjanı ilan edilebilir.  
+ 
+(2) Tezli yüksek lisans programları için de receye giren öğrenci konten janı her yarıyıl için en 
+fazla 3 (üç) öğrenci ile sınırlıdır. 
+ 
+(3) İlgili enstitü anabilim/anasanat dalı tarafından uygun görülen ve e nstitü kurulu tarafından 
+kabul edilen programdan mezun veya kesin kayıt tarihine kadar mezun olabilecek adayların 
+başvuruları, başvuru takviminde belirlenen süre içinde alınır. 
+ 
+(4) Öğrenim gördükleri lisans programını birinci, ikinci veya üçüncülük derecesiyle bitiren 
+Bursa Uludağ Üniversitesi mezunları programın istediği asgari şartları sağlamaları halinde 
+anabilim/anasanat dallarının belirttiği kontenjan dahilinde kabul edilir. Öğrenci dereceye 
+girdiğini gösterir belgeyi sunmak zorundadır. 
+ 
+(5)  Dereceye giren öğrenci kabulü ve başarı değerlendirmesi; 
+a) ALES notunun %50’si, mezuniyet notunun %50’si dikkate alınarak belirlenir. 
+b) Enstitü anasanat dallarında dereceye giren öğrenci kabulünde ALES şartı aranmaz. 
+Başarı değerlendirmesi; mezuniyet notunun %50’si sanatsal performans/portfolyö 
+incelemesinden en az yetmiş (70) puan almak şartıyla %50’si dikkate alınarak yapılır.  
+c) Başarı puanlarının denkliği halinde adayların ALES notları dikkate alınır.  
+ 
+İş deneyimli öğrenci kabulü 
+MADDE 1 0 – (1) Üniversite-sanayi işbirliğini artırmak üzere kamu veya özel sektörde 
+çalışmakta olan adaylar, programın asgari şartlarını sağlamaları kaydı ile enstitü 
+anabilim/anasanat dalı kurul kararı ve enstitü yönetim kurulu onayı ile tezli yüksek lisans 
+programlarına kontenjan dışı kabul edilebilir. 
+ 
+(2) İş deneyimli öğrenci başvuruları,  başvuru takviminde belirlenen süre içinde alınır. 
+ 
+(3) İş deneyimli öğrenci kontenjanları tezli yüksek lisans programları için en fazla 3 (üç) olacak 
+şekilde Enstitü anabilim/anasanat dalı kurul kararı ile belirlenir. 
+ 
+(4) Adayların alanında lisans mezuniyetinden sonra en az iki yıllık iş tecrübesine sahip olması 
+gerekir. 
+ 
+(5) Adayların programa başvuruda çalıştığı sektörle ilgili üniversite -sanayi işbirliğine katkı 
+sağlayacak tez konusu ile ilgili bir proje fikrini e nstitü yönetim kurulunca ilan edilen formata 
+uygun şekilde mülakat esnasında jüriye sunması gerekir, projenin değerlendirilmesi jüri 
+tarafından yapılır ve mülakat notunun %50’si proje önerisine göre verilir. 
+ 
+(6) Kayıt öncesi ilgili kurum ve ilgili enstitü müdürlüğü arasında çalışmanın yürütülmesi ve 
+kurumun iş deneyimli öğrencinin programa katılım onayına ve katkısına ilişkin bir ç erçeve 
+protokol imzalanmalı ve enstitü yönetim kurulu kararı ile onaylanmalıdır. 
+  Senato Karar Ekidir 
+ 
+(7) İş deneyimli öğrenci ve danışmanının, en geç ikinci yarıyılın sonuna kadar tez konusu ile 
+ilgili dış kaynaklı bir proje başvurusunda bulunması gerekir. Dış kaynaklı proje başvurusunda 
+bulunmayan öğrenci tez aşamasına geçemez. 
+ 
+(8) Dış kaynaklı proje başvurusunun desteklenmemesi veya değerlendirme sürecinin uzaması 
+durumunda revize edilen proje, öğrencinin çalıştığı kurum/kuruluş tarafından bütçesinin tamamı 
+maddi olarak desteklenir. Revize edilen projenin bütçesi, Bursa Uludağ Üniv ersitesi Bilimsel 
+Araştırma Projeleri Koordinatörlüğü tarafından belirlenen lisansüstü tez projesi (yüksek l isans 
+ya da doktora) bütçesinden düşük olamaz. 
+ 
+(9) Projenin desteklenmemesi durumunda öğrenci tezini teslim edemez. 
+ 
+ÜÇÜNCÜ BÖLÜM 
+Lisansüstü Programlara Başvuru, Değerlendirme, Kayıtlar ve Danışman Atanması 
+ 
+Tezli ve tezsiz yüksek lisans programlarına başvuru 
+MADDE 1 1 – (1) Tezli ve tezsiz yüksek lisans programlarına başvuruya ilişkin esaslar 
+şunlardır: 
+a) Adayların, enstitü anabilim/anasanat dalı başkanlığının uygun görüşü ve enstitü kurulu kararı 
+ile kabul edilen bilim ya da sanat dalında lisans derecesine sahip olmaları zorunludur. 
+b) Yüksek lisans programına başvurabilmek için adayların ALES veya eşdeğeri sınavdan en az 
+(55) puandan az olmama k üzere Senato tarafından belirlenen ALES veya eş değer puanına 
+sahip olmaları gerekir. Ancak, konservatuvar programları ile güzel sanatlar fakültelerinin 
+sadece özel yetenek sınavı ile öğrenci kabul eden programlarının enstitülerdeki anasanat ve 
+anabilim dallarına öğrenci kabulünde ve Doktora/sanatta yeterlik/tıpta uzmanlık/diş 
+hekimliğinde uzmanlık/veteriner hekimliğinde uzmanlık/eczacılıkta uzmanlık mezunlarının 
+yüksek lisans programlarına başvurularında ALES şartı aranmaz. 
+c) Doktora/sanatta yeterlik/tıpta uzmanlık/diş hekimliğinde uzmanlık/veteriner hekimliğinde 
+uzmanlık/eczacılıkta uzmanlık mezunu adayların değerlendirme işlemleri için; ilgili 
+programlar tarafından adayların mezun lisansüstü programa girişteki puan türü veya 
+uzmanlık alanı dikkate alınmak sızın, 55’ten düşük olmamak üzere bir puan belirlenir ve 
+ilgili programın şartlarında ilan edilir. Bu adaylar daha önceden aldığı puan türü veya 
+doktora/sanatta yeterlik/uzmanlık alanından, farklı bir alanda başvuru yapabilir. İlan edilen 
+puan, puan türüne bakılmaksızın ALES puanı olarak hesaplamalara dahil edilir.  
+d) Tezli yüksek lisans programlarında yabancı dil aranıp aranmayacağı, aranacaksa hangi 
+düzeyde yabancı dil bilgisi gerektiği, programı açan enstitü anabilim/anasanat  dalı 
+kurulunun teklifi üzerine enstitü kurulunda karara bağlanarak, Senatonun onayı ile kesinleşir 
+ve ilanda belirtilir. Adaylar, YÖK tarafından kabul edilen merkezi yabancı dil sınavları ile 
+eşdeğerliği kabul edilen uluslararası yabancı dil sınavından veya Bursa Uludağ Üniversitesi 
+tarafından yapılan yabancı dil sınavından koşullarda ilan edilen puanı almak zorundadır. 
+e) Tezsiz yüksek lisans programlarında yabancı dil şartı aranmaz. 
+f) Eğitim Bilimleri Enstitüsü için yüksek lisans bilim alanı bir yabancı dille  ilgili olan 
+programlarda öğrenim görecek öğrenciler, yabancı dilde ÖSYM tarafından düzenlenen 
+yabancı dil sınavlarından en az seksen ( 80) veya ÖSYM Y önetim Kurulu tarafından 
+eşdeğerliği kabul edilen uluslararası yabancı dil sınavından eşdeğer puanı almak 
+zorundadırlar. 
+g) Bu Esaslarda belirtilen tüm hükümler ikinci öğretim tezli ve tezsiz yüksek lisans programları 
+için de geçerlidir.  
+  Senato Karar Ekidir 
+h) Yabancı uyruklu adaylarla lisans eğitiminin tamamını yurt dışında tamamlayan Türkiye 
+Cumhuriyeti vatandaşı adayların  lisans diplomalarının eşdeğerliğinin YÖK tarafından 
+onaylanmış olması gerekir.  Bu adayların lisansüstü programlara kabulü 
+anabilim/anasanat dalı görüşü doğrultusunda enstitü yönetim kurulunca karara bağlanır.  
+i) İkinci öğretim tezli ve tezsiz yüksek lisans programl arının öğrenim ücreti enstitü yönetim 
+kurulunun teklifi ile Üniversite Yönetim Kurulu tarafından belirlenir. 
+ 
+Doktora ve sanatta yeterlik programlarına başvuru 
+MADDE 12 – (1) Doktora ve sanatta yeterlik programlarına başvurabilmek için aranan şartlar 
+şunlardır: 
+a) Adaylar, tezli yüksek lisans diplomasına ve 4 tam puan üzerinden en az 2.25 veya eşdeğer 
+bir not ortalamasına sahip olmalıdırlar. 
+b) Lisans derecesiyle doktora/sanatta yeterlik programına başvurularda lisans diplomasına ve 4 
+tam puan üzerinden en az 3 veya eşdeğer bir not ortalamasına sahip olmalıdır. 
+c) Lisans veya tezli yüksek lisans programını yabancı ülkelerde tamamlamış olan  yabancı 
+uyruklu adaylar için YÖK’ten tanınma belgesi, T.C. vatandaşı olan adaylar denklik belgesi 
+almış olmalıdır. 
+d) Tıp, diş hekimliği, veteriner, eczacılık fakültelerinden (hazırlık sınıflarıyla beraber), en az on 
+yarıyıl süreli lisans diplomasına veya Sağlık Bakanlığınca düzenlenen esaslara göre bir 
+laboratuvar dalında kazanılan uzmanlık yetkisine sahip olmalıdır. 
+e) ALES veya e şdeğeri sınavdan en az (55) puandan az olmamak üzere , Senato tarafından 
+belirlenen puana sahip olmaları gerekir. D oktora/sanatta yeterlik/tıpta uzmanlık/diş 
+hekimliğinde uzmanlık/veteriner hekimliğinde uzmanlık/eczacılıkta uzmanlık mezunlarının 
+doktora programlarına başvurularında ALES şartı aranmaz.  Ancak, bu adayların 
+değerlendirme işlemleri için, mezun olduğu lisa nsüstü programa girişteki puan türü veya 
+uzmanlık alanı dikkate alınmaksızın, 55’ten düşük olmamak üzere bir puan belirlenir ve ilgili 
+program şartlarında ilan edilir. Bu adaylar daha önceden aldığı puan türü veya 
+doktora/sanatta yeterlik/uzmanlık alanından, farklı bir alanda başvuru yapabilir. İlan edilen 
+puan, puan türüne bakılmaksızın ALES puanı olarak hesaplamalara dahil edilir. 
+Konservatuvar programları ile güzel sanatlar fakültelerinin sadece özel yetenek sınavı ile 
+öğrenci kabul eden programlarının e nstitülerdeki anasanat ve anabilim dallarına öğrenci 
+kabulünde ALES puanı aranmaz.  
+f) Lisans derecesiyle doktora programına başvurularda, ALES’ten başvurduğu programın puan 
+türünde 80 (seksen) puandan az olmamak üzere ALES ve eşdeğeri puanı almış olmalıdır.  
+g) Sanatta yeterlik programına güzel sanatlar fakülteleri ve konservatuvar mezunları ile diğer 
+fakültelerin eşdeğer programlarından mezun olanların haricinde olup, yüksek lisans 
+derecesiyle başvuran adaylar ALES sözel puan türünde en az  55 (elli beş) puandan, lisans 
+derecesiyle başvuran adayların ise ALES sözel puan türünde en az 80 (seksen) puandan az 
+olmamak koşuluyla Senato kararı ile belirlenen ALES puanına sahip olmalıdır.  
+h) Anadilleri dışında YÖK tarafından kabul edilen merkezi yabancı dil sınavlarının birinden en 
+az 55 (elli beş) puan veya ÖSYM tarafından eşdeğerliği kabul edilen uluslararası yabancı dil 
+sınavından bu puanın eşdeğeri puan almış olmalıdır.  
+i) Doktora bilim alanı bir yabancı dille ilgili olanlar için; öğrenim görecekleri yabancı dild e, 
+YÖK tarafından kabul edilen merkezî yabancı dil sınavları ile eşdeğerliği kabul edilen 
+uluslararası yabancı dil sınavlarından en az 80 (seksen) veya ÖSYM tarafından eşdeğerliği 
+kabul edilen uluslararası yabancı dil sınavlarından bu puan muadili bir puanı almış olmalıdır. 
+ 
+Temel tıp bilimleri doktora programına başvuru 
+MADDE 13 – (1) Temel tıp bilimleri doktora programına başvurulara ilişkin aranan şartlar 
+aşağıda belirtilmiştir: 
+  Senato Karar Ekidir 
+a) Tıp fakültesi, veteriner fakültesi ile diş hekimliği fakültesi mezunlarının lisans diplomasına, 
+diğer fakülte mezunlarının yüksek lisans diplomasına sahip olmaları gerekir. 
+b) Tıp fakültesi mezunlarının en az 50 (elli) TUS temel tıp puanına veya en az 55 (elli beş) 
+ALES sayısal puana sahip olmaları gerekir. Başvuruların hangi puan türüne ve düzeyine 
+göre yapılacağı Senato tarafından belirlenir. Temel tıp puanı, TUS’un Temel Tıp Bilimleri 
+Testi-1 bölümünden elde edilen standart puanın 0,7; Klinik Tıp Bilimleri Testind en elde 
+edilen standart puanın 0,3 ile çarpılarak bu iki değerin toplanması ile elde edilir. 
+c) Tıp fakültesi mezunu olmayanlar için en az  55 (elli beş )  ALES sayısal puanından aşağı 
+olmamak koşuluyla Senato tarafından belirlenecek ALES puanına sahip olmaları gerekir. 
+d) Adaylardan başvuru esnasında talep edilecek referans mektubu, doktora yapma gerekçesini 
+açıklayan bir metin , uluslararası standart sınavlar ve benzeri diğer belgeler her başvuru 
+dönemi başında Senato tarafından ilanda belirtilir. 
+e) Temel tıp biliml erinde doktora programına öğrenci kabulünde, anadilleri dışında YÖK 
+tarafından kabul edilen merkezi yabancı dil sınavları ile eşdeğerliği kabul edilen uluslararası 
+yabancı dil sınavlarından en az 55 (elli beş) puan veya ÖSYM tarafından eşdeğerliği kabul 
+edilen uluslararası yabancı dil sınavlarından bu puan muadili bir puan alınması zorunlu olup, 
+bu asgari puanların girilecek programların özelliklerine göre gerekirse yükseltilmesine 
+Senato tarafından karar verilir. 
+ 
+(2)  Değerlendirme ve kabul şartları şunlardır: 
+a) Senato tarafından ilgili başvuru döneminde kabul sıralamasının yalnız temel tıp puanı veya 
+ALES puanına göre yapılmasına karar verilmediği sürece  mülakata girecek adayların 
+sıralaması,  %50’den aşağı olmamak üzere temel tıp puanı veya ALES puanı, lisans ve/veya 
+yüksek lisans not ortalamasına göre yapılır. Yapılan sıralamaya göre kontenjan sayısının en 
+çok iki katı kadar aday mülakata davet edilir. Son sırada aynı puana sahip olan adayların 
+olması durumunda, son sıradaki adayların tamamı mülakata alınır. 
+b) Tıp, veteriner ve diş hekimliği fakülteleri mezunları için kabul sıralaması, Senato tarafından 
+yalnız temel tıp puanı veya ALES puanına göre yapılmasına karar verilmediği sürece, 
+%50’den az olmamak üzere temel tıp puanı veya ALES puanı, lisans ve/veya yüksek lisans 
+not ortalaması ve bilimsel değerlendirme ve/veya mülakat sonucuna göre yapılır. Senato 
+ilgili dönem için aksine karar vermediği takdirde ALES veya TUS temel tıp puanının 
+%50’si, yüksek lisans puanının %20’si, bilimsel değerlendirme ve/veya m ülakat notunun 
+%30’u dikkate alınır. Değerlendirmeler yüz (100) tam puan üzerinden yapılır. Adaylar 
+arasından en az yetmiş (70) puan alanlar arasından sıralama yapılır.  
+c) Tıp, veteriner ve diş hekimliği fakülteleri mezunu olmayanların kabul sıralaması, Sena to 
+tarafından yalnız ALES puanına göre yapılmasına karar verilmediği sürece, %50’den az 
+olmamak üzere ALES puanı, lisans ve/veya yüksek lisans not ortalaması ve bilimsel 
+değerlendirme ve/veya mülakat sonucuna göre yapılır. Senato ilgili dönem için aksine karar 
+vermediği takdirde ALES puanının % 50’si, lisans ve/veya yüksek lisans puanının %20’si, 
+bilimsel değerlendirme ve/veya mülakat notunun %30’u dikkate alınır . Değerlendirmeler 
+yüz (100) tam puan üzerinden yapılır. Adaylar arasından en az yetmiş (70) puan alanlar 
+arasından sıralama yapılır. B aşvuru sırasında referans mektubu ve neden doktora yapma 
+gerekçesini açıklayan bir metin talep edilmiş ise bu belgeler dikkate alınarak sözlü 
+değerlendirme yapılır. 
+d) Eşit puan durumunda adaylar arasında önceliğin be lirlenmesinde; sırasıyla, ALES veya 
+eşdeğeri sınav notu veya temel tıp puanı, lisans ve/veya yüksek lisans not ortalaması ya da 
+yabancı dil sınav puanı yüksek olanlar tercih edilir. 
+ 
+Lisansüstü başvurularının değerlendirilmesi 
+  Senato Karar Ekidir 
+MADDE 14  – (1) Anabilim/anasanat dalı tarafından  yapılacak giriş sınavlarına çağrılacak 
+adayların belirlenmesi için tüm adaylar ön değerlendirmeye tabi tutulur. Bu ön değerlendirme 
+ALES puanı ve mezuniyet not ortalaması (ALES %50/ GANO %50) dikkate alınarak yapılır. 
+Konservatuvar ve güzel sanat dallarında lisansüstü programları hariç diğer programlara yapılan 
+başvuruların ön değerlendirilmesinde sınava alınacak olan adayların sayısı, anabilim/anasanat 
+dalı tarafından önerilen kontenjan on beş (15) ve daha az olan programlarda otuz (30), on beşin 
+(15)’in üzerindeki programlarda ise kontenjan sayısının iki (2) katı olacak şekilde belirlenir.  
+Anabilim/anasanat dalının teklifi ve enstitü yönetim kurulunun onanıyla, sınava çağrılacak 
+öğrenci sayısı kontenjanın dört (4) katına kadar çıkarılabilir. Sıralamaya göre son sırada aynı 
+puana sahip birden fazla adayın olması halinde bu adayların tamamı giriş sınavına çağrılır. 
+ 
+(2)  Enstitü anabilim/anasanat kurulu kararı ile t ezli yüksek lisans programlarına yalnız ALES 
+puanı ile öğrenci kabul edebileceği  gibi, ALES puanına ek olarak lisans not ortalaması, yazılı 
+olarak yapılacak bilimsel değerlendirme ve/veya mülakat sonucuna göre de öğrenci alabilir. 
+Yazılı bilimsel değerlendirme ve mülakat sınavları, enstitü anabilim/anasanat dallarının sınav 
+jürileri tarafından yapılır ve yapılan sınavlar tutanak altına alınarak ilgili enstitüye iletilir. 
+ 
+(3) Başvuruların değerlendirilmesinde aşağıdaki şartlar aranır: 
+ 
+a) Tezsiz yüksek lisans programlarına öğrenci kabulünde, mezuniyet not ortalamasının %50 si, 
+yazılı olarak yapılacak bilimsel değerlendirme ve/veya mülakat sınavına ilişkin sonucun 
+%50’si dikkate alınır. Hesaplanan puana göre en az  altmış beş (65) puan alanlar arasından 
+sıralama yapılır. 
+b) Tezli yüksek lisans programına yazılı olarak yapılacak bilimsel değerlendirme ve/veya 
+mülakat sonucuna göre öğrenci kabulünde, ALES puanının %50’si, lisans not ortalamasının 
+%20’si, yazılı olarak yapılacak bilimsel değerlendirme ve/veya mülakat sınavına ilişkin 
+sonucun %30’u dikkate alınır. İs teyen anabilim/anasanat dalı %30’un belirli bir oranını 
+yabancı dil puanı olarak belirleyebilir. Hesaplanan puana göre en az altmış beş (65)  puan 
+alanlar arasından sıralama yapılır. 
+c) Doktora programına öğrenci kabulünde ALES puanının % 50’si, yüksek lisans veya lisans 
+derecesiyle doktora/sanatta yeterlik programına başvurularda lisans not ortalamasının 
+%20’si, yazılı olarak yapılacak bilimsel değerlendirme ve/veya mülakat sınavına ilişkin 
+sonucun %30’u dikkate alınır. Hesaplanan puana göre en az yetmiş ( 70) puan alanlar 
+arasından sıralama yapılır. 
+d) Güzel Sanatlar Fakültesi ile Konservatuvara bağlı anasanat dallarında yüksek lisans ve 
+sanatta yeterlik programlarına öğrenci kabulünde; mezuniyet not ortalamasının %25’i ve 
+sanatsal performans/portfolyö incelemesin den en az yetmiş (70) puan almak koşuluyla 
+%50’si, mülakatın %25’i alınır. Hesaplanan puana göre yüksek lisansta en az toplam altmış 
+beş (65) puan, sanatta yeterlik programında en az toplam yetmiş (70) alanlar arasından 
+sıralama yapılır. 
+e) Yabancı uyruklu öğrencilerin yüksek lisans ve doktora programına kabulünde, mezuniyet not 
+ortalamasının %50’si ve yazılı olarak yapılacak bilimsel değerlendirme ve/veya mülakat 
+sınavına ilişkin sonucun %50’si dikkate alınır. Anasanat dallarındaki programlara öğrenci 
+kabulünde ise mezuniyet not ortalamasının %25’i ve sanatsal performans/portfolyö 
+incelemesinden en az yetmiş (70) puan almak koşuluyla %50’si ve mülakatın %25’i dikkate 
+alınır. Ön değerlendirmeyi geçen adaylar yüksek lisans için en az 65 puan, doktora/sanatta 
+yeterlik için de en az yetmiş (70) puandan itibaren sıralanırlar. 
+f) Başvuruların değerlendirilmesi sonucu başarılı olan adayların sayısı ilan edilen kontenjandan 
+fazla ise en yüksek başarı notu alan adaydan başlayarak sıralama yapılır. Eşit puan 
+durumunda adaylar arasında önceliğin belirlenmesinde; sırasıyla, ALES veya eşdeğeri sınav 
+  Senato Karar Ekidir 
+notu veya lisans ve/veya yüksek lisans not ortalaması veya yabancı dil sınav puanına göre 
+sıralama yapılır. 
+ 
+Bilim, sanat ve mülakat sınavı jürilerinin belirlenmesi 
+MADDE 15 – (1)  Sınav jürisi Enstitü anabilim/anasanat dalı başkanlığı tarafından teklif edilen 
+ve enstitü yönetim kurulu kararıyla onaylanan en az üç (3)  asıl, iki (2) yedek öğretim üyesinden 
+oluşur. Aynı anabilim/anasanat dalında yürütülen farklı lisansüstü programlar için farklı jüriler 
+kurulabilir. 
+ 
+Sonuçların ilanı ve kayıt 
+MADDE 16 –  (1) Başarılı olan asıl adaylar ve varsa yedekleri enstitü yönetim kurulu kararı 
+ile enstitü müdürlüğünce ilan edilir. 
+ 
+(2)  Sonuçların ilanından sonra sonuçlara yönelik maddi hataları içeren itirazların ilanının takip 
+eden üç iş günü içinde yapılması gerekir. İtiraz süresi sonunda sonuçlar enstitü yönetim kurulu 
+kararıyla kesinleşir. 
+ 
+(3)  Lisansüstü programlarını kazanan adayların, Senato tarafından belirlenen tarihlerde ilgili 
+belgeler ile birlikte enstitüye başvurarak kesin kayıtlarını yaptırmaları gerekir. 
+ 
+(4)  Kayıt için istenen belgelerin aslı veya enstitü tarafından onaylı örneği kabul edilir. 
+ 
+(5)  Kayıtların adaylar tarafından şahsen yapılması gerekir. 
+ 
+(6)  Kayıt için sahte veya tahrif edilmiş belge kullanan veya giriş sınavlarında sahtecilik yaptığı 
+belirlenenlerin kayıt işlemleri kayıt tarihi itibarıyla iptal edilir. 
+ 
+Danışman atanması ve değişikliği 
+MADDE 17 – (1) Öğrencinin veya danışmanın gerekçeli yazılı talebi üzerine,  ders veya tez 
+aşamasında Sosyal ve Eğitim Bilimleri Enstitülerinde Enstitü anabilim/anasanat dalı 
+başkanlığının; Fen ve Sağlık Bilimleri Enstitülülerinde Enstitü anabilim dalı kurulunun teklifi 
+ve enstitü yönetim kurulunun kararıyla danışman değiştirilebi lir. Enstitü yönetim kurulunun 
+kabul edeceği zaruri haller dışında danışman değişiklik talepleri eğitim öğretim dönemi dışında 
+veya yönetmelikte belirtilen danışman atama sürecinde yapılmalıdır. Danışman değişikliği 
+tarihinden itibaren, danışmanın yapması gereken değerlendirme ve not girişleri öğrencinin yeni 
+danışmanı tarafından yapılır.  
+ 
+(2) Tez danışmanının farklı enstitünün anabilim dalına geçmesi durumunda mevcut 
+danışmanlıklarından tez aşamasına geçmemiş öğrencilerinin danışmanlıkları sonlanır ve enstitü 
+anabilim dalı tarafından öğrenciye yeni danışman ataması yapılır, tez aşamasına geçmiş 
+öğrencilerin danışmanlıkları ise tez bitimine kadar sürdürülebilir.  
+ 
+(3)  Tez döneminin son yarıyılında öğrencinin danışman değişikliği yapılmaz.  
+ 
+(4)  Kayıt hakkı kazanan bir öğrenciye danışman olmak isteyen öğretim üyesi bulunmaması ya 
+da tez danışmanının, danışmanlıktan ayrılmak istemesi ve anabilim/anasanat dalı kurulu 
+tarafından yeni danışman önerilmemesi durumunda öğrencinin danışmanlığı enstitü anabilim 
+dalı başkanına geçer. 
+ 
+  Senato Karar Ekidir 
+(5)  Farklı bir kuruma geçen ya da emekli olan öğretim üyelerinin danışmanlıkları sonlanır ve 
+ilgili öğrenciye Sosyal ve E ğitim Bilimleri Enstitülerinde e nstitü anabilim/anasanat dalı 
+başkanlığının; Fen ve Sağ lık Bilimleri Enstitülül erinde ise e nstitü anabilim dalı kurulunun 
+teklifi ve enstitü yönetim kurulunun kararıyla yeni danışman ataması yapılır. 
+ 
+(6)  Yurtiçi veya yurtdışı görevlendirme nedeniyle altı (6) aydan fazla görevlendirilen öğretim 
+üyelerinin danışmanlıkları sonlanır ve enstitü anabilim dalı kurulunun teklifi ve enstitü yönetim 
+kurulu kararı ile yeni danışman ataması yapılır. Bir öğretim üyesinin yurtdışına  üç (3) aydan 
+fazla görevlendirilmesi durumunda ise, ilgili enstitü anabilim dalı tarafından görevlendirme 
+süresi ve yeri ilgili enstitüye yazılı olarak bildirilir. Altı (6) aydan fazla süreli sağlık raporu ya 
+da benzeri bir nedenle Üniversiteden uzak kalacak öğretim üyelerinin danışmanlıkları sonlanır 
+ve enstitü anabilim dalı kurulunun teklifi ve enstitü yönetim kurulu  kararı ile yeni danışman 
+ataması yapılır. 
+ 
+DÖRDÜNCÜ BÖLÜM 
+Dersler 
+ 
+Ders Seçimi  
+MADDE 18 – (1) Enstitü anabilim/anasanat dalı başkanlığının teklifi ve enstitü yönetim kurulu 
+kararı ile diğer yükseköğretim kurumlarında verilmekte olan derslerden en fazla iki  (2) ders 
+seçilebilir. Diğer yükseköğretim kurumlarından alınan bu dersler seçmeli ders olarak sayılır.  
+ 
+(2)  Öğrencinin talebi, danışmanının teklifi, Enstitü anabilim/anasanat dalı kurulunun kararı ve 
+yönetim kurulunun onayı ile her yarıyıl için en fazla iki (2) seçmeli ders alan dışından alınabilir. 
+ 
+(3) Uzmanlık alan dersi, enstitü yönetim kurulunca tez danışmanı atandığı tarihten başlayarak, 
+yüksek lisans programı öğrenciler i için ayrı ve doktora programı öğrencileri için ayrı olmak ; 
+tez danışmanı tarafından yürütülmek ve enstitü yönetim kurulunun öğrencinin mezuniyetine 
+veya ilişiğinin kesilmesine karar verdiği tarihe kadar sürdürülmek üzere, danışmanın izinli ve 
+raporlu old uğu tarihler dışında, güz yarıyılı başında kaydolan veya ders kaydı yaptıran 
+öğrenciler için bahar yarıyılı başlangıcına kadar ; bahar yarıyılı başında kaydolan veya ders 
+kaydı yaptıran öğrenciler için ise güz yarıyılı başlangıcına kadar, yarıyıl ve yaz tatilleri de dâhil 
+tüm yıl boyunca kesintisiz olarak devam etmek üzere açılır. Her öğrenci, açılan uzmanlık alan 
+dersini almak zorundadır. Uzmanlık alan dersine ilişkin kapsam, süre ve diğer esaslar enstitü 
+kurulu tarafından kararlaştırılır. Öğrencinin tez çalışmasının iki danışman tarafından yönetildiği 
+durumlarda uzmanlık alan dersi birinci danışman tarafından yürütülür.  
+ 
+(4) Yatay geçişi kabul edilen öğrenciler, başarılı oldukları her yarıyıl için ilgili enstitü 
+anabilim/anasanat dalının Uzmanlık Alan Dersinden başarılı olmuş sayılırlar. 
+ 
+ 
+Tez Yazımı ve Teslimi  
+MADDE 19 – (1) Tez yazımında kaynak gösterme kurallarında Eğitim, Fen ve Sağlık Bilimleri 
+Enstitülerinde APA (American Psychological Association) tarafından yayınlanan en son sürüm 
+geçerlidir.  Sosyal Bilimler Enstitüsünde ise, enstitü tez yazım kılavuzu geçerlidir.  
+ 
+(2) Enstitü, en fazla %20 benzerlik olacak şekilde intihal yazılım programı raporunu  alarak 
+danışmana ve jüri üyelerine gönderir. Sağlık ve Fen Bilimleri Enstitüleri için intihal raporunun 
+hazırlanması, intihal birimi tarafından yönetilir.  
+ 
+  Senato Karar Ekidir 
+(3) Tez savunma sınavına girecek öğrenciler tezlerinin elektronik ortamda kayıtlı bir kopyasını 
+tezinin / sanatta yeterlik çalışmasının savunma sından önce ve düzeltme verilen tezlerde ise 
+düzeltme ile birlikte danışmanına sunar. Danışman tezin savunulabilir olduğuna ilişkin 
+görüşünü, ikinci maddede açıklandığı şekliyle hazırlanan intihal yazılım programından alınan 
+raporu ve tezi enstitüye teslim  eder.  Enstitü söz konusu teze ilişkin intihal yazılım programı 
+raporunu kontrol ederek danışmana ve jüri üyelerine gönderir. Rapordaki verilerde gerçek bir 
+intihalin tespiti halinde gerekçesi ile birlikte karar verilmek üzere tez enstitü yönetim kuruluna 
+gönderilir. 
+ 
+(4) Tez yazımında kaynak gösterme kurallarında Eğitim, Fen ve Sağlık Bilimleri Enstitülerinde 
+APA ( American Psychological Association ) tarafından yayınlanan en son sürüm geçerlidir.  
+Sosyal Bilimler Enstitüsünde ise, enstitü tez yazım kılavuzu geçerlidir.  
+ 
+(5)  Tezin ciltlenmesi konusunda enstitüler tarafından belirlenen ortak standartlar uygulanır.  
+ 
+(6)  Mezuniyet şartında aranan ilkeler ve gerekli belgeler Ek 1’de verilmiştir.  
+ 
+Sanatta yeterlik çalışmasının sonuçlanması 
+MADDE 20 - (1) Adayın savunma sınavına alınabilmesi için sanatta yeterlik çalışması konusu 
+veya enstitü anasanat dalı programıyla ilgili özgün bir makalenin TR-dizinde taranan dergilerde 
+yayımlanması veya yayıma kabul edilmesi şarttır.  
+ 
+(2) Ayrıca adayın sergi, resital, konser, temsil gibi bir sanat etkinliğini gerçekleştirmesi, 
+etkinlikle ilgili katalog, kayıt, afiş gibi belge ve dokümanları sunması gerekir. Mezuniyet şartı 
+ilkeleri ve gerekli belgeler Ek 1’de verilmiştir.  
+ 
+(3) Sanatta yeterlik çalışmasının sonuçlandırılmasına ilişkin diğer hususlarda Yönetmeliğin 40. 
+maddesi uygulanır. 
+ 
+ 
+ 
+BEŞİNCİ BÖLÜM 
+DİSİPLİNLERARASI PROGRAMLAR 
+ 
+Disiplinlerarası Lisansüstü Enstitü Anabilim/Anasanat Dalı Kurulması Teklifi 
+MADDE 21 - (1) Kurulması teklif edilecek olan her bir disiplinlerarası enstitü 
+anabilim/anasanat dalı için, enstitü anabilim/anasanat dalı açma kriterlerine göre hazırlanan 
+başvuru dosyasının ilgili enstitüye sunulması şarttır. Başvuru dosyasında; disiplinler arası 
+anabilim/ anasanat dalının kurulma amacı, katkıda bulunacak olan öğretim üyelerinin listesi ve 
+yüksek lisans için en az üç, doktora için ise en az altı öğretim üyesinin imzasının bulunması 
+gereklidir. Program açıl abilmesi için asgari gereklilikleri sağlayan öğretim üyelerinin 
+halihazırda başka bir disiplinler arası programda görevli olmaması gereklidir. Başvuru ilgili 
+enstitü yönetim ku rulu tarafından değerlendirilir.  Enstitü yönetim kurulu gerek görürse ilgili 
+öğretim üyelerinden, enstit ü anabilim/anasanat dallarından ya da Dekanlıklardan görüş alır. 
+Başvuru dosyası uygun bulunursa görüşülmek üzere ilgili enstitü kuruluna gönderilir.  
+ 
+(2) Enstitü anabilim/anasanat dalına katkıda bulunacak öğretim üyeleri, kadrolarının bulunduğu 
+ilgili fakülte dekanının olumlu görüşünü, kurulması teklif edilen enstitü anabilim/anasanat dalı 
+başvuru dosyasına koyarlar. 
+ 
+  Senato Karar Ekidir 
+(3)  Kurulması teklif edilen enstitü anabilim/anasanat dalı,enstitü kurulunda görüşülür ve uygun 
+görülmesi halinde teklif görüşülmek üzere Senatoya gönderilir. 
+ 
+(4)  Kurulması teklif edilen ve Senatoda görüşülen enstitü anabilim/anasanat dalı önerisi, 
+Yükseköğretim Kuruluna onay için gönderilir. 
+ 
+Disiplinlerarası Lisansüstü Programların Açılması Teklifi 
+MADDE 22 - (1) Disiplinlerarası Lisansüstü programların enstitü bünyesinde açılması ve 
+yürütülmesi esastır. 
+ 
+(2)  Açılması teklif edilecek olan disiplinlerarası lisansüstü programlar için, lisansüstü eğitim-
+öğretim programı açılması ve yürütülmesine dair ilkelere göre hazırlanan başvuru dosyasının 
+ilgili enstitüye sunulması şarttır. Bu dosyada programın amacı, ilgili programda ders vererek 
+katkıda bulunacak olan öğretim üyelerinin listesi, program kapsamında verilecek olan derslerin 
+listesi ve içerikleri  ile yüksek lisans için en az üç, doktora için en az altı öğretim üyesinin 
+imzasının bulunması gerek lidir. Program açılabilmesi için asgari gereklilikleri sağlayan 
+öğretim üyelerinin halihazırda  başka bir disiplinler arası programda görevli olmaması 
+gereklidir. Başvuru ilgili enstitü yöne tim ku rulu tarafından değerlendirilir.  Enstitü yönetim 
+kurulu gerek görürse ilgili öğretim üyelerinden, enstitü anabilim/anasanat dallarından ya da 
+Dekanlıklardan görüş alır. Başvuru  dosyası uygun bulunursa , görüşülmek üzere ilgili enstitü 
+kuruluna gönderilir.  
+ 
+(3)  Açılması teklif edilen disiplinlerarası lisansüstü programlarına katkıda bulunacak öğretim 
+üyeleri, hazırladıkları gerekçeli yazıları ile kadrolarının bulunduğu ilgili fakülte dekanlığına 
+başvuru yaparak görüş talep eder ve bu görüşü açılması teklif edilen program başvuru dosyasına 
+koyarlar. 
+ 
+(4)  Açılması teklif edilen Disiplinlerarası Lisansüstü program teklifi enstitü kurulunda uygun 
+görülmesi halinde Senatoya gönderilir. 
+ 
+(5) Senatoda görüşülen ve kurulması önerilen Disi plinlerarası Lisans üstü program  Rektör 
+tarafından Yükseköğretim Kuruluna onay için önerilir. 
+ 
+Disiplinlerarası Lisansüstü Programların Yürütülme Esasları 
+MADDE 23 - (1) Bir e nstitü anabilim/anasanat dalı altında yürütülmekte olan ancak 
+disiplinlerarası nitelikte açılmış olan lisansüstü programlar; 
+a) İlgili enstitü anabilim/anasanat dalı akademik kurulu kararı ile enstitü bünyesinde yer alan 
+mevcut bir enstitü anabilim/anasanat dalı altında, 
+b) Teklif edilen yeni bir enstitü anabilim/anasanat dalı olarak enstitü bünyesinde yürütülür.  
+ 
+(2) Disiplinlerarası enstitü anabilim/anasanat dalı başkanı,  ilgili enstitü müdürü tarafından üç 
+yıl için atanır ve  disiplinlerarası lisansüstü programların işleyiş ve koordinasyonundan 
+sorumludur. 
+ 
+(3) Disiplinlerarası enstitü anabilim/anasanat dalı programlarının eğitim hedefleri, programlara 
+giriş ve mezuniyet koşulları, programların içerdiği zorunlu ve seçmeli dersleri, bunların 
+kredileri ve benzeri değişiklik teklifleri enstitü kurulu kararı ve Senatonun onayı ile belirlenir. 
+ 
+(4)  YÖK tarafından programın açılması için gerekli asgari koşulun sağlanmasında görev alan 
+öğretim üyeleri , disiplinlerarası enstitü anabilim/anasanat dalı kurulunu oluşturur . Gerektiği 
+  Senato Karar Ekidir 
+durumlarda enstitü yönetim kurulu, disiplinlerarası  enstitü anabilim/anasanat dalı kurulunda 
+değişiklik yapabilir.  
+ 
+Derslerin Açılması ve Ders Sorumluları 
+MADDE 24 - (1) Bursa Uludağ Üniversitesi Lisansüstü Eğitim Öğretim Yönetmeliğinin ilgili 
+maddelerine göre her yarıyıl açılacak dersler ve bunların soru mlu öğretim üyeleri, 
+disiplinlerarası enstitü anabilim/anasanat dalı kurulu tarafından belirlenerek ilgili enstitüye 
+gönderilir. 
+ 
+(2) Disiplinlerarası enstitü anabilim/anasanat dalı programı öğrencilerinin tez danışmanları 
+disiplinlerarası enstitü  anabilim/anasanat dalı kurulu teklifi üzerine Enstitü yönetim kurulu 
+kararı ile belirlenir.  
+ 
+ 
+Kontenjanlar 
+MADDE 25 –  (1) Disiplinlerarası enstitü  anabilim/anasanat dalı programlarına alınacak 
+öğrenci kontenjanları disiplinlerarası enstitü  anabilim/anasanat dalı kurulunun teklifi ve Enstitü  
+Kurulunun uygun görüşü üzerine Senato tarafından belirlenir. 
+ 
+Öğretim üyelerinin başvuruları 
+MADDE 26 – (1) Disiplinlerarası enstitü  anabilim/anasanat dalı programlarına öğretim üyesi 
+eklenmesi ya da program dahilindeki bir öğretim üyesinin ayrılması için, ilgili öğretim üyesinin, 
+disiplinler arası anabilim / anasanat dalı başkanlığına  dilekçe ve özgeçmişi  ile başvuruda 
+bulunması gerekir. 
+ 
+(2) İlgili başvuru disiplinler arası anabilim / ana sanat dalı kurulu tarafından değerlendirilir. 
+ 
+(3) Değerlendirme sonucu, anabilim / anasanat dalı kurulunun gerekçeli kararı ile ilgili 
+enstitüye gönderilir. Enstitü, dahil olma talebinde ilgili fakülte dekanının görüşünü alır.  Enstitü 
+yönetim kurulu, öğretim üyesinin dahil olma veya ayrılma durumuna karar verir.  
+ 
+Kayıt dondurma 
+MADDE 27 – (1) Öğrencinin, aşağıda belirtilen haklı ve geçerli nedenlerinin varlığı halinde 
+enstitü yönetim  kurulunca kaydının bir defada en çok iki yarıyıl dondurulmasına karar 
+verilebilir; 
+a) Sağlık raporu ile belgelenmiş sağlıkla ilgili mazereti olmak, 
+b) 2547 sayılı Kanun hükümleri uyarınca yükseköğretimin aksaması sonucunu doğuracak 
+olaylar dolayısıyla öğrenime YÖK kararı ile ara verilmiş olmak, 
+c) Doğal afetler nedeniyle öğrenime ara vermek zorunda kalmak, 
+d) Eşinin veya birinci dereceden kan yahut kayın hısımlarının acil hastalığı halinde bakacak 
+başka kimsenin bulunmaması nedeniyle, öğrenime ara vermek zorunda olduğunu 
+belgelendirmek, 
+e) Tecil hakkını kaybetmek veya tecilinin kaldırılması suretiyle askere alınmak, 
+f) Tutukluluk hali oluşmak, 
+g) 18/8/2012 tarihli ve 28388 sayılı Resmî Gazete’de yayımlanan Yükseköğretim Kurumları 
+Öğrenci Disiplin Yönetmeliği hükümlerine göre öğrencilik sıfatını kaldırmayan veya 
+Üniversiteden çıkarılmasını gerektirmeyen mahkûmiyet hali oluşmak, 
+h) Enstitü yönetim kurulunca haklı ve geçerli kabul edilecek diğer nedenler belirterek 
+başvuruda bulunmak. 
+ 
+  Senato Karar Ekidir 
+(2) Birinci fıkrada belirtilen haklı ve geçerli nedenin kabul edilebilmesi için, bu nedenin 
+doğuşundan itibaren en geç 15  (onbeş) gün içinde enstitü müdürlüğüne bildirilmesi gerekir. 
+ 
+(3)  Kayıt dondurma, aynı  usul ve şartlarda tekrar edilebilir. 
+ 
+(4)  Kayıt dondurma süresi eğitim öğretim süresinden sayılmaz.  
+ 
+(5)  Kayıt dondurulan süre içinde girilen dersler, ders sınavları ve tez sınavları geçersiz sayılır. 
+ 
+ 
+ 
+ALTINCI BÖLÜM 
+Çeşitli ve Son Hükümler 
+ 
+Esaslarda hüküm bulunmayan haller 
+MADDE 28 – (1) Bu Esaslarda hüküm bulunmayan hallerde, Yükseköğretim Kurulu, 
+Üniversitelerarası Kurul, Senato, Enstitü Kurulu ve Enstitü Yönetim Kurulu kararları 
+uygulanır. 
+ 
+Yürürlük 
+MADDE 29 – (1) Bu esaslar 2020-2021 Eğitim-Öğretim yılı Güz yarıyılından itibaren 
+yürürlüğe girer.  
+ 
+Yürütme 
+MADDE 30 – (1) Bu esasların hükümlerini Bursa Uludağ Üniversitesi Rektörü yürütür. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ek 1. Mezuniyet şartı ilkeleri ve gerekli belgeler 
+ 
+BURSA ULUDAĞ ÜNİVERSİTESİ 
+EĞİTİM, FEN, SAĞLIK VE SOSYAL BİLİMLER ENSTİTÜLERİ 
+LİSANSÜSTÜ ÖĞRENCİLER İÇİN MEZUNİYET ŞARTI İLKELERİ VE GEREKLİ BELGELER  
+ 
+İLKELER 
+1- Makalelerde QS sınıflandırmasına göre Q1 ve Q2 sınıfına giren dergilerde yayınlanan makalelerden en çok 3 
+(üç), diğer makalelerden 1 (bir) öğrenci mezuniyet yayın şartını sağlamak için faydalanabilir. Yayındaki isim sırası 
+dikkate alınmayacak olup makalenin  hangi öğrenci/öğrencilerin mezuniyetinde kul lanılacağını gösteren beyan 
+formuna göre işlem yapılacaktır. 
+  Senato Karar Ekidir 
+2- Yayın yapılan derginin yağmacı ve sahte sınıfında olup olmadığının kontrolünün yayın sahipleri tarafından 
+yapılması gereklidir. Bursa Uludağ Üniversitesi Kütüphanesi tarafından erişime açılan 
+“https://beallslist.yolasite.com/” yağmacı ve sahte Dergi Veritabanı”ndaki dergilerde yapılan yayınlar mezuniyet 
+yayın şartı değerlendirmesinde kabul edilmeyecektir.  
+3-Sözlü sunum ya da poster faaliyetlerinden 1 (bir) öğrenci mezuniyet yayın şartını sağla mak için faydalanabilir. 
+Sunumdaki isim sırası dikkate alınmayacak olup makalenin  hangi öğrenci/öğrencilerin mezuniyetinde 
+kullanılacağını gösteren beyan formuna göre işlem yapılacaktır. 
+4- Sözlü sunum ya da poster faaliyetlerinden faydalanmak için sunumun  yayın şartını sağlayacak öğrenci 
+tarafından yapılmış olması gereklidir. 
+5- Mezuniyet şartı olarak sunulacak tüm faaliyetlerin YÖKSİS veri tabanına kaydının yapılması esastır. YÖKSİS veri 
+tabanında kaydı yapılmayan faaliyetler değerlendirmeye alınmaz. 
+ 
+GEREKLİ BELGELER 
+YÜKSEK LİSANS 
+Kriter İstenen Belgeler 
+a) Ulusal/uluslararası hakemli dergilerde 
+yayınlanmış veya yayına kabul edilmiş en az bir 
+makalesinin olması, 
+1. Ulusal/uluslararası hakemli dergi olduğunu gösteren belge 
+2. Derginin hangi indekste tarandığını gösteren belge 
+3. Yayının kendisi ya da yayına kabul belgesi 
+4. Yayının hangi öğrenci / öğrencilerin mezuniyetinde kullanılacağını 
+gösteren beyan formu 
+5. YÖKSİS veri tabanında kaydı gösterir belge 
+b) Ulusal/uluslararası hakemli etkinliklerde 
+sunulmuş ve bildiri kitapçığında özeti veya tam 
+metni basılmış sözlü sunum ya da poster sunum 
+çalışması yapmış olması, 
+1. Etkinliğin hakemli olduğunu gösteren belge 
+2. Etkinliğin bilim ve danışma kurulunu gösteren belge 
+3. Öğrenciye ait Kongre Katılım Belgesi 
+4. Bildiri özeti veya tam metni 
+5. Bildiri programı 
+6. Yayının hangi öğrenci / öğrencilerin mezuniyetinde kullanılacağını 
+gösteren beyan formu 
+7. YÖKSİS veri tabanında kaydı gösterir belge 
+c) Ulusal/Uluslararası bir projede araştırmacı ya 
+da bursiyer  olarak en az 3 ay görev yapmış 
+olması,  
+1. İlgili projenin Ulusal/Uluslararası kapsamda olduğunu gösteren 
+belge 
+2. Öğrencinin bursiyer olarak en az 3 ay çalıştığını gösteren onaylı 
+belge 
+3. Projenin YÖKSİS veri tabanında kaydı gösterir belge 
+d) Başvurusu yapılmış  patent/faydalı 
+model/endüstriyel tasarımı belgelemiş olması ya 
+da mimari tasarım veya çeşit tescili belgelenmiş 
+olması 
+1. Başvuru belgesi 
+2. YÖKSİS veri tabanında kaydı gösterir belge 
+e) ERASMUS, Mevlana, TÜBİTAK, YÖK, mesleki 
+kurumlar ya da Rektörlük desteği ile alanında 
+çalışmak üzere (eğitim dahil) en az 2 ay süre ile 
+yurtdışında bulunması. 
+1. İlgili program ya da kurumun onay belgesi 
+2. İlgili süreyi gösteren pasaport fotokopisi 
+ 
+ 
+ 
+ 
+  Senato Karar Ekidir 
+ 
+ 
+ 
+ 
+ 
+DOKTORA 
+Kriter İstenen Belgeler 
+a) Fen ve Sağlık Bilimleri Enstitülerinde SCI, 
+SSCI, AHCI, SCI-Expanded taranan bir dergide 
+yayımlanan ya da yayıma kabul edilen en az bir 
+özgün araştırma makalesi 
+Sosyal ve Eğitim Bilimleri Enstitülerinde SCI, 
+SSCI, AHCI, SCI-Expanded indekslerce taranan 
+ya da TR-dizinde taranan bir dergide 
+yayımlanan ya da yayıma kabul edilen en az bir 
+özgün araştırma makalesi 
+1. Derginin hangi indekste tarandığını gösteren belge 
+2. Yayının kendisi ya da DOI numarası içeren bir yayına kabul belgesi 
+3. Yayının hangi öğrenci / öğrencilerin mezuniyetinde kullanılacağını 
+gösteren beyan formu 
+4. YÖKSİS veri tabanında kaydı gösterir belge 
+b1) Ulusal/uluslararası hakemli dergilerde 
+yayınlanmış veya yayına kabul edilmiş en az bir 
+araştırma makalesinin olması,  
+1. Derginin hakemli dergi olduğunu gösteren belge 
+2. Derginin hangi indekste tarandığını gösteren belge 
+3. Yayının kendisi ya da DOI numarası içeren bir yayına kabul belgesi 
+4. Yayının hangi öğrenci / öğrencilerin mezuniyetinde kullanılacağını 
+gösteren beyan formu 
+5. YÖKSİS veri tabanında kaydı gösterir belge 
+b2) Ulusal/uluslararası hakemli etkinliklerde 
+sunulmuş ve bildiri kitapçığında özeti veya tam 
+metni basılmış sözlü sunum çalışması yapmış 
+olması, 
+ 
+1. Etkinliğin ulusal/uluslararası hakemli olduğunu gösteren belge 
+2. Etkinliğin bilim ve danışma kurulunu gösteren belge 
+3. Öğrencinin Kongre Katılım Belgesi 
+4. Bildiri özeti veya tam metni 
+5. Bildiri programı 
+6. Yayının hangi öğrenci / öğrencilerin mezuniyetinde kullanılacağını 
+gösteren beyan formu 
+7. YÖKSİS veri tabanında kaydı gösterir belge 
+b3) Ulusal (TÜBİTAK ya da BAP)/uluslararası bir 
+projede araştırmacı/bursiyer olarak en az 3 ay 
+görev yapmış olması,  
+ 
+1. İlgili projenin Ulusal/Uluslararası kapsamda olduğunu gösteren 
+belge 
+2. Öğrencinin bursiyer olarak en az 3 ay çalıştığını gösteren onaylı 
+belge 
+3. Projenin YÖKSİS veri tabanında kaydı gösterir belge 
+b4) Tescil edilmiş patent / faydalı 
+model/endüstriyel tasarımı belgelemiş olması 
+ya da mimari tasarım veya çeşit tescili 
+belgelenmiş olması 
+ 
+1- Tescil belgesi 
+2- Tescilin YÖKSİS veri tabanında kaydı gösterir belge 
+b5) ERASMUS, Mevlana, TÜBİTAK YÖK, mesleki 
+kurumlar ya da Rektörlük desteği ile alanında 
+çalışmak üzere (eğitim dahil) en az 2 ay süre ile 
+yurtdışında bulunması, 
+ 
+1. İlgili program yada kurumun onay belgesi 
+2. İlgili süreyi gösteren pasaport fotokopisi 
+ 
+b6) Güz el Sanatlar alanında Sanatta Yeterlilik 
+programları için; Resim Anasanat Dalı'nda 
+uluslararası jürili (seçici kurulu) olan yarışmalı 
+sergi, bienal ve trienalleri kapsayan bir sanat 
+etkinliğine eseri ile katılması ve bu eserin basılı 
+yada elektronik katalog da yayımlanmış olması 
+veya jürili sanat etkinliklerinde ödül almış 
+olması; Müzik Anasanat Dalı'nda ise Sanatta 
+Yeterlik program içeriğinde yer alan eserler yada 
+eş değer düzeyde en az 50 dakika süreli bir 
+resital (konser) etkinliği gerçekleştirmiş olması. 
+1. Sanatsal etkinliğe ya da sanatsal ürüne ait cd kaydı/basılı ya da 
+elektronik kataloğu.  
+2. Uluslararası sanatsal etkinliğin seçici kurulunu gösteren belge 
+3. Sanatsal etkinliğin afişi, programı vb broşürü.  
+4. Jürili sanatsal etkinlikte ödül alınmış ise belgesi 
