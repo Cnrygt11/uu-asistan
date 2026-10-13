@@ -489,7 +489,7 @@
   {
     "id": "S038",
     "soru": "İkinci öğretimdeyim, %10'a girersem harç ödemiyor muyum? Şartı ne? 2019'da kayıt oldum.",
-    "beklenen_cevap": "Bölümünde yarıyıl sonu sıralamasında ilk %10'a giren ikinci öğretim öğrencileri, bir sonraki dönem birinci öğretim katkı payı kadar ücret öder (tamamen muaf olmaz). Sıralama YANO'ya göre yapılır. Genel kuralda YANO'su 3.00'ün altında olanlar değerlendirmeye alınmaz; ancak 2019-2020 ve öncesinde kayıt olanlar için bu sınır 2.50'dir. 2019'da kayıt olduğunuz için sınırınız 2.50'dir. Ayrıca o dönem ve önceki dönemlerdeki tüm dersleri almış ve başarmış olmanız gerekir; yaz okulu sonuçları sayılmaz.",
+    "beklenen_cevap": "Tamamen muaf olmazsın: bölümünde yarıyıl sonu sıralamasında ilk %10'a giren ikinci öğretim öğrencileri, bir sonraki dönem birinci öğretim katkı payı kadar ücret öder. Sıralama YANO'ya göre yapılır. Genel kuralda YANO'su 3.00'ün altında olanlar değerlendirmeye alınmaz; ancak 2019-2020 ve öncesinde kayıt olanlar için bu sınır 2.50'dir. 2019'da kayıt olduğunu söylediğin için senin sınırın 2.50. Ayrıca o dönemdeki ve önceki dönemlerdeki tüm derslerini almış ve geçmiş olman gerekir; yaz okulu sonuçları sayılmaz.",
     "kaynaklar": [
       {"belge": "EOY", "madde": "35", "alinti": "birinci öğretim öğrencilerinin ödeyecekleri öğrenci katkı payı kadar öğrenim ücreti öder"},
       {"belge": "EOY", "madde": "35", "alinti": "YANO’su 3.00’ün altında olan öğrenciler değerlendirmeye alınmaz"},
