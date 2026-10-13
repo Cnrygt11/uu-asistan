@@ -17,8 +17,11 @@ BOLUM = re.compile(
 )
 EKLER = re.compile(r"^EKLER\s*:?$")
 FIKRA = re.compile(r"^\((\d+)\)")
-# a) b) ... ğ) ı) ; i) ii) iv) ; 2) gibi numaralı bentler ; madde işareti
-BENT = re.compile(r"^(?:[a-zçğıöşü]{1,4}\)|\d+\)|•)\s?")
+# a) b) ... ğ) ı) ; i) ii) iv) ; 2) gibi numaralı bentler ; madde işareti.
+# Sayı en fazla iki hane: satır sonunda bölünen "(Değişik ibare:RG-18/8/2024-\n32636)" bent sanılmasın.
+BENT = re.compile(r"^(?:[a-zçğıöşü]{1,4}\)|\d{1,2}\)|•)\s?")
+# Tireyle biten satırın devamı ("eğitim-" + "öğretim", "2019-" + "2020")
+TIRE_DEVAMI = re.compile(r"[0-9A-Za-zÇĞİÖŞÜçğıöşü]-$")
 DEGISIKLIK = re.compile(r"\((Değişik|Mülga|Ek)(?: ibare)?\s*:\s*RG-\s*(\d{1,2}/\d{1,2}/\d{4})\s*-\s*(\d+)\)")
 CUMLE_SONU = (".", ":", ";", ",")
 
@@ -95,10 +98,10 @@ def paragraflar(satirlar: list) -> list:
     for s in satirlar:
         if not s:
             continue
-        if not sonuc or FIKRA.match(s) or BENT.match(s):
+        if sonuc and TIRE_DEVAMI.search(sonuc[-1]) and (s[:1].islower() or s[:1].isdigit()):
+            sonuc[-1] += s  # tireyle bölünmüş kelime/tarih: araya boşluk girmez, yeni paragraf açılmaz
+        elif not sonuc or FIKRA.match(s) or BENT.match(s):
             sonuc.append(s)
-        elif sonuc[-1].endswith("-") and s[:1].islower():
-            sonuc[-1] += s  # "eğitim-" + "öğretim"
         else:
             sonuc[-1] += " " + s
     return sonuc

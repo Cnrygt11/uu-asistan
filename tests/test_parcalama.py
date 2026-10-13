@@ -7,7 +7,9 @@ import pytest
 from uuasistan import DATA, KOK
 from uuasistan.hazirla import INDEKS_KAPSAMI, belge_maddeleri, katalog, madde_durumlari, parcalar_uret
 from uuasistan.metin import temizle
-from uuasistan.parcalama import UZUNLUK_SINIRI, Madde, madde_parcalari, maddelere_ayir
+from uuasistan.parcalama import (
+    BENT, BOLUM, EKLER, MADDE_BASI, UZUNLUK_SINIRI, Madde, madde_parcalari, maddelere_ayir, paragraflar,
+)
 
 sys.path.insert(0, str(KOK / "scripts"))
 import test_seti_dogrula  # noqa: E402
@@ -39,6 +41,27 @@ def test_madde_numaralari_ardisik(belge):
         nolar = [m.no for m in maddeler if m.gecici == gecici]
         assert nolar == list(range(1, len(nolar) + 1)), f"{belge['id']} {'geçici ' if gecici else ''}maddeler: {nolar}"
     assert any(not m.gecici for m in maddeler)
+
+
+@pytest.mark.parametrize("belge", [b for b in BELGELER if b.get("kapsam") in INDEKS_KAPSAMI], ids=lambda b: b["id"])
+def test_metin_kaybi_yok(belge):
+    """İlk maddeden EKLER'e kadar her satır bir madde gövdesinde, başlığında ya da bölüm başlığında bulunur."""
+    satirlar = (DATA / belge["metin"]).read_text("utf-8").splitlines()
+    ilk = next(i for i, s in enumerate(satirlar) if MADDE_BASI.match(s))
+    son = next((i for i, s in enumerate(satirlar) if EKLER.match(s)), len(satirlar))
+    kapsanan = bosluksuz(" ".join(f"{m.baslik} {m.bolum} {' '.join(m.satirlar)}" for m in belge_maddeleri(belge)))
+    kayip = [
+        s for s in satirlar[ilk:son]
+        if s and not MADDE_BASI.match(s) and not BOLUM.match(s) and bosluksuz(s.rstrip(".:;,")) not in kapsanan
+    ]
+    assert not kayip
+
+
+def test_bent_isaretleri_makul(parcalar):
+    """Paragraf başındaki her bent işareti gerçek bir bent işareti olmalı (sahte bölünme yok)."""
+    isaretler = {BENT.match(s)[0].strip() for p in parcalar for s in p["metin"].splitlines() if BENT.match(s)}
+    gecerli = re.compile(r"^(?:[a-zçğıöşü]\)|[ivx]{1,4}\)|\d\)|•)$")
+    assert {i for i in isaretler if not gecerli.match(i)} == set()
 
 
 def test_test_seti_alintilari_tek_parcada(parcalar):
@@ -141,6 +164,14 @@ def test_madde_yazim_cesitleri():
 def test_satir_kirilmalari_birlestirilir():
     m = maddelere_ayir("Başlık\nMADDE 1 – (1) Bu bir eğitim-\nöğretim kuralıdır ve\nuzun bir cümledir.\n(2) İkinci fıkra.\n")[0]
     assert madde_parcalari(m) == [([1, 2], "(1) Bu bir eğitim-öğretim kuralıdır ve uzun bir cümledir.\n(2) İkinci fıkra.")]
+
+
+def test_satir_sonunda_bolunen_degisiklik_notu_bent_sanilmaz():
+    """EOY 12/1: '(Değişik ibare:RG-18/8/2024-' + '32636) birim…' yeni paragraf açmamalı."""
+    assert paragraflar(["(1) Ancak (Değişik ibare:RG-18/8/2024-", "32636) birim kurulunun önerisi.", "a) Bent."]) == [
+        "(1) Ancak (Değişik ibare:RG-18/8/2024-32636) birim kurulunun önerisi.",
+        "a) Bent.",
+    ]
 
 
 def test_uzun_madde_fikralardan_bolunur():

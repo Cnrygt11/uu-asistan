@@ -42,6 +42,13 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 | 6 | **PDF kelime kırılmaları.** pypdf "giri ş", "öğr encilerin" gibi kırıklar üretiyordu. | ✅ Metin çıkarma PyMuPDF'e taşındı; kırıklar kayboldu. |
 | 7 | **Sayfa gürültüsü.** "Senato Karar Eki" başlıkları, sayfa numaraları, üç satıra bölünen madde başları (`MADDE`/`1`/`–`). | ✅ `uuasistan/metin.py`; madde numaralarının ardışıklığı testle korunuyor. |
 
+## Dönem başı bakım
+Mevzuat değiştiğinde asistan sessizce yanlış bilgi vermeye başlar. Her eğitim-öğretim dönemi başında:
+1. `python scripts/guncellik_kontrol.py`: EOY ve YAZ'ın değişiklik geçmişini mevzuat.gov.tr ile karşılaştırır (son kontrol: Ekim 2026, ikisi de güncel).
+2. KAYSIS'te Senato yönergelerinin (UYG, OZEL, GEC, YAB) yeni sürümü var mı, elle bakılır.
+3. [data/madde_durumu.json](data/madde_durumu.json) gözden geçirilir; süresi dolan geçici maddeler `suresi_dolmus` yapılır.
+4. Değişiklik varsa: PDF güncellenir → `python -m uuasistan.hazirla` → `python -m pytest` → etkilenen test soruları yeniden onaylanır.
+
 ## Parçalama (Adım 1)
 - Her madde bir parça; 1500 karakteri aşan maddeler fıkra sınırlarından, tek başına uzun fıkralar bent sınırlarından bölünür (fıkranın giriş cümlesi her alt parçada tekrarlanır). Paragraf ortasından asla bölünmez.
 - Her parça: belge, madde, başlık, bölüm, fıkra numaraları, değişiklik bilgisi, kaynak URL ve varsa güncellik/kayıt yılı etiketi taşır.

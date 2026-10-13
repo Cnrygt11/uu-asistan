@@ -5,11 +5,19 @@
     "tur": "yonetmelik",
     "kapsam": "v1",
     "resmi_gazete": "20/9/2020 - 31250",
-    "islenmis_degisiklikler": ["RG-7/3/2023-32125", "RG-18/8/2024-32636"],
+    "islenmis_degisiklikler": [
+      "RG-7/3/2023-32125",
+      "RG-18/8/2024-32636"
+    ],
     "metin": "text/kaysis/167318.txt",
     "ham": "raw/kaysis/167318.pdf",
     "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167318",
-    "not": "KAYSIS konsolide metni; 2023 ve 2024 değişiklikleri işlenmiş. Ana kaynak."
+    "not": "KAYSIS konsolide metni; 2023 ve 2024 değişiklikleri işlenmiş. Ana kaynak.",
+    "mevzuat_gov_tr": {
+      "mevzuatNo": 34870,
+      "mevzuatTur": "UniversiteYonetmeligi",
+      "mevzuatTertip": 5
+    }
   },
   {
     "id": "YAZ",
@@ -20,7 +28,12 @@
     "metin": "text/kaysis/167130.txt",
     "ham": "raw/kaysis/167130.pdf",
     "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167130",
-    "not": "Madde 7 ve 13 mülga 2014 tarihli 'Önlisans ve Lisans Öğretim Yönetmeliği'ne atıf yapıyor; fiilen EOY anlaşılmalı."
+    "not": "Madde 7 ve 13 mülga 2014 tarihli 'Önlisans ve Lisans Öğretim Yönetmeliği'ne atıf yapıyor; fiilen EOY anlaşılmalı.",
+    "mevzuat_gov_tr": {
+      "mevzuatNo": 34815,
+      "mevzuatTur": "UniversiteYonetmeligi",
+      "mevzuatTertip": 5
+    }
   },
   {
     "id": "UYG",
