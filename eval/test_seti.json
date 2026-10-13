@@ -488,15 +488,15 @@
   },
   {
     "id": "S038",
-    "soru": "İkinci öğretimdeyim, %10'a girersem harç ödemiyor muyum? Şartı ne? 2019'da kayıt oldum.",
-    "beklenen_cevap": "Tamamen muaf olmazsın: bölümünde yarıyıl sonu sıralamasında ilk %10'a giren ikinci öğretim öğrencileri, bir sonraki dönem birinci öğretim katkı payı kadar ücret öder. Sıralama YANO'ya göre yapılır. Genel kuralda YANO'su 3.00'ün altında olanlar değerlendirmeye alınmaz; ancak 2019-2020 ve öncesinde kayıt olanlar için bu sınır 2.50'dir. 2019'da kayıt olduğunu söylediğin için senin sınırın 2.50. Ayrıca o dönemdeki ve önceki dönemlerdeki tüm derslerini almış ve geçmiş olman gerekir; yaz okulu sonuçları sayılmaz.",
+    "soru": "İkinci öğretimdeyim, %10'a girersem harç ödemiyor muyum? Şartı ne? 2023'te kayıt oldum.",
+    "beklenen_cevap": "Tamamen muaf olmazsın: bölümünde yarıyıl sonu sıralamasında ilk %10'a giren ikinci öğretim öğrencileri, bir sonraki dönem birinci öğretim katkı payı kadar ücret öder. Sıralama YANO'ya göre yapılır ve YANO'su 3.00'ün altında olanlar değerlendirmeye alınmaz. Ayrıca o dönemdeki ve önceki dönemlerdeki tüm derslerini almış ve geçmiş olman gerekir; yaz okulu sonuçları sayılmaz.",
     "kaynaklar": [
       {"belge": "EOY", "madde": "35", "alinti": "birinci öğretim öğrencilerinin ödeyecekleri öğrenci katkı payı kadar öğrenim ücreti öder"},
-      {"belge": "EOY", "madde": "35", "alinti": "YANO’su 3.00’ün altında olan öğrenciler değerlendirmeye alınmaz"},
-      {"belge": "EOY", "madde": "Geçici 4", "alinti": "2.50 ve üzeri olarak uygulanır"}
+      {"belge": "EOY", "madde": "35", "alinti": "YANO’su 3.00’ün altında olan öğrenciler değerlendirmeye alınmaz"}
     ],
     "kategori": "kosullu",
     "zorluk": "zor",
+    "not": "TUZAK: Geçici Madde 4'teki 2.50 sınırı yalnızca 2019-2020 ve öncesinde kayıt olanlar içindir; 2023 kaydına uygulanırsa cevap yanlış sayılır. (2019 kayıtlı 4 yıllık öğrenci 2026'da azami süreyi aşmış olacağı için zaten değerlendirmeye alınmaz, EOY 35/2-d; bu yüzden gerçekçi senaryo olarak güncel bir kayıt yılı seçildi.)",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   },
