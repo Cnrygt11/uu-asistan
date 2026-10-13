@@ -1,0 +1,39 @@
+{
+  "aciklama": "Belirli kayıt yıllarına bağlı (geçici) maddelerin uygulanabilirlik durumu. Kaynak metinler (text/) değiştirilmez; bu dosya Adım 1'de indekslemeyi yönlendirir. 'suresi_dolmus' maddeler arama indeksine alınmaz; 'sureli' maddeler kayit_yili_en_gec etiketiyle indekslenir.",
+  "olcut": "Bir madde, kapsadığı en son kayıt yılından itibaren 12 eğitim-öğretim yılı (en uzun program 9 yıl + hazırlık 1 yıl + en uzun izin 2 yıl) geçtiyse kimseye uygulanamaz kabul edilir.",
+  "son_gozden_gecirme": "2026-2027",
+  "maddeler": [
+    {
+      "belge": "EOY",
+      "madde": "Geçici 1",
+      "konu": "Eski kayıtlıların AKTS şartı olmadan mezuniyeti",
+      "kayit_yili_en_gec": "2013-2014",
+      "son_olasi_yil": "2024-2025",
+      "durum": "suresi_dolmus"
+    },
+    {
+      "belge": "EOY",
+      "madde": "Geçici 2",
+      "konu": "Azami sürenin 2014-2015 güzünden başlatılması",
+      "kayit_yili_en_gec": "2014-2015",
+      "son_olasi_yil": "2025-2026",
+      "durum": "suresi_dolmus"
+    },
+    {
+      "belge": "EOY",
+      "madde": "Geçici 3",
+      "konu": "GANO 1.99 ve altı olan eski kayıtlıların ders yükü",
+      "kayit_yili_en_gec": "2015-2016",
+      "son_olasi_yil": "2026-2027",
+      "durum": "sureli"
+    },
+    {
+      "belge": "EOY",
+      "madde": "Geçici 4",
+      "konu": "%10 değerlendirmesinde 2.50 YANO sınırı",
+      "kayit_yili_en_gec": "2019-2020",
+      "son_olasi_yil": "2030-2031",
+      "durum": "sureli"
+    }
+  ]
+}

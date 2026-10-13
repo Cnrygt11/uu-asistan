@@ -33,8 +33,9 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 1. **Eski sürüm tuzağı.** İnternette EOY'nin 2014 ve 2020 orijinal kopyaları dolaşıyor. 2023 değişikliği Eğitim Fakültesi'ni devam istisnasından çıkardı, 2024 değişikliği kayıt dondurma kurallarını değiştirdi. Derlemde yalnızca KAYSIS'teki konsolide metin kullanılmalı.
 2. **GEC 2014 tarihli.** YGS/LYS'ye atıf yapıyor, ÇAP GANO eşiği (2.72) YÖK'ün güncel yönetmeliğiyle çelişiyor olabilir. Bu belgeden üretilen cevaplara otomatik güncellik uyarısı eklenmeli.
 3. **YAZ, mülga yönetmeliğe atıf yapıyor.** Madde 7 ve 13 "Önlisans ve Lisans Öğretim Yönetmeliği"ni (2014) anıyor; bu atıf EOY olarak çözülmeli.
-4. **PDF kodlama hatası.** 61283'te `Ġ→İ`, `ġ→Ş`, `Ģ→ş` bozulması vardı; elle düzeltildi, temizleme hattına kural olarak eklenmeli.
-5. **PDF kelime kırılmaları.** "öğr encilerin", "pro gramlanmış" gibi. BM25 ve embedding kalitesini düşürür, temizlenmeli.
+4. **Süreli (geçici) maddeler.** EOY'nin geçici maddeleri belirli kayıt yıllarına uygulanır ve zamanla geçersiz hale gelir. Durumları [data/madde_durumu.json](data/madde_durumu.json) dosyasında tutulur: süresi dolanlar (Geçici 1, 2) indekse alınmaz, süreli olanlar (Geçici 3, 4) kayıt yılı etiketiyle indekslenir. Kaynak metinler değiştirilmez. **Her eğitim-öğretim yılı başında gözden geçirilmeli** (Geçici 3'ün süresi 2026-2027 sonunda doluyor).
+5. **PDF kodlama hatası.** 61283'te `Ġ→İ`, `ġ→Ş`, `Ģ→ş` bozulması vardı; elle düzeltildi, temizleme hattına kural olarak eklenmeli.
+6. **PDF kelime kırılmaları.** "öğr encilerin", "pro gramlanmış" gibi. BM25 ve embedding kalitesini düşürür, temizlenmeli.
 
 ## Başarı ölçütü
 [eval/test_seti.json](eval/test_seti.json) üzerinde:

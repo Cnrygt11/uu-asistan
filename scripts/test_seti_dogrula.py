@@ -120,6 +120,21 @@ def main() -> int:
                 yer = "başka bir maddede" if bosluksuz(k["alinti"]) in bosluksuz(metin) else "belgede hiç"
                 hatalar.append(f"{sid}: {bid} m.{madde} alıntısı bu maddede yok ({yer} geçiyor): {k['alinti']!r}")
 
+    # Geçici maddelerin durumu: listedeki maddeler gerçekten var mı, test seti süresi dolmuşa dayanıyor mu
+    durum = json.loads((DATA / "madde_durumu.json").read_text("utf-8"))
+    dolmus = set()
+    for m in durum["maddeler"]:
+        if m["belge"] not in belgeler or not madde_var_mi(metinler[m["belge"]], m["madde"]):
+            hatalar.append(f"madde_durumu: {m['belge']} {m['madde']} belgede bulunamadı")
+        if m["durum"] not in {"suresi_dolmus", "sureli"}:
+            hatalar.append(f"madde_durumu: {m['belge']} {m['madde']} bilinmeyen durum {m['durum']!r}")
+        if m["durum"] == "suresi_dolmus":
+            dolmus.add((m["belge"], m["madde"]))
+    for s in sorular:
+        for k in s.get("kaynaklar", []):
+            if (k["belge"], str(k["madde"])) in dolmus:
+                hatalar.append(f"{s['id']}: süresi dolmuş maddeye dayanıyor ({k['belge']} {k['madde']})")
+
     sayim = Counter(s["kategori"] for s in sorular)
     print(f"{len(sorular)} soru | " + ", ".join(f"{k}={v}" for k, v in sorted(sayim.items())))
     davranis_sayim = Counter(d for s in sorular for d in s.get("beklenen_davranis", []))
