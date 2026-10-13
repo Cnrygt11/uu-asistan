@@ -63,13 +63,18 @@ Değerlendirme iki adımda yapılır:
 1. Asistan `soru`'ya cevap verir → fakülteyi sordu mu? (`netlestirme_sorar`)
 2. `ogrenci_yaniti` gönderilir → cevap `beklenen_cevap` ile karşılaştırılır.
 
-Her netleştirme sorusunun, fakültenin baştan belirtildiği eşleri vardır. Böylece hem farklı fakülte cevapları hem de "her seferinde fakülte sorma" hatası ölçülür:
+Netleştirme konuları:
+- `fakulte`: kural fakülteye göre farklı.
+- `kayit_yili`: yalnızca cevabı **süreli bir geçici madde** değiştiriyorsa (`data/madde_durumu.json`). Validator, bu sorunun süreli bir maddeyi kaynak gösterdiğini kontrol eder.
 
-| Netleştirmeli soru (öğrenci yanıtı) | Fakülteli eşleri (`netlestirme_sormaz`) |
+Her netleştirme sorusunun, bilginin baştan verildiği eşleri vardır. Böylece hem farklı durumların cevapları hem de "her seferinde sorma" hatası ölçülür:
+
+| Netleştirmeli soru (öğrenci yanıtı) | Bilgi verilmiş eşleri (`netlestirme_sormaz`) |
 |---|---|
 | S002: tekrar derste devam (Mühendislik → zorunlu değil) | S003 (Tıp → zorunlu), S004 (Eğitim → 2023'ten beri zorunlu değil) |
 | S026: mezuniyet AKTS (İİBF → 240) | S065 (Diş Hekimliği → 300) |
 | S047: bitiremezsem diploma (Mühendislik → önlisans) | S066 (Tıp → önlisans + lisans) |
+| S067: %10 YANO sınırı (2019 hazırlık → 2.50, Geçici 4) | S038 (2023 → 3.00) |
 
 ## Doğrulama
 ```
@@ -78,5 +83,5 @@ python scripts/test_seti_dogrula.py
 Şemayı, etiket tutarlılığını, talimat sızıntısını ve her alıntının belirtilen maddede birebir geçtiğini kontrol eder. Her değişiklikten sonra çalıştırın.
 
 ## Sıradaki işler
-1. **İnsan kontrolü.** 63 sorunun 1'i onaylı. Her birini okuyup `dogrulandi: true` yapın. S056–S058'deki (GEC) güncellik sorusunu Öğrenci İşleri'ne sorun.
+1. **İnsan kontrolü.** Onaysız soruları okuyup `dogrulandi: true` yapın (güncel sayı validator çıktısında). S056–S058'deki (GEC) güncellik sorusunu Öğrenci İşleri'ne sorun.
 2. **Gerçek öğrenci soruları.** Sentetik sorular öğrencilerin gerçekte nasıl sorduğunu yansıtmaz. Hedef en az 50 gerçek soru. Kaynaklar: anket (Google Form: "Okul kurallarıyla ilgili en son neyi merak ettin?"), öğrenci WhatsApp/Discord grupları, Öğrenci İşleri'ne en sık gelen sorular. Kişisel bilgileri silin; `kaynak_tipi: "gercek"` ile ekleyin.

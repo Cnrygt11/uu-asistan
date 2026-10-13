@@ -25,7 +25,7 @@ KATEGORILER = {
     "olgusal", "sayisal", "kosullu", "coklu_kaynak",
     "guncel_degisiklik", "celiski", "kapsam_disi", "ingilizce",
 }
-NETLESTIRME_KONULARI = {"fakulte"}
+NETLESTIRME_KONULARI = {"fakulte", "kayit_yili"}
 DAVRANISLAR = {
     "netlestirme_sorar", "netlestirme_sormaz", "bilgi_yok_der",
     "uydurmaz", "guncellik_uyarisi", "yonlendirir",
@@ -122,8 +122,10 @@ def main() -> int:
 
     # Geçici maddelerin durumu: listedeki maddeler gerçekten var mı, test seti süresi dolmuşa dayanıyor mu
     durum = json.loads((DATA / "madde_durumu.json").read_text("utf-8"))
-    dolmus = set()
+    dolmus, sureli = set(), set()
     for m in durum["maddeler"]:
+        if m["durum"] == "sureli":
+            sureli.add((m["belge"], m["madde"]))
         if m["belge"] not in belgeler or not madde_var_mi(metinler[m["belge"]], m["madde"]):
             hatalar.append(f"madde_durumu: {m['belge']} {m['madde']} belgede bulunamadı")
         if m["durum"] not in {"suresi_dolmus", "sureli"}:
@@ -134,6 +136,10 @@ def main() -> int:
         for k in s.get("kaynaklar", []):
             if (k["belge"], str(k["madde"])) in dolmus:
                 hatalar.append(f"{s['id']}: süresi dolmuş maddeye dayanıyor ({k['belge']} {k['madde']})")
+        # Kayıt yılı yalnızca cevabı süreli bir geçici madde değiştiriyorsa sorulur
+        if (s.get("netlestirme") or {}).get("konu") == "kayit_yili" and \
+                not any((k["belge"], str(k["madde"])) in sureli for k in s.get("kaynaklar", [])):
+            hatalar.append(f"{s['id']}: kayıt yılı soruluyor ama süreli bir geçici maddeye dayanmıyor")
 
     sayim = Counter(s["kategori"] for s in sorular)
     print(f"{len(sorular)} soru | " + ", ".join(f"{k}={v}" for k, v in sorted(sayim.items())))
