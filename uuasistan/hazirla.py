@@ -71,8 +71,7 @@ def main() -> None:
     for belge in katalog():
         ham = DATA / belge["ham"]
         hedef = DATA / belge["metin"]
-        hedef.write_text(temizle(pdf_metni(ham)), "utf-8", newline="
-")
+        hedef.write_text(temizle(pdf_metni(ham)), "utf-8", newline="\n")
         if belge.get("kapsam") not in INDEKS_KAPSAMI:
             dislanan.append(f"{belge['id']} (kapsam {belge.get('kapsam')})")
             print(f"{belge['id']:8} {'-':>5} {'-':>5}  {belge.get('kapsam')} (indekslenmez)")
