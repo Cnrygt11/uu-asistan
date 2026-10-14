@@ -63,6 +63,14 @@ def metrikler(siralamalar: dict, hedef: dict, ks=(1, 3, 5, 10)) -> dict:
     return {ad: deger / len(hedef) for ad, deger in sonuc.items()}
 
 
+def kaynak_siralari(siralamalar: dict, hedef: dict) -> dict:
+    """{soru_id: [her kaynağın ilk doğru parçasının sırası (0'dan) ya da None]}; yöntemleri soru bazında karşılaştırmak için."""
+    return {
+        sid: [None if (r := _sira(siralamalar[sid], km)) == float("inf") else r for km in kumeler]
+        for sid, kumeler in hedef.items()
+    }
+
+
 def kacirilanlar(siralamalar: dict, hedef: dict, k: int = 5) -> list:
     """İlk k'da en az bir kaynağı bulunamayan sorular."""
     return [sid for sid, kumeler in hedef.items() if any(_sira(siralamalar[sid], km) >= k for km in kumeler)]

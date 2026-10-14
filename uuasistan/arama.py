@@ -59,6 +59,8 @@ class YogunModel:
     sorgu_oneki: str = ""
     belge_oneki: str = ""
     sorgu_prompt_adi: str | None = None
+    # Hugging Face'ten model koduyla birlikte Python kodu indirip çalıştırır; yalnızca kaynağı bilinen modellerde açılır
+    uzak_kod: bool = False
 
 
 _TALIMAT = "Instruct: Given a Turkish search query, retrieve relevant passages written in Turkish that best answer the query\nQuery: "
@@ -71,7 +73,8 @@ YOGUN_MODELLER = {
     "me5-small": YogunModel("intfloat/multilingual-e5-small", "query: ", "passage: "),
     "turkish-e5-large": YogunModel("ytu-ce-cosmos/turkish-e5-large", _TALIMAT),
     "qwen3-emb-0.6b": YogunModel("Qwen/Qwen3-Embedding-0.6B", sorgu_prompt_adi="query"),
-    "turkembed4retrieval": YogunModel("newmindai/TurkEmbed4Retrieval"),
+    # Alibaba-NLP/new-impl (gte-multilingual mimarisi) kodunu kullanıyor
+    "turkembed4retrieval": YogunModel("newmindai/TurkEmbed4Retrieval", uzak_kod=True),
     "mursit-large-tr": YogunModel("newmindai/Mursit-Large-TR-Retrieval"),
 }
 
@@ -88,7 +91,7 @@ class Yogun:
         from sentence_transformers import SentenceTransformer
 
         self.model = model
-        self.st = SentenceTransformer(model.ad, device=cihaz)
+        self.st = SentenceTransformer(model.ad, device=cihaz, trust_remote_code=model.uzak_kod)
         self.st.max_seq_length = min(self.st.max_seq_length or MAKS_TOKEN, MAKS_TOKEN)
         self.belgeler = self.st.encode(
             [model.belge_oneki + m for m in metinler],

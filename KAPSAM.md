@@ -53,6 +53,26 @@ Mevzuat değiştiğinde asistan sessizce yanlış bilgi vermeye başlar. Her eğ
 - Her parça: belge, madde, başlık, bölüm, fıkra numaraları, değişiklik bilgisi, kaynak URL ve varsa güncellik/kayıt yılı etiketi taşır.
 - Başarı kriteri (testle korunuyor): test setindeki her kaynak alıntısı, doğru maddenin tek bir parçasında eksiksiz bulunur. Karşılaştırma: sabit 500/1000 karakterlik pencereler alıntıların %9/%5'ini bölüyor.
 
+## Arama (Adım 2)
+**Seçilen yapılandırma:** BM25 (ilk 5 harf) + `BAAI/bge-m3` hibrit (RRF) → ilk 30 aday `ytu-ce-cosmos/modernbert-tr-reranker` ile yeniden sıralanır.
+
+| Ölçüt (eval-v1, 60 soru) | BM25 | bge-m3 | Hibrit | **Hibrit + modernbert-tr** | Hibrit + bge-reranker-v2-m3 |
+|---|---|---|---|---|---|
+| Recall@1 | 0.394 | 0.537 | 0.544 | **0.733** | 0.703 |
+| Recall@5 | 0.686 | 0.847 | 0.874 | 0.887 | **0.899** |
+| Recall@10 | 0.785 | 0.897 | 0.919 | **0.935** | 0.917 |
+| MRR | 0.597 | 0.725 | 0.723 | **0.875** | 0.854 |
+
+Tam tablo: [eval/sonuclar/adim2_colab.json](eval/sonuclar/adim2_colab.json) (19 yapılandırma, Colab T4).
+
+**Gerekçe:** İki reranker arasındaki Recall@5 farkı bir sorudan az (biri S028'i, diğeri S056'yı kaçırıyor), yani gürültü düzeyinde. Diğer bütün ölçütlerde modernbert-tr önde ve ~4 kat küçük (150M / 568M parametre). Sunucuda GPU olmayabileceği için bu önemli.
+
+**Uyarılar:**
+- Seçim aynı 60 soru üzerinde 19 yapılandırma arasından yapıldı; skorlar iyimser. Gerçek öğrenci sorularıyla (görülmemiş set) yeniden ölçülmeli.
+- Kalan kaçırmaların çoğu çok kaynaklı sorularda destekleyici ikinci/üçüncü madde. Tamamen kaçan sorular öğrenci dili–mevzuat dili farkından kaynaklanıyor ("kayıt dondurma" / "izinli ayrılma"). Adım 3'te sorgu yeniden yazma (ör. HyDE) ile ölçülecek.
+- "Recall@5 ≥ %90" hedefi keyfiydi; asıl ölçüt, dil modeline verilecek parça sayısındaki recall. Bu sayı Adım 3'te belirlenecek (Recall@10 = 0.935).
+- TurkEmbed4Retrieval ilk koşuda `trust_remote_code` istediği için yüklenemedi; düzeltildi, istenirse yeniden ölçülebilir: `python -m uuasistan.deney --yogun turkembed4retrieval`.
+
 ## Başarı ölçütü
 [eval/test_seti.json](eval/test_seti.json) üzerinde:
 - Doğru kaynağı getirme (Recall@5) ≥ %90

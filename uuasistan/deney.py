@@ -16,7 +16,7 @@ from pathlib import Path
 
 from . import KOK
 from .arama import BM25, YENIDEN_SIRALAYICILAR, YOGUN_MODELLER, Yogun, YenidenSiralayici, rrf
-from .degerlendirme import hedefler, kacirilanlar, metrikler, sorgu_metni, yukle
+from .degerlendirme import hedefler, kacirilanlar, kaynak_siralari, metrikler, sorgu_metni, yukle
 
 DERINLIK = 50
 YENIDEN_SIRALAMA_ADAY = 30
@@ -67,7 +67,11 @@ def main() -> None:
     def kaydet(ad: str, sir: dict, sure: float) -> None:
         siralamalar[ad] = sir
         m = metrikler(sir, hedef)
-        sonuclar[ad] = m | {"sure_sn": round(sure, 1), "kacirilan@5": kacirilanlar(sir, hedef)}
+        sonuclar[ad] = m | {
+            "sure_sn": round(sure, 1),
+            "kacirilan@5": kacirilanlar(sir, hedef),
+            "kaynak_siralari": kaynak_siralari(sir, hedef),
+        }
         print(f"  {ad:45} recall@5={m['recall@5']:.3f}  mrr={m['mrr']:.3f}  ({sure:.1f} sn)")
 
     print("BM25")

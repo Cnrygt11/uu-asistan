@@ -5,7 +5,7 @@ Bursa Uludağ Üniversitesi önlisans ve lisans öğrencilerinin eğitim-öğret
 ## Durum
 - [x] **Adım 0: Kapsam ve test seti.** Kapsam: [KAPSAM.md](KAPSAM.md). Test seti: [eval/](eval/) (64 soru, tamamı onaylı, `eval-v1`).
 - [x] **Adım 1: Belgeleri temizleme ve madde bazlı bölme.** 6 belge, 167 madde, 224 parça.
-- [ ] **Adım 2: Arama (sürüyor).** BM25 tabanı: Recall@5 = 0.686. Embedding/hibrit/reranker deneyi: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim2_arama.ipynb)
+- [x] **Adım 2: Arama.** BM25 + bge-m3 hibrit → modernbert-tr-reranker: Recall@5 = 0.887, Recall@10 = 0.935, MRR = 0.875 (BM25 tek başına: 0.686). Karar ve gerekçe: [KAPSAM.md](KAPSAM.md#arama-adım-2). Deney: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim2_arama.ipynb)
 - [ ] **Adım 3:** Cevap üretimi ve kaynak gösterme
 - [ ] **Adım 4:** Değerlendirme
 - [ ] **Adım 5:** Arayüz
@@ -43,6 +43,7 @@ scripts/
   test_seti_dogrula.py   test setinin şemasını ve alıntılarını doğrular
 tests/
   test_parcalama.py
+  test_arama.py
 ```
 
 `data/text/` ve `data/parcalar.jsonl` üretilen dosyalardır ama değişiklikler incelenebilsin diye depoda tutulur. Testler, `parcalar.jsonl` dosyasının kodla senkron olduğunu kontrol eder.
