@@ -903,7 +903,7 @@
     "kategori": "sayisal",
     "zorluk": "orta",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S072",
@@ -1020,7 +1020,7 @@
     "kategori": "kosullu",
     "zorluk": "zor",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S081",
