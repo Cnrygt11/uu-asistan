@@ -3,10 +3,10 @@
 Bursa Uludağ Üniversitesi önlisans ve lisans öğrencilerinin eğitim-öğretim mevzuatıyla ilgili sorularını, resmî metinlere dayanarak ve madde numarası vererek cevaplayan bir RAG asistanı.
 
 ## Durum
-- [x] **Adım 0: Kapsam ve test seti.** Kapsam: [KAPSAM.md](KAPSAM.md). Test seti: [eval/](eval/) (64 soru, tamamı onaylı, `eval-v1`).
+- [x] **Adım 0: Kapsam ve test seti.** Kapsam: [KAPSAM.md](KAPSAM.md). Test seti: [eval/](eval/) (84 soru, tamamı onaylı).
 - [x] **Adım 1: Belgeleri temizleme ve madde bazlı bölme.** 6 belge, 186 madde, 240 parça.
 - [x] **Adım 2: Arama.** turkish-e5-large → modernbert-tr-reranker: Recall@5 = 0.905, Recall@10 = 0.941, MRR = 0.851 (80 soru; BM25: 0.656). Karar ve gerekçe: [KAPSAM.md](KAPSAM.md#arama-adım-2). Deney: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim2_arama.ipynb)
-- [ ] **Adım 3:** Cevap üretimi ve kaynak gösterme
+- [ ] **Adım 3: Cevap üretimi (sürüyor).** Qwen3-8B ile uçtan uca ilk sürüm: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim3_cevap.ipynb)
 - [ ] **Adım 4:** Değerlendirme
 - [ ] **Adım 5:** Arayüz
 
@@ -27,8 +27,11 @@ uuasistan/
   arama.py           BM25, embedding, RRF, reranker
   degerlendirme.py   arama metrikleri (recall@k, MRR)
   deney.py           arama deneyi
+  cevap.py           arama + dil modeli ile kaynaklı cevap (sistem istemi burada)
+  uretim.py          test setini asistana sorup cevapları kaydeder
 notebooks/
   adim2_arama.ipynb  Colab'da GPU ile arama deneyi
+  adim3_cevap.ipynb  Colab'da GPU ile cevap üretimi
 data/
   belgeler.json      belge kataloğu (kimlik, kapsam, yürürlük, kaynak URL, güncellik)
   madde_durumu.json  geçici maddelerin uygulanabilirliği (süresi dolmuş / süreli)
@@ -45,6 +48,7 @@ scripts/
 tests/
   test_parcalama.py
   test_arama.py
+  test_cevap.py
 ```
 
 `data/text/` ve `data/parcalar.jsonl` üretilen dosyalardır ama değişiklikler incelenebilsin diye depoda tutulur. Testler, `parcalar.jsonl` dosyasının kodla senkron olduğunu kontrol eder.

@@ -1,5 +1,6 @@
-# Adım 2 arama deneyi (Colab). torch Colab'da hazır gelir; pymupdf gerekmez.
+# Adım 2 arama ve Adım 3 cevap deneyleri (Colab). torch Colab'da hazır gelir; pymupdf gerekmez.
 numpy
 rank-bm25==0.2.2
 snowballstemmer==3.1.1
 sentence-transformers>=3.0
+transformers>=4.51  # Qwen3 desteği
