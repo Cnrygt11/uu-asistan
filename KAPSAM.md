@@ -56,24 +56,28 @@ Mevzuat değiştiğinde asistan sessizce yanlış bilgi vermeye başlar. Her eğ
 - Başarı kriteri (testle korunuyor): test setindeki her kaynak alıntısı, doğru maddenin tek bir parçasında eksiksiz bulunur. Karşılaştırma: sabit 500/1000 karakterlik pencereler alıntıların %9/%5'ini bölüyor.
 
 ## Arama (Adım 2)
-**Seçilen yapılandırma:** BM25 (ilk 5 harf) + `BAAI/bge-m3` hibrit (RRF) → ilk 30 aday `ytu-ce-cosmos/modernbert-tr-reranker` ile yeniden sıralanır.
+**Seçilen yapılandırma (v2):** `ytu-ce-cosmos/turkish-e5-large` ile ilk 30 aday → `ytu-ce-cosmos/modernbert-tr-reranker` ile yeniden sıralama. BM25 kullanılmıyor.
 
-| Ölçüt (eval-v1, 60 soru) | BM25 | bge-m3 | Hibrit | **Hibrit + modernbert-tr** | Hibrit + bge-reranker-v2-m3 |
+| Ölçüt (80 soru, 197 parça) | BM25 | turkish-e5-large | **+ modernbert-tr** | + bge-reranker-v2-m3 | Eski seçim: BM25 + bge-m3 hibrit |
 |---|---|---|---|---|---|
-| Recall@1 | 0.394 | 0.537 | 0.544 | **0.733** | 0.703 |
-| Recall@5 | 0.686 | 0.847 | 0.874 | 0.887 | **0.899** |
-| Recall@10 | 0.785 | 0.897 | 0.919 | **0.935** | 0.917 |
-| MRR | 0.597 | 0.725 | 0.723 | **0.875** | 0.854 |
+| Recall@1 | 0.354 | 0.460 | **0.694** | 0.656 | 0.467 |
+| Recall@5 | 0.656 | 0.874 | **0.905** | 0.872 | 0.849 |
+| Recall@10 | 0.782 | 0.931 | 0.941 | **0.942** | 0.896 |
+| MRR | 0.544 | 0.681 | **0.851** | 0.824 | 0.664 |
 
-Tam tablo: [eval/sonuclar/adim2_colab.json](eval/sonuclar/adim2_colab.json) (19 yapılandırma, Colab T4). Bu ölçüm YAB indeksteyken (224 parça) yapıldı; YAB sonradan çıkarıldı (196 parça). BM25'te etkisi Recall@5 0.686 → 0.703, yani bir soru civarı.
+Tam tablo: [eval/sonuclar/adim2_v2_colab.json](eval/sonuclar/adim2_v2_colab.json) (Colab L4). İlk ölçüm (60 soru, BM25 + bge-m3 seçilmişti): [adim2_colab.json](eval/sonuclar/adim2_colab.json).
 
-**Gerekçe:** İki reranker arasındaki Recall@5 farkı bir sorudan az (biri S028'i, diğeri S056'yı kaçırıyor), yani gürültü düzeyinde. Diğer bütün ölçütlerde modernbert-tr önde ve ~4 kat küçük (150M / 568M parametre). Sunucuda GPU olmayabileceği için bu önemli.
+**Neden değişti:**
+- Eski seçim (BM25 + bge-m3 hibrit), seçimden sonra yazılan 20 soruda (S068–S087) belirgin düştü: Recall@5 0.865 → 0.800. İlk skor iyimserdi.
+- turkish-e5-large + modernbert-tr yeni sorularda daha sağlam: 0.912 → 0.883. BM25 eklemek turkish-e5-large'ı iyileştirmiyor (hibrit 0.859 < tek başına 0.874), sadelik için çıkarıldı.
+- Recall@5 farkları istatistiksel olarak anlamlı değil (eşleştirilmiş bootstrap, %95 güven aralıkları sıfırı içeriyor). Reranker'ın katkısı ilk sıralarda ve anlamlı: Recall@1 +0.233 (GA +0.135…+0.333), MRR +0.170 (GA +0.096…+0.245).
 
 **Uyarılar:**
-- Seçim aynı 60 soru üzerinde 19 yapılandırma arasından yapıldı; skorlar iyimser. Gerçek öğrenci sorularıyla (görülmemiş set) yeniden ölçülmeli.
-- Kalan kaçırmaların çoğu çok kaynaklı sorularda destekleyici ikinci/üçüncü madde. Tamamen kaçan sorular öğrenci dili–mevzuat dili farkından kaynaklanıyor ("kayıt dondurma" / "izinli ayrılma"). Adım 3'te sorgu yeniden yazma (ör. HyDE) ile ölçülecek.
-- "Recall@5 ≥ %90" hedefi keyfiydi; asıl ölçüt, dil modeline verilecek parça sayısındaki recall. Bu sayı Adım 3'te belirlenecek (Recall@10 = 0.935).
+- Bu seçim 80 sorunun tamamı üzerinde yapıldı; 20 yeni soru artık bu seçim için görülmemiş set değil. Gerçek öğrenci sorularıyla yeniden ölçülmeli.
+- Kalan kaçırmaların çoğu öğrenci dili–mevzuat dili farkından ("kayıt dondurma" / "izinli ayrılma"); Adım 3'te ölçülecek.
+- Dil modeline verilecek parça sayısı Adım 3'te belirlenecek (Recall@10 = 0.941).
 - TurkEmbed4Retrieval deneyden çıkarıldı: özel kodu (`trust_remote_code`) güncel transformers ile uyumsuz ve GPU'da deneyin geri kalanını çökertiyor.
+- v2 ölçümü YDY eklenmeden önce yapıldı (197 parça; şimdi 240).
 
 ## Başarı ölçütü
 [eval/test_seti.json](eval/test_seti.json) üzerinde:

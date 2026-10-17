@@ -782,7 +782,7 @@
     "zorluk": "zor",
     "not": "TUZAK: 'yeterlik sınavından 60 alman lazım' yalnızca hazırlığı tekrar edenler için doğru. Eskiden kapsam dışıydı; YDY yönetmeliği eklenince cevaplanabilir oldu.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S063",
