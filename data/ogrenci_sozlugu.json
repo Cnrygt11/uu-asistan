@@ -16,18 +16,18 @@
     {"mevzuat": "not durum belgesi / transkript", "ogrenci": ["transkript", "not kartı"]},
     {"mevzuat": "katkı payı / öğrenim ücreti", "ogrenci": ["harç"]},
     {"mevzuat": "kayıt yenileme", "ogrenci": ["ders seçimi"]},
-    {"mevzuat": "izinli ayrılma", "ogrenci": ["kayıt dondurma", ""]},
+    {"mevzuat": "izinli ayrılma", "ogrenci": ["kayıt dondurma"]},
     {"mevzuat": "üst yarıyıldan ders alma", "ogrenci": ["üstten ders alma"]},
     {"mevzuat": "yaz öğretimi", "ogrenci": ["yaz okulu"]},
     {"mevzuat": "yabancı dil hazırlık sınıfı", "ogrenci": ["hazırlık"]},
     {"mevzuat": "birinci öğretim", "ogrenci": ["normal öğretim"]},
-    {"mevzuat": "ikinci öğretim", "ogrenci": ["İÖ"]},
     {"mevzuat": "çift anadal", "ogrenci": ["ÇAP"]},
+    {"mevzuat": "yan dal", "ogrenci": ["yandal"]},
     {"mevzuat": "muafiyet / intibak", "ogrenci": ["ders saydırmak"]},
     {"mevzuat": "akademik danışman", "ogrenci": ["danışman hoca", "danışman"]},
     {"mevzuat": "özel öğrenci (Özel Öğrenci Yönergesi)", "ogrenci": ["misafir öğrenci"]},
-    {"mevzuat": "serbest dolaşım (free mover)", "ogrenci": ["Erasmus'suz yurt dışı", "kendi imkânımla yurt dışında okumak", ""]},
-    {"mevzuat": "birim yönetim kurulu", "ogrenci": ["fakülte yönetim kurulu", ""]}
+    {"mevzuat": "serbest dolaşım (free mover)", "ogrenci": ["Erasmus'suz yurt dışı", "kendi imkânımla"]},
+    {"mevzuat": "birim yönetim kurulu", "ogrenci": ["fakülte yönetim kurulu"]}
   ],
   "belirsiz": [
     {
@@ -37,15 +37,13 @@
         "engelli / özel gereksinimli öğrenci"
       ],
       "not": "Asistan hangi anlamın kastedildiğini bağlamdan çıkaramazsa sormalı."
-    },
-    {"ogrenci": "", "anlamlar": [""], "not": ""}
+    }
   ],
   "kapsam_disi": [
     {
-      "ogrenci": ["yüksek lisans öğrencisi", "doktora öğrencisi", ""],
+      "ogrenci": ["yüksek lisans öğrencisi", "doktora öğrencisi"],
       "mevzuat": "lisansüstü öğrenci",
       "not": "Lisansüstü belgeleri v2 kapsamında; asistan bilgisi olmadığını söyleyip enstitüye yönlendirmeli."
-    },
-    {"ogrenci": [""], "mevzuat": "", "not": ""}
+    }
   ]
 }
