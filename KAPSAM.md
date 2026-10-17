@@ -28,7 +28,7 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 | UYG | Uygulamalı Eğitimler (Staj) Yönergesi | 2022 | ✅ |
 | OZEL | Özel Öğrenci Yönergesi | 2022 | ✅ |
 | GEC | Yatay Geçiş / ÇAP / Yandal Yönergesi | 2014 | ⚠️ güncelliği şüpheli |
-| YAB | Yabancı Uyruklu Öğrenci Kabul Yönergesi | 2022 | ✅ ikincil |
+| YAB | Yabancı Uyruklu Öğrenci Kabul Yönergesi | 2022 | v2 (aday öğrencilere yönelik; hedef kitle dışı) |
 | LU_YON, LU_UE, TIP_INT, DIS | Lisansüstü, Tıp, Diş | — | v2 |
 
 ## Veri sorunları
@@ -63,7 +63,7 @@ Mevzuat değiştiğinde asistan sessizce yanlış bilgi vermeye başlar. Her eğ
 | Recall@10 | 0.785 | 0.897 | 0.919 | **0.935** | 0.917 |
 | MRR | 0.597 | 0.725 | 0.723 | **0.875** | 0.854 |
 
-Tam tablo: [eval/sonuclar/adim2_colab.json](eval/sonuclar/adim2_colab.json) (19 yapılandırma, Colab T4).
+Tam tablo: [eval/sonuclar/adim2_colab.json](eval/sonuclar/adim2_colab.json) (19 yapılandırma, Colab T4). Bu ölçüm YAB indeksteyken (224 parça) yapıldı; YAB sonradan çıkarıldı (196 parça). BM25'te etkisi Recall@5 0.686 → 0.703, yani bir soru civarı.
 
 **Gerekçe:** İki reranker arasındaki Recall@5 farkı bir sorudan az (biri S028'i, diğeri S056'yı kaçırıyor), yani gürültü düzeyinde. Diğer bütün ölçütlerde modernbert-tr önde ve ~4 kat küçük (150M / 568M parametre). Sunucuda GPU olmayabileceği için bu önemli.
 

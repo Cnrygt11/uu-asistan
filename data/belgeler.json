@@ -62,12 +62,12 @@
     "id": "YAB",
     "ad": "Bursa Uludağ Üniversitesi Yurt Dışından veya Yabancı Uyruklu Öğrenci Sınavı ile Öğrenci Kabulü Hakkında Yönerge",
     "tur": "yonerge",
-    "kapsam": "v1-ikincil",
+    "kapsam": "v2",
     "yururluk": "2022-02-03",
     "metin": "text/kaysis/187229.txt",
     "ham": "raw/kaysis/187229.pdf",
     "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/187229",
-    "not": "Aday (henüz kayıtlı olmayan) uluslararası öğrencilere yönelik."
+    "not": "Aday (henüz kayıtlı olmayan) uluslararası öğrencilere yönelik; hedef kitle kayıtlı öğrenciler olduğu için indekslenmez."
   },
   {
     "id": "LU_YON",

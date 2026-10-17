@@ -139,8 +139,9 @@ def test_guncellik_uyarisi_tasinir(parcalar):
     ("YAB", "20", "Diğer hususlar"),
     ("UYG", "14", "Zorunlu ya da isteğe bağlı staj"),
 ])
-def test_madde_basliklari(parcalar, belge, madde, baslik):
-    assert {p["baslik"] for p in parcalar if p["belge"] == belge and p["madde"] == madde} == {baslik}
+def test_madde_basliklari(belge, madde, baslik):
+    b = next(b for b in BELGELER if b["id"] == belge)
+    assert [m.baslik for m in belge_maddeleri(b) if m.etiket == madde] == [baslik]
 
 
 def test_baslik_onceki_maddeye_karismaz(parcalar):
