@@ -31,9 +31,9 @@ Bugün {gun.day} {AYLAR[gun.month - 1]} {gun.year}; {egitim_yili(gun)} eğitim-�
 
 Kurallar:
 1. Yalnızca KAYNAKLAR bölümündeki maddelere dayan. Kaynaklarda olmayan bir bilgiyi, sayıyı, tarihi ya da tutarı asla uydurma. Cevap kaynaklarda yoksa bunu açıkça söyle ve öğrenciyi doğru birime (Öğrenci İşleri, bölüm başkanlığı, ilgili yüksekokul) yönlendir.
-2. Kullandığın her kural için kaynağını belge adı ve madde numarasıyla göster, örneğin (Eğitim Öğretim Yönetmeliği, Madde 18).
+2. Kullandığın her kural için kaynağını belge adı ve madde numarasıyla göster, örneğin (Belge adı, Madde N).
 3. Öğrenciye "sen" diye hitap et. Kısa, net ve samimi yaz.
-4. Cevap öğrencinin durumuna göre değişiyorsa ve öğrenci bu bilgiyi vermediyse, cevap vermeden önce yalnızca o bilgiyi sor. Örnekler: kural fakülteye göre farklıysa fakültesini; kural belirli bir yıldan önce/sonra kayıt olanlar için farklıysa kayıt yılını; çift anadal veya yan dal kuralı 20 Mart 2025 öncesi ve sonrası kayıtlar için farklıysa programa ne zaman kaydolduğunu sor. Bilgi zaten verilmişse tekrar sorma.
+4. Cevap öğrencinin durumuna göre değişiyorsa ve öğrenci bu bilgiyi vermediyse, cevap vermeden önce yalnızca o bilgiyi sor. Örnekler: kural fakülteye göre farklıysa fakültesini; kural kayıt tarihine göre farklıysa (üniversiteye ya da bir programa) ne zaman kaydolduğunu sor. Bilgi zaten verilmişse tekrar sorma.
 5. Öğrenci hakkında yalnızca öğrencinin kendi söylediklerini bilirsin; bu bilgiye dayanırken bunu belirt ("2023'te kayıt olduğunu söylediğin için..."). Öğrenci kayıtlarına erişimin yok.
 6. Bir kaynak eski olabilir ya da güncelliği şüpheliyse bunu belirt.
 7. Kaynaklarda geçen "Önlisans ve Lisans Öğretim Yönetmeliği" ifadesi, bugün yürürlükte olan Önlisans ve Lisans Eğitim Öğretim Yönetmeliği anlamına gelir.
@@ -105,13 +105,17 @@ def gercek_asistan(cihaz: str = "cuda") -> Asistan:
         return ys.sirala(sorgu, adaylar, metinler)
 
     tok = AutoTokenizer.from_pretrained(DIL_MODELI)
-    model = AutoModelForCausalLM.from_pretrained(DIL_MODELI, torch_dtype=torch.bfloat16).to(cihaz).eval()
+    model = AutoModelForCausalLM.from_pretrained(DIL_MODELI, torch_dtype="auto").to(cihaz).eval()
 
     def uret(msj: list) -> str:
-        # Qwen3: düşünme modu kapalı; değerlendirme tekrarlanabilir olsun diye açgözlü çözümleme
-        girdi = tok.apply_chat_template(msj, add_generation_prompt=True, enable_thinking=False, return_tensors="pt").to(cihaz)
+        # Model kartındaki kullanım: şablon önce metne, sonra token'a. Düşünme modu kapalı.
+        metin = tok.apply_chat_template(msj, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+        girdi = tok([metin], return_tensors="pt").to(cihaz)
+        # Model kartı açgözlü çözümlemeyi yasaklıyor (tekrar döngüsü); düşünmesiz mod önerisi.
+        # Tekrarlanabilirlik için her üretimde sabit tohum.
+        torch.manual_seed(0)
         with torch.no_grad():
-            cikti = model.generate(girdi, max_new_tokens=600, do_sample=False)
-        return tok.decode(cikti[0, girdi.shape[1]:], skip_special_tokens=True).strip()
+            cikti = model.generate(**girdi, max_new_tokens=600, do_sample=True, temperature=0.7, top_p=0.8, top_k=20, min_p=0.0)
+        return tok.decode(cikti[0, girdi["input_ids"].shape[1]:], skip_special_tokens=True).strip()
 
     return Asistan(parcalar, getir, uret)

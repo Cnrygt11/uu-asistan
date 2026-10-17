@@ -1,4 +1,5 @@
 import datetime as dt
+import re
 
 from uuasistan.cevap import PARCA_SAYISI, Asistan, atif_yapilan_maddeler, egitim_yili, kaynak_metni, mesajlar, sistem_istemi
 from uuasistan.degerlendirme import yukle
@@ -16,8 +17,16 @@ def test_egitim_yili_eylulde_baslar():
 def test_sistem_istemi_tarih_ve_kurallari_icerir():
     s = sistem_istemi(GUN)
     assert "17 Ekim 2026" in s and "2026-2027" in s
-    for kural in ("uydurma", "Madde 18", '"sen"', "20 Mart 2025", "enstitü"):
+    for kural in ("uydurma", "Madde N", '"sen"', "kayıt tarihine göre", "enstitü"):
         assert kural in s
+
+
+def test_sistem_istemi_test_setinin_cevabini_sizdirmaz():
+    """İstem genel kurallar içerir; belirli bir yönetmelik hükmü (tarih, eşik) aramadan gelmeli."""
+    s = sistem_istemi(GUN)
+    for sizinti in ("20 Mart 2025", "2.72", "2.50", "%70", "Geçici"):
+        assert sizinti not in s
+    assert not re.search(r"Madde \d", s)  # örnek atıf bile gerçek bir maddeyi göstermesin
 
 
 def test_kaynak_metni_etiketleri_tasir():
