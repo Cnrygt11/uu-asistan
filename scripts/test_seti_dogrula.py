@@ -25,7 +25,7 @@ KATEGORILER = {
     "olgusal", "sayisal", "kosullu", "coklu_kaynak",
     "guncel_degisiklik", "celiski", "kapsam_disi", "ingilizce",
 }
-NETLESTIRME_KONULARI = {"fakulte", "kayit_yili"}
+NETLESTIRME_KONULARI = {"fakulte", "kayit_yili", "cap_yandal_kayit_tarihi"}
 DAVRANISLAR = {
     "netlestirme_sorar", "netlestirme_sormaz", "bilgi_yok_der",
     "uydurmaz", "guncellik_uyarisi", "yonlendirir",
@@ -45,7 +45,7 @@ def bosluksuz(metin: str) -> str:
 
 def madde_deseni(madde: str) -> str:
     if madde.lower().startswith("geçici"):
-        return rf"GEÇİCİ\s*MADDE\s*{madde.split()[-1]}\b"
+        return rf"(?:GEÇİCİ|Geçici)\s*(?:MADDE|Madde)\s*{madde.split()[-1]}\b"
     return rf"(?i)(?<!GEÇİCİ\s)\bmadde\s*[-–]?\s*{madde}\s*[-–(]"
 
 

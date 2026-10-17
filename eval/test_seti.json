@@ -691,45 +691,46 @@
   {
     "id": "S056",
     "soru": "Çift anadal (ÇAP) yapmak için GANO'm kaç olmalı?",
-    "beklenen_cevap": "Üniversitenin 2014 tarihli yönergesine göre: başvurduğun yarıyıla kadar tüm dersleri alıp geçmiş olman, GANO'nun en az 2.72 olması ve sınıfında başarı sıralamasında ilk %20'de olman gerekir (ilk %20'de değilsen, ÇAP yapacağın programın taban puanı kadar puanın olmalı). Ancak bu yönerge 2014 tarihli ve şartlar sonradan değişmiş olabilir; başvurmadan önce güncel ÇAP ilanını veya Öğrenci İşleri'ni kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "beklenen_cevap": "Başvurduğun anda anadal GANO'nun en az 2.72 olması ve sınıfında başarı sıralamasında ilk %20'de olman gerekir. İlk %20'de değilsen, GANO'n en az 2.72 olmak şartıyla ÇAP yapacağın programın o yılki taban puanı kadar puanın varsa yine başvurabilirsin. Ayrıca başvurduğun yarıyıla kadar anadaldaki tüm derslerini geçmiş olmalısın. Dört yıllık bir programdaysan en erken 3., en geç 5. yarıyılın başında başvurabilirsin.",
     "kaynaklar": [
-      {"belge": "GEC", "madde": "15", "alinti": "genel akademik not ortalamasının en az 2.72 olması"}
+      {"belge": "GEC", "madde": "17", "alinti": "GANO’su 4.00 üzerinden en az 2.72 olan ve anadal diploma programının ilgili sınıfında başarı sıralaması itibari ile ilk %20’sinde bulunan öğrenciler çift anadal diploma programına başvurabilirler"},
+      {"belge": "GEC", "madde": "17", "alinti": "en erken üçüncü yarıyılın başında, en geç ise dört yıllık programlarda beşinci yarıyılın başında"}
     ],
-    "kategori": "celiski",
-    "zorluk": "zor",
-    "not": "GÜNCELLİK ŞÜPHELİ: YÖK'ün dayanak yönetmeliğindeki güncel ÇAP eşiğinin 3.00 olduğu düşünülüyor (doğrulanmadı). İnsan kontrolü gerekli.",
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "not": "2025 yönergesi (m.17). Eşik 2014 yönergesiyle aynı kaldı (2.72 + ilk %20).",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": true
+    "dogrulandi": false
   },
   {
     "id": "S057",
-    "soru": "Yandal başvurusu için ortalama şartı ne, yandalda kalmak için GANO kaç olmalı?",
-    "beklenen_cevap": "2014 tarihli yönergeye göre yandala başvurmak için başvurduğun yarıyıla kadar tüm dersleri geçmiş olman ve GANO'nun en az 2.50 olması gerekir; başvuru en erken 3., en geç 6. yarıyılın başında yapılır. Yandala devam edebilmek için anadal GANO'nun en az 2.29 olması gerekir, altına düşersen yandal kaydın silinir. Yönerge eski olduğu için güncel yandal ilanını da kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "soru": "Yandala başvurmayı düşünüyorum. Ortalama şartı ne, yandalda kalabilmek için GANO'm kaç olmalı?",
+    "beklenen_cevap": "Başvurmak için anadal GANO'nun en az 2.50 olması ve başvurduğun yarıyıla kadar anadaldaki tüm derslerini geçmiş olman gerekir; lisansta en erken 3., en geç 6. yarıyılın başında başvurabilirsin. Yandala devam edebilmek için de anadal GANO'nun en az 2.50 kalması şart; altına düşersen yandaldan kaydın silinir.",
     "kaynaklar": [
-      {"belge": "GEC", "madde": "22", "alinti": "genel akademik not ortalamasının en az 2.50"},
-      {"belge": "GEC", "madde": "24", "alinti": "en az 4 üzerinden 2,29 olması şarttır"}
+      {"belge": "GEC", "madde": "22", "alinti": "Anadal programındaki GANO’su 4.00 üzerinden en az 2.50 olan öğrenciler yan dal programına başvurabilir"},
+      {"belge": "GEC", "madde": "22", "alinti": "en erken üçüncü, en geç altıncı yarıyılı başında başvurabilir"},
+      {"belge": "GEC", "madde": "24", "alinti": "Yan Dal programına devam edebilmesi için öğrencinin anadal programındaki GANO’sunun 4 üzerinden en az 2,50 olması şarttır"}
     ],
-    "kategori": "celiski",
+    "kategori": "sayisal",
     "zorluk": "orta",
-    "not": "Kaynak yönerge 2014 tarihli; güncellik uyarısı beklenir.",
+    "not": "TUZAK: 2014 yönergesinde devam şartı 2.29'du; 2025'te 2.50. Soru yeni başvuran öğrenci için (Geçici 1 devreye girmez).",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": true
+    "dogrulandi": false
   },
   {
     "id": "S058",
     "soru": "1. sınıftayım, bölüm içinde başka bir bölüme yatay geçiş yapabilir miyim?",
-    "beklenen_cevap": "Lisans programlarında birinci sınıfa ve son sınıfa yatay geçiş yapılamaz (önlisansta ilk ve son yarıyıla). Kurum içi yatay geçiş için ayrıca tüm derslerini alıp geçmiş olman ve GANO'nun en az 2.29 olması gerekir. Merkezi yerleştirme puanıyla geçişin kuralları farklıdır. Bu kurallar 2014 tarihli bir yönergeden; başvurmadan önce güncel yatay geçiş ilanını kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "beklenen_cevap": "Kurum içi yatay geçiş kontenjanları her program için 2. yarıyıldan 5. yarıyıla (dahil) kadar olan dönemler için açılabilir; yani 1. sınıfın ikinci yarıyılına geçiş mümkün olabilir, ama ancak o dönem için kontenjan ilan edilmişse. Başvurmak için GANO'nun en az 2.29 (100 üzerinden 60) olması ve sorumlu olduğun bütün dersleri alıp geçmiş olman gerekir. Kontenjanlar Rektörlük tarafından ilan edilir.",
     "kaynaklar": [
-      {"belge": "GEC", "madde": "6", "alinti": "lisans diploma programlarının birinci sınıfı ile son sınıfına yatay geçiş yapılamaz"},
-      {"belge": "GEC", "madde": "7", "alinti": "genel ağırlıklı not ortalaması en az 4 üzerinden 2.29"}
+      {"belge": "GEC", "madde": "11", "alinti": "ikinci yarıyıldan başlamak ve beşinci yarıyıl dâhil olmak üzere"},
+      {"belge": "GEC", "madde": "13", "alinti": "GANO’su 4 üzerinden en az 2.29 ya da 100 üzerinden en az 60 olmalıdır"},
+      {"belge": "GEC", "madde": "12", "alinti": "sorumlu olduğu tüm dersleri almış ve aldığı tüm dersleri tabi olduğu yönetmelik hükümlerine göre başarmış olmalıdır"}
     ],
-    "kategori": "celiski",
+    "kategori": "kosullu",
     "zorluk": "zor",
+    "not": "TUZAK: 2014 yönergesinde 1. sınıfa geçiş tamamen yasaktı.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": true
+    "dogrulandi": false
   },
   {
     "id": "S059",
@@ -856,7 +857,7 @@
   },
   {
     "id": "S068",
-    "soru": "Özel öğrenci olarak başka üniversitede aldığım notlar transkriptime nasıl geçiyor?",
+    "soru": "Başka üniversitede özel öğrenciyken aldığım notlar not kartıma nasıl geçiyor?",
     "beklenen_cevap": "Notların Uludağ'daki karşılıkları, birimindeki ilgili kurulun kararıyla belirlenir: yurt içindeki bir üniversiteden aldığın derslerde Farabi Değişim Programı'nın, yurt dışındaki bir üniversiteden aldığın derslerde Erasmus Değişim Programı'nın dönüşüm tabloları kullanılır. Notlar bu değerlendirmeden sonra otomasyon sistemine işlenir.",
     "kaynaklar": [
       {"belge": "OZEL", "madde": "5", "alinti": "Farabi Değişim Programında uygulanan dönüşüm tabloları"},
@@ -893,7 +894,7 @@
   },
   {
     "id": "S071",
-    "soru": "Free mover olarak yurt dışında bir dönem okumak istiyorum. Başvuruyu ne zamana kadar yapmalıyım, en fazla ne kadar kalabilirim?",
+    "soru": "Erasmus'a çıkamadım ama yurt dışında bir dönem kendi imkânlarımla okumak istiyorum. Başvuruyu ne zamana kadar yapmalıyım, en fazla ne kadar kalabilirim?",
     "beklenen_cevap": "Yurt dışındaki üniversiteden onay aldıktan sonra, güz dönemi için Temmuz sonuna, ara dönem (bahar) için Kasım sonuna kadar gerekli belgelerle (transkript, kimlik ve öğrenci kartı fotokopisi, ders eşdeğerlik belgesi, kabul mektubu) bölüm sekreterliğine başvurman gerekir; bu tarihlerden sonraki başvurular değerlendirilmez. Serbest dolaşım kapsamında en fazla iki yarıyıl özel öğrenci olabilirsin. Pasaport, vize, konaklama, seyahat ve sağlık sigortası işlemleri senin sorumluluğunda.",
     "kaynaklar": [
       {"belge": "OZEL", "madde": "9", "alinti": "Temmuz ayının, ara dönemde ise Kasım ayının sonuna kadar"},
@@ -921,12 +922,11 @@
   {
     "id": "S073",
     "soru": "İkinci öğretimdeyim, birinci öğretime yatay geçiş yapabilir miyim?",
-    "beklenen_cevap": "2014 tarihli yönergeye göre ikinci öğretimden normalde yalnızca ikinci öğretim programlarına geçilebilir. Ancak başvuru dönemi itibarıyla sınıfının başarı sıralamasında ilk %10'a girip bir üst sınıfa geçtiysen, kontenjan dahilinde birinci öğretime yatay geçiş yapabilirsin; bu durumda ikinci öğretim ücretini ödemeye devam edersin. Yönerge eski olduğu için başvurmadan önce güncel yatay geçiş ilanını kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "beklenen_cevap": "Normalde ikinci öğretimden yalnızca ikinci öğretim programlarına yatay geçiş yapılabilir. Ancak sınıfının başarı sıralamasında ilk %10'a girip bir üst sınıfa geçtiysen, kontenjan dahilinde birinci öğretime yatay geçiş yapabilirsin.",
     "kaynaklar": [
-      {"belge": "GEC", "madde": "6", "alinti": "ilk yüzde onuna girerek bir üst sınıfa geçen öğrenciler birinci öğretim diploma programlarına kontenjan dahilinde yatay geçiş"}
+      {"belge": "GEC", "madde": "12", "alinti": "bulunduğu sınıfın ilk %10’una girerek bir üst sınıfa geçen öğrenciler birinci öğretim diploma programlarına kontenjan dâhilinde yatay geçiş yapabilirler"}
     ],
-    "kategori": "celiski",
+    "kategori": "kosullu",
     "zorluk": "orta",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
@@ -934,53 +934,68 @@
   {
     "id": "S074",
     "soru": "Kaydımı dondurdum, bu dönem yatay geçiş başvurusu yapabilir miyim?",
-    "beklenen_cevap": "Evet. 2014 tarihli yönergeye göre kayıt dondurmuş (izinli) olmak yatay geçiş hakkından yararlanmana engel değil. Yönerge eski olduğu için diğer şartları güncel yatay geçiş ilanından kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "beklenen_cevap": "Evet. Kayıt dondurmuş (izinli) olmak, kurum içi ya da kurumlar arası yatay geçiş hakkından yararlanmana engel değil.",
     "kaynaklar": [
+      {"belge": "GEC", "madde": "12", "alinti": "Kayıt dondurmuş olmak, yatay geçiş hakkından yararlanmaya engel teşkil etmez"},
       {"belge": "GEC", "madde": "6", "alinti": "Kayıt dondurmuş olmak, yatay geçiş hakkından yararlanmaya engel teşkil etmez"}
     ],
-    "kategori": "celiski",
+    "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   },
   {
     "id": "S075",
-    "soru": "Çift anadaldayım, anadal ortalamam 2.50'nin altına düştü. ÇAP'tan atılır mıyım?",
-    "beklenen_cevap": "İlk seferinde hayır: 2014 tarihli yönergeye göre ÇAP süresince anadal GANO'n bir defaya mahsus 2.50'ye kadar düşebilir. Ancak ikinci kez 2.50'nin altına düşersen ikinci anadal programından kaydın silinir. Yönerge eski olduğu için güncel şartları Öğrenci İşleri'nden teyit et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "soru": "Çift anadaldayım, anadal ortalamam ilk kez 2.60'a düştü. ÇAP'tan atılır mıyım?",
+    "netlestirme": {
+      "konu": "cap_yandal_kayit_tarihi",
+      "ornek_soru": "Bu kural ÇAP'a ne zaman kaydolduğuna göre değişiyor. Çift anadala hangi dönem başladın?",
+      "ogrenci_yaniti": "2025 güzünde başladım."
+    },
+    "beklenen_cevap": "Hayır, bu sefer atılmazsın. ÇAP süresince anadal GANO'n bir defaya mahsus 2.50'ye kadar düşebilir. Ancak ortalaman ikinci kez 2.72'nin altına düşerse ikinci anadal programından kaydın silinir.",
+    "beklenen_davranis": ["netlestirme_sorar"],
     "kaynaklar": [
-      {"belge": "GEC", "madde": "18", "alinti": "bir defaya mahsus olmak üzere 4 üzerinden 2,50’ye kadar düşebilir"},
-      {"belge": "GEC", "madde": "18", "alinti": "ikinci kez 4 üzerinden 2,50’nin altına düşen öğrencinin ikinci anadal diploma programından kaydı silinir"}
+      {"belge": "GEC", "madde": "20", "alinti": "bir defaya mahsus olmak üzere 4.00 üzerinden 2.50’ye kadar düşebilir"},
+      {"belge": "GEC", "madde": "20", "alinti": "ikinci kez 4.00 üzerinden 2.72’nin altına düşen öğrencinin ikinci anadal diploma programından kaydı silinir"}
     ],
-    "kategori": "celiski",
-    "zorluk": "orta",
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "20.03.2025 sonrası ÇAP kaydı → 2025 yönergesi. TUZAK: 2014 yönergesinde ikinci düşüş eşiği 2.50'ydi. Eş: S087 (2025 öncesi kayıt).",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   },
   {
     "id": "S076",
     "soru": "Anadalımdan mezun oluyorum ama çift anadalı bitiremedim. Ek süre alabilir miyim?",
-    "beklenen_cevap": "Evet. 2014 tarihli yönergeye göre anadaldan mezuniyet hakkı kazanıp ikinci anadalı bitiremeyen öğrenciye, ikinci anadalın yürütüldüğü birimin yönetim kurulu tarafından mezuniyeti izleyen dönemlerde en fazla iki yarıyıl ek süre verilir; bu sürede katkı payını/öğrenim ücretini ödemeye devam edersin. Ek süre sonunda bitiremezsen ikinci anadaldan kaydın silinir. Yönerge eski olduğu için güncel kuralı Öğrenci İşleri'nden teyit et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "netlestirme": {
+      "konu": "cap_yandal_kayit_tarihi",
+      "ornek_soru": "Bu kural ÇAP'a ne zaman kaydolduğuna göre değişiyor. Çift anadala hangi dönem başladın?",
+      "ogrenci_yaniti": "2025 güzünde, 5. yarıyılda başladım."
+    },
+    "beklenen_cevap": "Yeni yönergede ÇAP için ayrıca \"iki yarıyıl ek süre\" yok. Bunun yerine, anadaldan mezun olup ikinci anadalı bitiremeyen öğrencinin süresi, ÇAP'a kaydolduğu eğitim-öğretim yılından (senin için 2025-2026) başlayarak 2547 sayılı Kanun'un 44. maddesindeki azami süredir; dört yıllık programlarda bu yedi yıl. Bu süre içinde Eğitim Öğretim Yönetmeliği'nin koşullarını sağlayamazsan ilişiğin kesilir.",
+    "beklenen_davranis": ["netlestirme_sorar"],
     "kaynaklar": [
-      {"belge": "GEC", "madde": "17", "alinti": "en fazla iki yarıyıl ek süre verilir"}
+      {"belge": "GEC", "madde": "18", "alinti": "ikinci anadal diploma programına kayıt yaptırdığı eğitim öğretim yılından itibaren 2547 sayılı Kanun’un 44. maddesinin (c) fıkrasında belirtilen azami süredir"},
+      {"belge": "GEC", "madde": "20", "alinti": "Önlisans ve Lisans Eğitim-Öğretim Yönetmeliğinin ilgili maddelerinde belirtilen koşulları sağlamamaları halinde Üniversite ile ilişiği kesilir"},
+      {"belge": "EOY", "madde": "15", "alinti": "öğrenim süresi dört yıl olan lisans programlarını azami yedi yıl"}
     ],
-    "kategori": "celiski",
-    "zorluk": "orta",
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "TUZAK: 2014 yönergesindeki '2 yarıyıl ek süre' 2025 sonrası ÇAP kayıtlarına uygulanmaz.",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   },
   {
     "id": "S077",
     "soru": "Başka şehirdeyim, yatay geçiş başvurumu postayla gönderebilir miyim?",
-    "beklenen_cevap": "Hayır. 2014 tarihli yönergeye göre yatay geçiş başvuruları ilan edilen tarihlerde ilgili birime şahsen ya da yetkili bir temsilci aracılığıyla yapılır; postayla yapılan başvurular dikkate alınmaz. Yönerge eski olduğu için güncel yatay geçiş ilanındaki başvuru yöntemini kontrol et.",
-    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "beklenen_cevap": "Postaya gerek yok: yatay geçiş başvuruları Bursa Uludağ Üniversitesi Online Başvuru Sistemi üzerinden çevrim içi yapılır ve istenen belgeler sisteme yüklenir. Kesin kayıt hakkı kazanırsan belgelerin asıllarını kayıt aşamasında ilgili birime teslim edersin.",
     "kaynaklar": [
-      {"belge": "GEC", "madde": "8", "alinti": "posta ile yapılan başvurular dikkate alınmaz"}
+      {"belge": "GEC", "madde": "25", "alinti": "Çift Anadal ve Yan Dal Programı ile yatay geçiş başvuruları Bursa Uludağ Üniversitesi Online Başvuru Sistemi üzerinden çevrim içi olarak yapılır"},
+      {"belge": "GEC", "madde": "25", "alinti": "başvuru belgelerinin asıllarını kayıt aşamasında ilgili birime teslim eder"}
     ],
-    "kategori": "celiski",
+    "kategori": "olgusal",
     "zorluk": "kolay",
+    "not": "TUZAK: 2014 yönergesinde başvuru şahsen yapılıyordu.",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   },
@@ -995,7 +1010,7 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S079",
@@ -1007,7 +1022,7 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S080",
@@ -1032,7 +1047,7 @@
     "kategori": "kosullu",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S082",
@@ -1045,7 +1060,7 @@
     "kategori": "coklu_kaynak",
     "zorluk": "orta",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S083",
@@ -1058,7 +1073,7 @@
     "kategori": "sayisal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S084",
@@ -1071,7 +1086,7 @@
     "kategori": "sayisal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S085",
@@ -1083,7 +1098,7 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S086",
@@ -1094,6 +1109,21 @@
     ],
     "kategori": "kosullu",
     "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": true
+  },
+  {
+    "id": "S087",
+    "soru": "2024'te çift anadala başladım. Yeni ÇAP yönergesindeki ortalama şartları bana da uygulanıyor mu?",
+    "beklenen_cevap": "Hayır. Yeni yönerge 20 Mart 2025'te yürürlüğe girdi ve bu tarihten önce ÇAP'a kaydolan öğrencilere, kaydoldukları tarihteki esaslar uygulanmaya devam ediyor. Yani sana yeni yönergenin değil, 2014 tarihli eski yönergenin ÇAP kuralları geçerli. Bu eski kurallar elimdeki güncel belgelerde yer almadığı için ayrıntılar (ortalama şartları, ek süre gibi) için ÇAP danışmanına ya da Öğrenci İşleri'ne danış.",
+    "beklenen_davranis": ["yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "Geçici 1", "alinti": "kayıt olan çift anadal ve yan dal programı öğrencilerine giriş esnasında tabii oldukları esaslar uygulanır"},
+      {"belge": "GEC", "madde": "32", "alinti": "Senatosunda kabul edildiği 20 Mart 2025 tarihinden itibaren yürürlüğe girer"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "Eş: S075 (2025 sonrası kayıt). Belirleyici olan üniversiteye giriş yılı değil, ÇAP/yan dala kayıt tarihi. 2014 yönergesi indekste değil (mülga); cevap yönlendirmeli.",
     "kaynak_tipi": "sentetik",
     "dogrulandi": false
   }

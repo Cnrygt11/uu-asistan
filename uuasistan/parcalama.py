@@ -19,7 +19,8 @@ EKLER = re.compile(r"^EKLER\s*:?$")
 FIKRA = re.compile(r"^\((\d+)\)")
 # a) b) ... ğ) ı) ; i) ii) iv) ; 2) gibi numaralı bentler ; madde işareti.
 # Sayı en fazla iki hane: satır sonunda bölünen "(Değişik ibare:RG-18/8/2024-\n32636)" bent sanılmasın.
-BENT = re.compile(r"^(?:[a-zçğıöşü]{1,4}\)|\d{1,2}\)|•)\s?")
+# Harfler tek harf ya da Roma rakamı: satır sonunda bölünen "(… sınıflar\niçin)" bent sanılmasın.
+BENT = re.compile(r"^(?:[a-zçğıöşü]\)|(?:ii|iii|iv|vi|vii|viii|ix)\)|\d{1,2}\)|•)\s?")
 # Tireyle biten satırın devamı ("eğitim-" + "öğretim", "2019-" + "2020")
 TIRE_DEVAMI = re.compile(r"[0-9A-Za-zÇĞİÖŞÜçğıöşü]-$")
 DEGISIKLIK = re.compile(r"\((Değişik|Mülga|Ek)(?: ibare)?\s*:\s*RG-\s*(\d{1,2}/\d{1,2}/\d{4})\s*-\s*(\d+)\)")

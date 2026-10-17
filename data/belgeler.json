@@ -48,15 +48,25 @@
   },
   {
     "id": "GEC",
-    "ad": "Uludağ Üniversitesi Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal ve Yan Dal Yapılması Esaslarına İlişkin Yönerge",
+    "ad": "Bursa Uludağ Üniversitesi Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal, Yan Dal ve Kurumlar Arası Kredi Transferi Yapılmasına İlişkin Yönerge",
     "tur": "yonerge",
     "kapsam": "v1",
+    "yururluk": "2025-03-20",
+    "metin": "text/kaysis/206792.txt",
+    "ham": "raw/kaysis/206792.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/206792",
+    "not": "2014 yönergesinin (GEC_2014) yerini aldı (m.31). Geçici 1: 20.03.2025'ten önce ÇAP/yan dala kaydolan öğrencilere kayıt oldukları tarihteki esaslar uygulanır."
+  },
+  {
+    "id": "GEC_2014",
+    "ad": "Uludağ Üniversitesi Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal ve Yan Dal Yapılması Esaslarına İlişkin Yönerge",
+    "tur": "yonerge",
+    "kapsam": "mulga",
     "yururluk": "2014-07-24",
     "metin": "text/kaysis/61283.txt",
     "ham": "raw/kaysis/61283.pdf",
     "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/61283",
-    "guncellik": "supheli",
-    "not": "2014 tarihli; YGS/LYS'ye atıf yapıyor. YÖK'ün dayanak yönetmeliği sonradan değişti (ör. ÇAP GANO eşiği). Cevaplarda uyarı verilmeli. PDF'te Ġ/ġ/Ģ kodlama hatası düzeltildi."
+    "not": "20.03.2025'te yürürlükten kaldırıldı (GEC m.31) ama KAYSIS'te hâlâ yayında. Yalnızca o tarihten önce ÇAP/yan dala kaydolanlara uygulanır (GEC Geçici 1). İndekslenmez. PDF'te Ġ/ġ/Ģ kodlama hatası var (metin.py düzeltiyor)."
   },
   {
     "id": "YAB",

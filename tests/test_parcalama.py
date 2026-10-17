@@ -128,14 +128,15 @@ def test_degisiklik_bilgisi(parcalar):
     assert "Mülga:RG-7/3/2023-32125" in degisiklik("EOY", "18")
 
 
-def test_guncellik_uyarisi_tasinir(parcalar):
-    assert all(p.get("guncellik") == "supheli" for p in parcalar if p["belge"] == "GEC")
+def test_guncellik_uyarisi_tasinir():
+    belge = next(b for b in BELGELER if b["id"] == "GEC") | {"guncellik": "supheli"}
+    assert all(p["guncellik"] == "supheli" for p in parcalar_uret(belge, DURUMLAR)[0])
 
 
 @pytest.mark.parametrize("belge,madde,baslik", [
     ("EOY", "5", "Öğrenci kontenjanları"),
     ("EOY", "Geçici 4", "Başarı değerlendirmesi"),
-    ("GEC", "9", "Değerlendirme"),
+    ("GEC_2014", "9", "Değerlendirme"),  # "Madde – 9" yazımı
     ("YAB", "20", "Diğer hususlar"),
     ("UYG", "14", "Zorunlu ya da isteğe bağlı staj"),
 ])
@@ -172,6 +173,15 @@ def test_satir_sonunda_bolunen_degisiklik_notu_bent_sanilmaz():
     assert paragraflar(["(1) Ancak (Değişik ibare:RG-18/8/2024-", "32636) birim kurulunun önerisi.", "a) Bent."]) == [
         "(1) Ancak (Değişik ibare:RG-18/8/2024-32636) birim kurulunun önerisi.",
         "a) Bent.",
+    ]
+
+
+def test_satir_sonunda_bolunen_parantez_bent_sanilmaz():
+    """GEC 5: '(ikinci, üçüncü … sınıflar' + 'için) ÖSYM…' yeni paragraf açmamalı; Roma rakamlı bentler açmalı."""
+    assert paragraflar(["a) Her yıl (ikinci ve üçüncü sınıflar", "için) ÖSYM kontenjanı.", "ii) Bent.", "iv) Bent."]) == [
+        "a) Her yıl (ikinci ve üçüncü sınıflar için) ÖSYM kontenjanı.",
+        "ii) Bent.",
+        "iv) Bent.",
     ]
 
 

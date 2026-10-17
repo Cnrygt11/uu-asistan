@@ -4,7 +4,7 @@ Bursa Uludağ Üniversitesi önlisans ve lisans öğrencilerinin eğitim-öğret
 
 ## Durum
 - [x] **Adım 0: Kapsam ve test seti.** Kapsam: [KAPSAM.md](KAPSAM.md). Test seti: [eval/](eval/) (64 soru, tamamı onaylı, `eval-v1`).
-- [x] **Adım 1: Belgeleri temizleme ve madde bazlı bölme.** 5 belge, 143 madde, 196 parça.
+- [x] **Adım 1: Belgeleri temizleme ve madde bazlı bölme.** 5 belge, 149 madde, 197 parça.
 - [x] **Adım 2: Arama.** BM25 + bge-m3 hibrit → modernbert-tr-reranker: Recall@5 = 0.887, Recall@10 = 0.935, MRR = 0.875 (BM25 tek başına: 0.686). Karar ve gerekçe: [KAPSAM.md](KAPSAM.md#arama-adım-2). Deney: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim2_arama.ipynb)
 - [ ] **Adım 3:** Cevap üretimi ve kaynak gösterme
 - [ ] **Adım 4:** Değerlendirme
@@ -32,6 +32,7 @@ notebooks/
 data/
   belgeler.json      belge kataloğu (kimlik, kapsam, yürürlük, kaynak URL, güncellik)
   madde_durumu.json  geçici maddelerin uygulanabilirliği (süresi dolmuş / süreli)
+  ogrenci_sozlugu.json  öğrenci dili -> mevzuat terimi sözlüğü (taslak)
   raw/kaysis/        KAYSIS'ten indirilen resmî PDF'ler
   text/kaysis/       temizlenmiş metin (üretilir)
   parcalar.jsonl     indekslenecek parçalar (üretilir)

@@ -66,6 +66,7 @@ Değerlendirme iki adımda yapılır:
 Netleştirme konuları:
 - `fakulte`: kural fakülteye göre farklı.
 - `kayit_yili`: yalnızca cevabı **süreli bir geçici madde** değiştiriyorsa (`data/madde_durumu.json`). Validator, bu sorunun süreli bir maddeyi kaynak gösterdiğini kontrol eder.
+- `cap_yandal_kayit_tarihi`: ÇAP/yan dal sorularında, kural 20.03.2025 öncesi ve sonrası kayıtlar için farklıysa (GEC Geçici 1). Belirleyici olan üniversiteye giriş yılı değil, ÇAP/yan dala kayıt tarihi.
 
 Her netleştirme sorusunun, bilginin baştan verildiği eşleri vardır. Böylece hem farklı durumların cevapları hem de "her seferinde sorma" hatası ölçülür:
 
@@ -83,5 +84,4 @@ python scripts/test_seti_dogrula.py
 Şemayı, etiket tutarlılığını, talimat sızıntısını ve her alıntının belirtilen maddede birebir geçtiğini kontrol eder. Her değişiklikten sonra çalıştırın.
 
 ## Sıradaki işler
-1. **İnsan kontrolü.** Onaysız soruları okuyup `dogrulandi: true` yapın (güncel sayı validator çıktısında). S056–S058'deki (GEC) güncellik sorusunu Öğrenci İşleri'ne sorun.
-2. **Gerçek öğrenci soruları.** Sentetik sorular öğrencilerin gerçekte nasıl sorduğunu yansıtmaz. Hedef en az 50 gerçek soru. Kaynaklar: anket (Google Form: "Okul kurallarıyla ilgili en son neyi merak ettin?"), öğrenci WhatsApp/Discord grupları, Öğrenci İşleri'ne en sık gelen sorular. Kişisel bilgileri silin; `kaynak_tipi: "gercek"` ile ekleyin.
+1. **İnsan kontrolü.** Onaysız soruları okuyup `dogrulandi: true` yapın (güncel sayı validator çıktısında).2. **Gerçek öğrenci soruları.** Sentetik sorular öğrencilerin gerçekte nasıl sorduğunu yansıtmaz. Hedef en az 50 gerçek soru. Kaynaklar: anket (Google Form: "Okul kurallarıyla ilgili en son neyi merak ettin?"), öğrenci WhatsApp/Discord grupları, Öğrenci İşleri'ne en sık gelen sorular. Kişisel bilgileri silin; `kaynak_tipi: "gercek"` ile ekleyin.
