@@ -102,21 +102,26 @@ def atif_yapilan_maddeler(cevap: str) -> set:
 
 
 def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda") -> Asistan:
-    """Colab'da (GPU) gerçek modellerle asistanı kurar. vLLM önce yüklenir; aramalar kalan belleğe sığar."""
+    """Colab'da (GPU) gerçek modellerle asistanı kurar. vLLM önce yüklenir; fp16 arama modelleri kalan belleğe sığar."""
+    import torch
     from vllm import LLM, SamplingParams
 
     from .arama import YENIDEN_SIRALAYICILAR, YOGUN_MODELLER, Yogun, YenidenSiralayici
 
     ad, sablon_ek = DIL_MODELLERI[model]
-    llm = LLM(model=ad, gpu_memory_utilization=0.85, max_model_len=8192, seed=0)
+    # Bellek (L4, 22 GB): ilk denemede vLLM %85'i aldı, fp32 arama modelleri kalan 3 GB'ı doldurdu ve ilk soruda OOM.
+    # KV önbelleği sabit 1 GiB (8B'de ~7.000, 30B'de ~10.000 token; istem en fazla ~5.000 token: 8 parça × 1.500 karakter + 600 cevap) ve ön doldurma 2.048'lik
+    # parçalarla yapılır (etkinleştirme belleği ~1 GB'tan ~0,25 GB'a); arama modelleri fp16 (~3 GB yerine ~1,5 GB).
+    llm = LLM(model=ad, max_model_len=6144, kv_cache_memory_bytes=1 << 30, max_num_batched_tokens=2048, seed=0)
     tok = llm.get_tokenizer()
     # İki model kartının önerisi; açgözlü çözümleme tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
     ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=0)
 
     parcalar = [json.loads(s) for s in (DATA / "parcalar.jsonl").read_text("utf-8").splitlines()]
     metinler = [p["arama_metni"] for p in parcalar]
-    yogun = Yogun(metinler, YOGUN_MODELLER[YOGUN_MODEL], cihaz=cihaz)
-    ys = YenidenSiralayici(YENIDEN_SIRALAYICILAR[YENIDEN_SIRALAYICI], cihaz=cihaz)
+    yogun = Yogun(metinler, YOGUN_MODELLER[YOGUN_MODEL], cihaz=cihaz, yarim=True)
+    ys = YenidenSiralayici(YENIDEN_SIRALAYICILAR[YENIDEN_SIRALAYICI], cihaz=cihaz, yarim=True)
+    torch.cuda.empty_cache()  # fp32 yüklemeden kalan ayrılmış belleği bırak
 
     def getir(sorgu: str) -> list:
         adaylar = yogun.ara_toplu([sorgu], ADAY_SAYISI)[0]

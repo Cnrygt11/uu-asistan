@@ -85,11 +85,14 @@ MAKS_TOKEN = 512  # parçalar 1500 karakteri aşmıyor; başlıkla birlikte ~400
 
 
 class Yogun:
-    def __init__(self, metinler: list, model: YogunModel, cihaz: str | None = None, toplu: int = 16):
+    def __init__(self, metinler: list, model: YogunModel, cihaz: str | None = None, toplu: int = 16, yarim: bool = False):
+        """yarim: fp16 (GPU belleğinin yarısı); dil modeliyle aynı GPU'yu paylaşırken."""
         from sentence_transformers import SentenceTransformer
 
         self.model = model
         self.st = SentenceTransformer(model.ad, device=cihaz)
+        if yarim:
+            self.st.half()
         self.st.max_seq_length = min(self.st.max_seq_length or MAKS_TOKEN, MAKS_TOKEN)
         self.belgeler = self.st.encode(
             [model.belge_oneki + m for m in metinler],
@@ -115,10 +118,12 @@ def rrf(siralamalar: list, k: int = 60, derinlik: int = 50) -> list:
 
 
 class YenidenSiralayici:
-    def __init__(self, ad: str, cihaz: str | None = None):
+    def __init__(self, ad: str, cihaz: str | None = None, yarim: bool = False):
         from sentence_transformers import CrossEncoder
 
         self.ce = CrossEncoder(ad, device=cihaz, max_length=MAKS_TOKEN)
+        if yarim:
+            self.ce.model.half()
 
     def sirala(self, sorgu: str, adaylar: list, metinler: list) -> list:
         skorlar = self.ce.predict([(sorgu, metinler[i]) for i in adaylar], batch_size=16)
