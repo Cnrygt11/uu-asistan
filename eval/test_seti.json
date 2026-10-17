@@ -678,7 +678,7 @@
   },
   {
     "id": "S055",
-    "soru": "Lisans 1. sınıftayım, gelecek dönem özel öğrenci olarak başka üniversiteye gidebilir miyim?",
+    "soru": "Lisans 1. sınıftayım, gelecek dönem başka bir üniversiteye misafir öğrenci olarak gidebilir miyim?",
     "beklenen_cevap": "Mazeretiniz yoksa hayır. Yönergede sayılan mazeretler dışında lisans programlarının ilk iki yarıyılı ile son iki yarıyılına (önlisansta ilk ve son yarıyıla) özel öğrenci başvurusu kabul edilmez.",
     "kaynaklar": [
       {"belge": "OZEL", "madde": "5", "alinti": "lisans programlarının ilk iki yarıyılı ile son iki yarıyılına özel öğrenci başvurusu kabul edilmez"}
@@ -700,7 +700,7 @@
     "zorluk": "orta",
     "not": "2025 yönergesi (m.17). Eşik 2014 yönergesiyle aynı kaldı (2.72 + ilk %20).",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S057",
@@ -715,7 +715,7 @@
     "zorluk": "orta",
     "not": "TUZAK: 2014 yönergesinde devam şartı 2.29'du; 2025'te 2.50. Soru yeni başvuran öğrenci için (Geçici 1 devreye girmez).",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S058",
@@ -730,7 +730,7 @@
     "zorluk": "zor",
     "not": "TUZAK: 2014 yönergesinde 1. sınıfa geçiş tamamen yasaktı.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S059",
@@ -866,11 +866,11 @@
     "kategori": "olgusal",
     "zorluk": "orta",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S069",
-    "soru": "Başka üniversitede özel öğrenciyken harcımı hangi üniversiteye ödüyorum?",
+    "soru": "Başka üniversitede misafir öğrenciyken harcımı hangi üniversiteye ödüyorum?",
     "beklenen_cevap": "Kayıtlı olduğun üniversiteye, yani Uludağ'a ödersin. Özel öğrenciler katkı payını/öğrenim ücretini akademik takvimde belirtilen tarihlerde kayıtlı oldukları yükseköğretim kurumuna öder.",
     "kaynaklar": [
       {"belge": "OZEL", "madde": "5", "alinti": "katkı payı/öğrenim ücretini akademik takvimde belirtilen tarihlerde kayıtlı oldukları yükseköğretim kurumuna öderler"}
@@ -878,11 +878,11 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S070",
-    "soru": "Hazırlık sınıfındayım, gelecek dönem başka bir üniversitede özel öğrenci olarak okuyabilir miyim?",
+    "soru": "Hazırlık sınıfındayım, gelecek dönem başka bir üniversitede misafir öğrenci olarak okuyabilir miyim?",
     "beklenen_cevap": "Hayır. Hazırlık sınıflarına özel öğrenci kabul edilmez ve hazırlık sınıfından özel öğrenci gönderilmez.",
     "kaynaklar": [
       {"belge": "OZEL", "madde": "5", "alinti": "Hazırlık sınıflarına özel öğrenci kabul edilmez ve gönderilmez"}
@@ -890,7 +890,7 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S071",
@@ -917,7 +917,7 @@
     "kategori": "kosullu",
     "zorluk": "zor",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S073",
@@ -929,7 +929,7 @@
     "kategori": "kosullu",
     "zorluk": "orta",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S074",
@@ -942,7 +942,7 @@
     "kategori": "olgusal",
     "zorluk": "kolay",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S075",
@@ -962,7 +962,7 @@
     "zorluk": "zor",
     "not": "20.03.2025 sonrası ÇAP kaydı → 2025 yönergesi. TUZAK: 2014 yönergesinde ikinci düşüş eşiği 2.50'ydi. Eş: S087 (2025 öncesi kayıt).",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S076",
@@ -983,7 +983,7 @@
     "zorluk": "zor",
     "not": "TUZAK: 2014 yönergesindeki '2 yarıyıl ek süre' 2025 sonrası ÇAP kayıtlarına uygulanmaz.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S077",
@@ -997,7 +997,7 @@
     "zorluk": "kolay",
     "not": "TUZAK: 2014 yönergesinde başvuru şahsen yapılıyordu.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   },
   {
     "id": "S078",
@@ -1125,6 +1125,6 @@
     "zorluk": "zor",
     "not": "Eş: S075 (2025 sonrası kayıt). Belirleyici olan üniversiteye giriş yılı değil, ÇAP/yan dala kayıt tarihi. 2014 yönergesi indekste değil (mülga); cevap yönlendirmeli.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": false
+    "dogrulandi": true
   }
 ]
