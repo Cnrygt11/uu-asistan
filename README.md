@@ -18,6 +18,8 @@ python -m pytest              # parçalama, arama ve test seti testleri
 python -m uuasistan.deney     # arama deneyi (GPU yoksa yalnızca BM25)
 ```
 
+Colab not defterleri `requirements-arama.txt` kurar; bu dosyadaki vLLM PyTorch'u değiştirebildiği için kurulumdan sonra Colab oturumu yeniden başlatılmalıdır.
+
 ## Yapı
 ```
 uuasistan/
