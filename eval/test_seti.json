@@ -771,15 +771,18 @@
   {
     "id": "S062",
     "soru": "Hazırlık sınıfını geçmek için yeterlik sınavından kaç almam lazım?",
-    "beklenen_cevap": "Hazırlık yeterlik puanı, Yabancı Diller Yüksekokulu'nun yabancı dil eğitim-öğretim ve sınav yönetmeliğinde düzenleniyor; bu yönetmelik elimdeki belgeler arasında yok. Puan şartı için YDYO'ya veya o yönetmeliğe bakmalısın.",
-    "beklenen_davranis": ["bilgi_yok_der", "uydurmaz", "yonlendirir"],
+    "beklenen_cevap": "Yeterlik sınavından tek başına alman gereken sabit bir puan yok. Sınava girebilmek için iki yarıyılın ortalamasının en az 60 olması ve devam şartını sağlaman gerekir. Yılsonu notun, iki yarıyıl ortalamanın %50'si ile yeterlik sınavı notunun %50'sinin toplamıdır; hazırlığı geçmek için bu notun 100 üzerinden en az 60 olması gerekir. Hazırlığı tekrar ediyorsan güz sonundaki yeterlik sınavında ortalaman dikkate alınmaz, sınavdan %60 başarı aranır.",
     "kaynaklar": [
-      {"belge": "EOY", "madde": "14", "alinti": "Yabancı Diller Yüksekokulu Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliğine göre yürütülür"}
+      {"belge": "YDY", "madde": "20", "alinti": "iki yarıyılın genel başarı notu ortalaması 60 ve üzerinde olanlar, devam koşulunu da sağlamak şartıyla"},
+      {"belge": "YDY", "madde": "20", "alinti": "iki yarıyılın başarı not ortalamasının % 50’siyle yeterlik sınavından aldığı notun % 50’sinin toplamından oluşur"},
+      {"belge": "YDY", "madde": "20", "alinti": "genel not ortalamasının 100 üzerinden 60 ve üzeri olması gerekir"},
+      {"belge": "YDY", "madde": "20", "alinti": "not ortalaması dikkate alınmadan % 60 başarı koşulu aranır"}
     ],
-    "kategori": "kapsam_disi",
-    "zorluk": "orta",
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "not": "TUZAK: 'yeterlik sınavından 60 alman lazım' yalnızca hazırlığı tekrar edenler için doğru. Eskiden kapsam dışıydı; YDY yönetmeliği eklenince cevaplanabilir oldu.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": true
+    "dogrulandi": false
   },
   {
     "id": "S063",

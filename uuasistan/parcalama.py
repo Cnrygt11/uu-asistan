@@ -76,7 +76,16 @@ def maddelere_ayir(metin: str) -> list:
             j = i + 1
             while j < len(satirlar) and not satirlar[j]:
                 j += 1
-            bolum = f"{s} – {satirlar[j]}" if j < len(satirlar) else s
+            ad = [satirlar[j]] if j < len(satirlar) else []
+            # Bölüm adı birden fazla satıra yayılabilir (YDY 5. bölüm): madde başına kadar ardışık
+            # satırlardan sonuncusu madde başlığıdır, öncekiler bölüm adının devamıdır.
+            k = j + 1
+            while k < len(satirlar) and satirlar[k] and not MADDE_BASI.match(satirlar[k]):
+                k += 1
+            if k < len(satirlar) and MADDE_BASI.match(satirlar[k]) and k - (j + 1) >= 2:
+                ad += satirlar[j + 1:k - 1]
+                j = k - 2
+            bolum = f"{s} – {' '.join(ad)}" if ad else s
             i = j + 1
             continue
         m = MADDE_BASI.match(s)

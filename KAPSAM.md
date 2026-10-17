@@ -25,6 +25,7 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 |---|---|---|---|
 | EOY | Önlisans ve Lisans Eğitim Öğretim Yönetmeliği | 2020; 2023 ve 2024 değişiklikleri işlenmiş | ✅ ana kaynak |
 | YAZ | Yaz Öğretimi Yönetmeliği | 2020 | ✅ (mülga yönetmeliğe atıf yapıyor, bkz. aşağı) |
+| YDY | Yabancı Diller YO Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliği (hazırlık) | 2020 | ✅ (değişiklik bulunamadı) |
 | UYG | Uygulamalı Eğitimler (Staj) Yönergesi | 2022 | ✅ |
 | OZEL | Özel Öğrenci Yönergesi | 2022 | ✅ |
 | GEC | Yatay Geçiş / ÇAP / Yan Dal / Kredi Transferi Yönergesi | 2025 | ✅ |

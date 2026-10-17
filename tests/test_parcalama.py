@@ -163,6 +163,12 @@ def test_madde_yazim_cesitleri():
     assert [(m.no, m.gecici) for m in maddelere_ayir(metin)] == [(1, False), (2, False), (3, False), (4, False), (1, True)]
 
 
+def test_iki_satirlik_bolum_adi_madde_basligina_karismaz():
+    """YDY 5. bölüm: bölüm adı iki satır; üçüncü satır madde başlığı."""
+    m = maddelere_ayir("BEŞİNCİ BÖLÜM\nUluslararası Sınav Merkezleriyle Ortaklaşa\nYürütülen Sınavlar\nUluslararası sınavlar\nMADDE 32 – (1) a.\n")[0]
+    assert (m.bolum, m.baslik) == ("BEŞİNCİ BÖLÜM – Uluslararası Sınav Merkezleriyle Ortaklaşa Yürütülen Sınavlar", "Uluslararası sınavlar")
+
+
 def test_satir_kirilmalari_birlestirilir():
     m = maddelere_ayir("Başlık\nMADDE 1 – (1) Bu bir eğitim-\nöğretim kuralıdır ve\nuzun bir cümledir.\n(2) İkinci fıkra.\n")[0]
     assert madde_parcalari(m) == [([1, 2], "(1) Bu bir eğitim-öğretim kuralıdır ve uzun bir cümledir.\n(2) İkinci fıkra.")]

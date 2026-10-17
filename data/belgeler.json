@@ -58,6 +58,17 @@
     "not": "2014 yönergesinin (GEC_2014) yerini aldı (m.31). Geçici 1: 20.03.2025'ten önce ÇAP/yan dala kaydolan öğrencilere kayıt oldukları tarihteki esaslar uygulanır."
   },
   {
+    "id": "YDY",
+    "ad": "Bursa Uludağ Üniversitesi Yabancı Diller Yüksekokulu Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliği",
+    "tur": "yonetmelik",
+    "kapsam": "v1",
+    "resmi_gazete": "23/8/2020 - 31222",
+    "metin": "text/kaysis/167045.txt",
+    "ham": "raw/kaysis/167045.pdf",
+    "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/167045",
+    "not": "Hazırlık sınıfı, muafiyet/seviye tespit sınavı, ortak zorunlu yabancı dil dersleri. KAYSIS'teki metin Resmî Gazete orijinali; değişiklik bulunamadı (Ekim 2026)."
+  },
+  {
     "id": "GEC_2014",
     "ad": "Uludağ Üniversitesi Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal ve Yan Dal Yapılması Esaslarına İlişkin Yönerge",
     "tur": "yonerge",
