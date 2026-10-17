@@ -853,5 +853,248 @@
     "not": "Eş: S038 (2023 kaydı, yıl soruda verilmiş → sormamalı, sınır 3.00). Geçici 4 süreli bir madde (madde_durumu.json); 2030-2031'den sonra bu soru kaldırılmalı.",
     "kaynak_tipi": "sentetik",
     "dogrulandi": true
+  },
+  {
+    "id": "S068",
+    "soru": "Özel öğrenci olarak başka üniversitede aldığım notlar transkriptime nasıl geçiyor?",
+    "beklenen_cevap": "Notların Uludağ'daki karşılıkları, birimindeki ilgili kurulun kararıyla belirlenir: yurt içindeki bir üniversiteden aldığın derslerde Farabi Değişim Programı'nın, yurt dışındaki bir üniversiteden aldığın derslerde Erasmus Değişim Programı'nın dönüşüm tabloları kullanılır. Notlar bu değerlendirmeden sonra otomasyon sistemine işlenir.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "5", "alinti": "Farabi Değişim Programında uygulanan dönüşüm tabloları"},
+      {"belge": "OZEL", "madde": "5", "alinti": "Erasmus Değişim Programında uygulanan dönüşüm tabloları"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S069",
+    "soru": "Başka üniversitede özel öğrenciyken harcımı hangi üniversiteye ödüyorum?",
+    "beklenen_cevap": "Kayıtlı olduğun üniversiteye, yani Uludağ'a ödersin. Özel öğrenciler katkı payını/öğrenim ücretini akademik takvimde belirtilen tarihlerde kayıtlı oldukları yükseköğretim kurumuna öder.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "5", "alinti": "katkı payı/öğrenim ücretini akademik takvimde belirtilen tarihlerde kayıtlı oldukları yükseköğretim kurumuna öderler"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S070",
+    "soru": "Hazırlık sınıfındayım, gelecek dönem başka bir üniversitede özel öğrenci olarak okuyabilir miyim?",
+    "beklenen_cevap": "Hayır. Hazırlık sınıflarına özel öğrenci kabul edilmez ve hazırlık sınıfından özel öğrenci gönderilmez.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "5", "alinti": "Hazırlık sınıflarına özel öğrenci kabul edilmez ve gönderilmez"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S071",
+    "soru": "Free mover olarak yurt dışında bir dönem okumak istiyorum. Başvuruyu ne zamana kadar yapmalıyım, en fazla ne kadar kalabilirim?",
+    "beklenen_cevap": "Yurt dışındaki üniversiteden onay aldıktan sonra, güz dönemi için Temmuz sonuna, ara dönem (bahar) için Kasım sonuna kadar gerekli belgelerle (transkript, kimlik ve öğrenci kartı fotokopisi, ders eşdeğerlik belgesi, kabul mektubu) bölüm sekreterliğine başvurman gerekir; bu tarihlerden sonraki başvurular değerlendirilmez. Serbest dolaşım kapsamında en fazla iki yarıyıl özel öğrenci olabilirsin. Pasaport, vize, konaklama, seyahat ve sağlık sigortası işlemleri senin sorumluluğunda.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "9", "alinti": "Temmuz ayının, ara dönemde ise Kasım ayının sonuna kadar"},
+      {"belge": "OZEL", "madde": "9", "alinti": "en fazla iki yarıyıl yararlanabilir"},
+      {"belge": "OZEL", "madde": "9", "alinti": "seyahat ve sağlık sigortası yükümlülükleri ile ilgili süreçlerin takibinden kendileri sorumludur"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S072",
+    "soru": "Çift anadal yapıyorum. Bir dönem başka üniversitede özel öğrenci olursam ÇAP'tan kaydım silinir mi?",
+    "beklenen_cevap": "Önlem almazsan silinebilir. Özel öğrencilikte geçen süre ÇAP/yandal sürene eklenmez; ÇAP'tan iki yarıyıl üst üste ders almadığın için ilişiğinin kesilmemesi adına, özel öğrencilik başvurusundan önce ÇAP programının bağlı olduğu birimden de onay ve kabul alman gerekir. Gideceğin üniversitede ÇAP programı yoksa, ÇAP'ın bağlı olduğu birime izinli sayılmak için başvurmalısın.",
+    "kaynaklar": [
+      {"belge": "OZEL", "madde": "6", "alinti": "Çift Anadal Diploma/Yan Dal programı sürelerine ilave edilmez"},
+      {"belge": "OZEL", "madde": "6", "alinti": "ilgili birimden onay ve kabul almaları gerekir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S073",
+    "soru": "İkinci öğretimdeyim, birinci öğretime yatay geçiş yapabilir miyim?",
+    "beklenen_cevap": "2014 tarihli yönergeye göre ikinci öğretimden normalde yalnızca ikinci öğretim programlarına geçilebilir. Ancak başvuru dönemi itibarıyla sınıfının başarı sıralamasında ilk %10'a girip bir üst sınıfa geçtiysen, kontenjan dahilinde birinci öğretime yatay geçiş yapabilirsin; bu durumda ikinci öğretim ücretini ödemeye devam edersin. Yönerge eski olduğu için başvurmadan önce güncel yatay geçiş ilanını kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "6", "alinti": "ilk yüzde onuna girerek bir üst sınıfa geçen öğrenciler birinci öğretim diploma programlarına kontenjan dahilinde yatay geçiş"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S074",
+    "soru": "Kaydımı dondurdum, bu dönem yatay geçiş başvurusu yapabilir miyim?",
+    "beklenen_cevap": "Evet. 2014 tarihli yönergeye göre kayıt dondurmuş (izinli) olmak yatay geçiş hakkından yararlanmana engel değil. Yönerge eski olduğu için diğer şartları güncel yatay geçiş ilanından kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "6", "alinti": "Kayıt dondurmuş olmak, yatay geçiş hakkından yararlanmaya engel teşkil etmez"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S075",
+    "soru": "Çift anadaldayım, anadal ortalamam 2.50'nin altına düştü. ÇAP'tan atılır mıyım?",
+    "beklenen_cevap": "İlk seferinde hayır: 2014 tarihli yönergeye göre ÇAP süresince anadal GANO'n bir defaya mahsus 2.50'ye kadar düşebilir. Ancak ikinci kez 2.50'nin altına düşersen ikinci anadal programından kaydın silinir. Yönerge eski olduğu için güncel şartları Öğrenci İşleri'nden teyit et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "18", "alinti": "bir defaya mahsus olmak üzere 4 üzerinden 2,50’ye kadar düşebilir"},
+      {"belge": "GEC", "madde": "18", "alinti": "ikinci kez 4 üzerinden 2,50’nin altına düşen öğrencinin ikinci anadal diploma programından kaydı silinir"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S076",
+    "soru": "Anadalımdan mezun oluyorum ama çift anadalı bitiremedim. Ek süre alabilir miyim?",
+    "beklenen_cevap": "Evet. 2014 tarihli yönergeye göre anadaldan mezuniyet hakkı kazanıp ikinci anadalı bitiremeyen öğrenciye, ikinci anadalın yürütüldüğü birimin yönetim kurulu tarafından mezuniyeti izleyen dönemlerde en fazla iki yarıyıl ek süre verilir; bu sürede katkı payını/öğrenim ücretini ödemeye devam edersin. Ek süre sonunda bitiremezsen ikinci anadaldan kaydın silinir. Yönerge eski olduğu için güncel kuralı Öğrenci İşleri'nden teyit et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "17", "alinti": "en fazla iki yarıyıl ek süre verilir"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S077",
+    "soru": "Başka şehirdeyim, yatay geçiş başvurumu postayla gönderebilir miyim?",
+    "beklenen_cevap": "Hayır. 2014 tarihli yönergeye göre yatay geçiş başvuruları ilan edilen tarihlerde ilgili birime şahsen ya da yetkili bir temsilci aracılığıyla yapılır; postayla yapılan başvurular dikkate alınmaz. Yönerge eski olduğu için güncel yatay geçiş ilanındaki başvuru yöntemini kontrol et.",
+    "beklenen_davranis": ["guncellik_uyarisi", "yonlendirir"],
+    "kaynaklar": [
+      {"belge": "GEC", "madde": "8", "alinti": "posta ile yapılan başvurular dikkate alınmaz"}
+    ],
+    "kategori": "celiski",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S078",
+    "soru": "Stajda iş kazası geçirirsem sigortam var mı?",
+    "beklenen_cevap": "Evet. Staj yapan öğrenciler için 5510 sayılı Kanun kapsamında iş kazası ve meslek hastalığı sigortası uygulanır; primleri bağlı olduğun birim öder. Bakmakla yükümlü olunan kişi durumunda değilsen genel sağlık sigortası da uygulanır. İşletme, iş kazasını aynı gün içinde birimine bildirmek zorundadır.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "14", "alinti": "iş kazası ve meslek hastalığı sigortası uygulanır"},
+      {"belge": "UYG", "madde": "11", "alinti": "aynı gün içinde öğrencinin kayıtlı olduğu birime bildirmek"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S079",
+    "soru": "Staja başladım ama yerden memnun değilim. Staj yerimi değiştirebilir miyim?",
+    "beklenen_cevap": "Ancak Uygulamalı Eğitimler Komisyonu uygun görürse. Uygulamalı eğitime başladıktan sonra işletme değişikliği yalnızca komisyonun onayıyla yapılabilir.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "18", "alinti": "ancak Komisyon tarafından uygun görülmesi halinde işletme değişikliği yapabilir"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S080",
+    "soru": "Stajda maaş alır mıyım?",
+    "beklenen_cevap": "Zorunlu stajında alırsın: işletme, ders planında yer alan staj için 3308 sayılı Mesleki Eğitim Kanunu'na uygun olarak sana ücret ödemek zorundadır. Yönerge bu yükümlülüğü ders planındaki staj için tanımlıyor; isteğe bağlı (fazladan) staj için işletmeye ücret ödeme yükümlülüğü getirmiyor.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "11", "alinti": "kayıtlı olduğu programın ders planında yer aldığı için staj yapan öğrencilere"},
+      {"belge": "UYG", "madde": "14", "alinti": "Staj yapan öğrencilere ödenecek ücretler hakkında 5/6/1986 tarihli ve 3308 sayılı Mesleki Eğitim Kanununun 25 inci maddesi uygulanır"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "zor",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S081",
+    "soru": "Bütün derslerimi bitirdim, sadece stajım kaldı. Dönem içinde, mesela kasımda staj yapabilir miyim?",
+    "beklenen_cevap": "Evet. Stajların yarıyıl veya yaz tatilinde yapılması esastır, ancak bütün derslerini tamamlayıp yalnızca stajı kalan öğrenci stajını herhangi bir ayda yapabilir.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "14", "alinti": "Öğrenci bütün derslerini tamamlamış ancak stajını henüz tamamlamamış ise stajını herhangi bir ayda yapabilir"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S082",
+    "soru": "Staj notuma itiraz edebilir miyim? Süresi ne?",
+    "beklenen_cevap": "Evet. Staj değerlendirme sonuçlarına itirazlarda Eğitim Öğretim Yönetmeliği'nin hükümleri uygulanır: notta maddi hata olduğunu düşünüyorsan sonucun ilanını izleyen 3 iş günü içinde dersin yürütüldüğü birime yazılı başvurursun; maddi hata varsa birim yönetim kurulunun onayıyla not düzeltilir.",
+    "kaynaklar": [
+      {"belge": "UYG", "madde": "24", "alinti": "Değerlendirme sonuçlarına itirazlarda"},
+      {"belge": "EOY", "madde": "34", "alinti": "sınav sonucunun ilânını takip eden 3 iş günü içinde"}
+    ],
+    "kategori": "coklu_kaynak",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S083",
+    "soru": "Yaz okulu kaç hafta sürüyor, ne zaman başlıyor?",
+    "beklenen_cevap": "Yaz öğretimi bahar dönemi bütünleme sınavları bittikten sonra başlar ve sınavlar hariç en az beş, en fazla yedi hafta olarak planlanır. Kesin tarihler Senato'nun belirlediği akademik takvimde ilan edilir.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "6", "alinti": "en az beş, en fazla yedi hafta"},
+      {"belge": "YAZ", "madde": "6", "alinti": "bahar yarıyılı bütünleme sınavlarının tamamlanmasından sonra başlar"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S084",
+    "soru": "Yaz okulunda bir dersin açılması için en az kaç kişi gerekiyor?",
+    "beklenen_cevap": "Asgari sayıyı Senato belirler, ama bu sayı 10 öğrenciden az olamaz. Bireysel olarak yürütülen derslerde asgari sayı şartı aranmaz. Bir derse 80'den fazla öğrenci kaydolursa birim yönetim kurulu kararıyla şubelere ayrılabilir.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "9", "alinti": "10 (on) öğrenciden az olmayacak şekilde"},
+      {"belge": "YAZ", "madde": "9", "alinti": "bireysel olarak yapılan derslerde en az sayı şartı aranmaz"}
+    ],
+    "kategori": "sayisal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S085",
+    "soru": "Yaz okuluna gidersem o süre azami öğrenim süremden düşer mi?",
+    "beklenen_cevap": "Hayır. Yaz öğretiminde geçen süre eğitim-öğretim süresinden sayılmaz.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "Yaz öğretiminde geçen süre eğitim-öğretim süresinden sayılmaz"}
+    ],
+    "kategori": "olgusal",
+    "zorluk": "kolay",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
+  },
+  {
+    "id": "S086",
+    "soru": "Hazırlığı bu yıl bitirdim. Yaz okulunda 1. sınıf derslerini alıp öne geçebilir miyim?",
+    "beklenen_cevap": "Hayır. Yabancı dil hazırlık sınıfını başarıyla tamamlayan öğrenciler, programlarındaki dersleri normal eğitim-öğretim döneminde almadan yaz öğretimine katılamaz.",
+    "kaynaklar": [
+      {"belge": "YAZ", "madde": "10", "alinti": "normal eğitim-öğretim döneminde almadan yaz öğretimine katılamazlar"}
+    ],
+    "kategori": "kosullu",
+    "zorluk": "orta",
+    "kaynak_tipi": "sentetik",
+    "dogrulandi": false
   }
 ]
