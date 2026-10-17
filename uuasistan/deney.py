@@ -94,7 +94,7 @@ def main() -> None:
                 sir = dict(zip(idler, y.ara_toplu([sorgular[i] for i in idler], DERINLIK)))
                 kaydet(ad, sir, time.time() - t)
                 yogunlar.append(ad)
-            except Exception as e:  # bir modelin hatası (indirme, bellek) deneyi durdurmasın
+            except Exception as e:  # indirme/bellek hatası deneyi durdurmasın (GPU device-side assert ise süreci bozar, kurtarılamaz)
                 hatalar[ad] = f"{type(e).__name__}: {e}"
                 print(f"  {ad:45} HATA: {hatalar[ad][:120]}")
                 traceback.print_exc(limit=1)

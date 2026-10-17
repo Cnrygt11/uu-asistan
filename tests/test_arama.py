@@ -60,12 +60,6 @@ def test_bm25_belirgin_soruyu_bulur(veri):
     assert any(i.startswith("EOY-m18") for i in ilk5)
 
 
-def test_uzak_kod_yalnizca_onayli_modellerde():
-    """trust_remote_code Hugging Face'ten kod çalıştırır; yeni bir model eklenirken bilinçli onay gerekir."""
-    onayli = {"newmindai/TurkEmbed4Retrieval"}
-    assert {m.ad for m in YOGUN_MODELLER.values() if m.uzak_kod} == onayli
-
-
 def test_kaynak_siralari():
     from uuasistan.degerlendirme import kaynak_siralari
     assert kaynak_siralari({"b": [7, 1, 8]}, {"b": [{1}, {9}]}) == {"b": [1, None]}

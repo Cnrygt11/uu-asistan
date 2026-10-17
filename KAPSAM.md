@@ -72,7 +72,7 @@ Tam tablo: [eval/sonuclar/adim2_colab.json](eval/sonuclar/adim2_colab.json) (19 
 - Seçim aynı 60 soru üzerinde 19 yapılandırma arasından yapıldı; skorlar iyimser. Gerçek öğrenci sorularıyla (görülmemiş set) yeniden ölçülmeli.
 - Kalan kaçırmaların çoğu çok kaynaklı sorularda destekleyici ikinci/üçüncü madde. Tamamen kaçan sorular öğrenci dili–mevzuat dili farkından kaynaklanıyor ("kayıt dondurma" / "izinli ayrılma"). Adım 3'te sorgu yeniden yazma (ör. HyDE) ile ölçülecek.
 - "Recall@5 ≥ %90" hedefi keyfiydi; asıl ölçüt, dil modeline verilecek parça sayısındaki recall. Bu sayı Adım 3'te belirlenecek (Recall@10 = 0.935).
-- TurkEmbed4Retrieval ilk koşuda `trust_remote_code` istediği için yüklenemedi; düzeltildi, istenirse yeniden ölçülebilir: `python -m uuasistan.deney --yogun turkembed4retrieval`.
+- TurkEmbed4Retrieval deneyden çıkarıldı: özel kodu (`trust_remote_code`) güncel transformers ile uyumsuz ve GPU'da deneyin geri kalanını çökertiyor.
 
 ## Başarı ölçütü
 [eval/test_seti.json](eval/test_seti.json) üzerinde:
