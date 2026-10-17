@@ -1,0 +1,517 @@
+{
+ "aciklama": "adim3_qwen3-30b-a3b.jsonl cevaplarının elle değerlendirmesi (Claude, beklenen_cevap ile karşılaştırarak; adim3_qwen3-8b_degerlendirme.json ile aynı ölçütler). karar: dogru / kismi (ana sonuç doğru ama eksik, çelişkili ya da kaynak dışı ek içeriyor) / yanlis. hata: arama (doğru parça verilmedi), okuma (kaynak verildi ama yanlış yorumlandı), celiski (cevap kendi içinde çelişiyor), uydurma (kaynakta olmayan bilgi ya da kaynakta olmayan 'alıntı'), netlestirme (sorması gerekirken sormadı / gereksiz sordu), bicim (atıf biçimi, dil, hitap, 600 token sınırında kesilme).",
+ "kod_surumu": "e47bc56",
+ "ozet": {
+  "dogru": 55,
+  "kismi": 18,
+  "yanlis": 11,
+  "hata_sayilari": {
+   "okuma": 14,
+   "bicim": 8,
+   "uydurma": 7,
+   "celiski": 6,
+   "netlestirme": 5,
+   "arama": 4
+  }
+ },
+ "sorular": {
+  "S001": {
+   "karar": "dogru",
+   "hata": [
+    "bicim"
+   ],
+   "not": "Alıntı başta değil, sonda; tekrar var"
+  },
+  "S002": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma",
+    "netlestirme"
+   ],
+   "not": "Fakülteyi sormadı; Mühendislik için iki turda da 'derse girmek zorundasın' dedi (istisna listesini ters okudu)"
+  },
+  "S003": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Tıp için 'devam zorunluluğu aranmaz' dedi; liste devamın arandığı birimler"
+  },
+  "S004": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma"
+   ],
+   "not": "'Eğitim Fakültesi listede değil, dolayısıyla devam zorunlu' – mantığı ters"
+  },
+  "S005": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Uzun"
+  },
+  "S006": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S007": {
+   "karar": "yanlis",
+   "hata": [
+    "arama",
+    "uydurma"
+   ],
+   "not": "'DC notu alan bütünlemeye girer' diye Madde 27(4)'e uydurma alıntı"
+  },
+  "S008": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S009": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S010": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "'5 iş gününden sonra' dedi (doğrusu 5 iş günü içinde)"
+  },
+  "S011": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Yaz okulu finaline mazeret yok dedi (tersi doğru)"
+  },
+  "S012": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Vize %40 sadeleştirmesi kabul edilebilir"
+  },
+  "S013": {
+   "karar": "kismi",
+   "hata": [
+    "uydurma",
+    "celiski"
+   ],
+   "not": "YSSL ve Senato doğru; 'her ders için farklı olabilir' uydurma, FF anlatımı karışık"
+  },
+  "S014": {
+   "karar": "yanlis",
+   "hata": [
+    "arama",
+    "uydurma"
+   ],
+   "not": "DC'yi başarısızlık notu sandı, 'GANO'ya katılmaz' uydurma"
+  },
+  "S015": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S016": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S017": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Son cümlede dersin seçmeli olduğunu varsaydı"
+  },
+  "S018": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S019": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S020": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S021": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S022": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S023": {
+   "karar": "kismi",
+   "hata": [
+    "okuma",
+    "uydurma"
+   ],
+   "not": "Ana kural doğru; istisnalar eksik, 'ders çakışması ve danışman onayı' uydurma"
+  },
+  "S024": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Uzun"
+  },
+  "S025": {
+   "karar": "kismi",
+   "hata": [],
+   "not": "Yalnızca ek sınav; yaz okulu ve sınırsız sınav yolu eksik"
+  },
+  "S026": {
+   "karar": "dogru",
+   "hata": [
+    "netlestirme"
+   ],
+   "not": "Fakülteyi sormadan lisans 240 AKTS dedi; içerik doğru"
+  },
+  "S027": {
+   "karar": "kismi",
+   "hata": [
+    "celiski"
+   ],
+   "not": "Önce 'sekiz yıl' sonra 'yedi yıl'"
+  },
+  "S028": {
+   "karar": "kismi",
+   "hata": [
+    "celiski"
+   ],
+   "not": "Önce 'beş veya daha fazla ders kalırsa ilişik kesilir' (doğrusu altı), sonra düzeltti; ek süre/sınırsız sınav ayrıntısı eksik"
+  },
+  "S029": {
+   "karar": "dogru",
+   "hata": [
+    "bicim"
+   ],
+   "not": "Tekrarlı; 4 yıl üst üste kayıt yenilememe kuralı eksik"
+  },
+  "S030": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Bir defada 2 / toplam 4 yarıyıl kuralını mazeret türüne göre karıştırdı"
+  },
+  "S031": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S032": {
+   "karar": "yanlis",
+   "hata": [
+    "arama",
+    "celiski"
+   ],
+   "not": "'Engel değil' diye başlayıp 'sınavlara giremez' dedi; izinli öğrenci kuralı gelmedi"
+  },
+  "S033": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S034": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S035": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S036": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S037": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S038": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma"
+   ],
+   "not": "%10 muafiyetini birinci öğretime yatay geçişle karıştırdı; 'ücret ödemeden geçiş' dedi"
+  },
+  "S039": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S040": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S041": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S042": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Ders açılmazsa iade yolunu çakışma şartına bağladı"
+  },
+  "S046": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S047": {
+   "karar": "dogru",
+   "hata": [
+    "netlestirme"
+   ],
+   "not": "Fakülteyi sormadı ama içerik doğru"
+  },
+  "S048": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S049": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S050": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S051": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S052": {
+   "karar": "kismi",
+   "hata": [
+    "celiski"
+   ],
+   "not": "'Evet' diye başlayıp 'dâhil edilmez' dedi"
+  },
+  "S053": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S054": {
+   "karar": "dogru",
+   "hata": [
+    "bicim"
+   ],
+   "not": "600 tokende kesildi; kesilmeden önceki içerik doğru"
+  },
+  "S055": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma",
+    "bicim"
+   ],
+   "not": "1. sınıf için 'gidebilirsin' dedi; ilk iki yarıyıl yasağını kaçırdı; tekrar döngüsü, kesildi"
+  },
+  "S056": {
+   "karar": "kismi",
+   "hata": [],
+   "not": "Yalnızca 2.72; ilk %20 / taban puanı ve başvuru dönemi eksik"
+  },
+  "S057": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Başvuru dönemi eksik"
+  },
+  "S058": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "1. sınıf için koşulsuz 'evet'; 2. yarıyıl kontenjan kuralını sonra andı"
+  },
+  "S059": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S060": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S061": {
+   "karar": "kismi",
+   "hata": [
+    "uydurma"
+   ],
+   "not": "Tutarı vermedi ama '2026'da yayımlanan Cumhurbaşkanlığı Kararı ile belirlenmiştir' uydurma"
+  },
+  "S062": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Sabit puan olmadığını doğru söyledi; 'ilk yarıyıl' (doğrusu iki yarıyıl ortalaması), %50 hesabı ve tekrar edenler eksik"
+  },
+  "S063": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "İngilizce; alıntı alakasız fıkradan"
+  },
+  "S064": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S065": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S066": {
+   "karar": "kismi",
+   "hata": [],
+   "not": "Önlisans diploması doğru; 240 AKTS/8 yarıyılla lisans diploması yolu eksik"
+  },
+  "S067": {
+   "karar": "yanlis",
+   "hata": [
+    "arama",
+    "netlestirme"
+   ],
+   "not": "Geçici 4 gelmedi; kayıt yılını sormadı, 2019 kaydına 3.00 dedi"
+  },
+  "S068": {
+   "karar": "kismi",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Başvuru belgelerini sıraladı; Farabi/Erasmus dönüşüm tabloları yok"
+  },
+  "S069": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S070": {
+   "karar": "dogru",
+   "hata": [
+    "bicim"
+   ],
+   "not": "Kuralı yanlış belgeye (Eğitim Öğretim Yönetmeliği) atfetti"
+  },
+  "S071": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "Belge listesi eksik"
+  },
+  "S072": {
+   "karar": "kismi",
+   "hata": [
+    "bicim"
+   ],
+   "not": "Kayıt silinme riskini andı ama ÇAP biriminden onay gerektiğini söylemedi; uzun, kesildi"
+  },
+  "S073": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S074": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S075": {
+   "karar": "dogru",
+   "hata": [
+    "netlestirme"
+   ],
+   "not": "ÇAP kayıt tarihini sormadı; sonuç doğru"
+  },
+  "S076": {
+   "karar": "kismi",
+   "hata": [
+    "uydurma"
+   ],
+   "not": "Alıntı doğru; 'ek süre alabilirsin' çerçevesi ve 'birim yönetim kurulu onayı' uydurma"
+  },
+  "S077": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S078": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S079": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S080": {
+   "karar": "dogru",
+   "hata": [],
+   "not": "İsteğe bağlı staj ayrımı eksik"
+  },
+  "S081": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S082": {
+   "karar": "kismi",
+   "hata": [
+    "celiski",
+    "bicim"
+   ],
+   "not": "3 iş günü doğru; 'itiraz süreci farklıdır' ile çelişiyor; uzun, kesildi"
+  },
+  "S083": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S084": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S085": {
+   "karar": "dogru",
+   "hata": [],
+   "not": ""
+  },
+  "S086": {
+   "karar": "dogru",
+   "hata": [
+    "bicim",
+    "uydurma"
+   ],
+   "not": "Yanlış belge adı; '2. seviye yabancı dil dersleri' eki uydurma"
+  },
+  "S087": {
+   "karar": "yanlis",
+   "hata": [
+    "okuma"
+   ],
+   "not": "Geçici 1'i görmezden geldi: 2024 kaydına yeni yönerge uygulanır dedi"
+  }
+ }
+}
