@@ -6,7 +6,7 @@ Bursa Uludağ Üniversitesi önlisans ve lisans öğrencilerinin eğitim-öğret
 - [x] **Adım 0: Kapsam ve test seti.** Kapsam: [KAPSAM.md](KAPSAM.md). Test seti: [eval/](eval/) (84 soru, tamamı onaylı).
 - [x] **Adım 1: Belgeleri temizleme ve madde bazlı bölme.** 6 belge, 186 madde, 240 parça.
 - [x] **Adım 2: Arama.** turkish-e5-large → modernbert-tr-reranker: Recall@5 = 0.905, Recall@10 = 0.941, MRR = 0.851 (80 soru; BM25: 0.656). Karar ve gerekçe: [KAPSAM.md](KAPSAM.md#arama-adım-2). Deney: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim2_arama.ipynb)
-- [ ] **Adım 3: Cevap üretimi (sürüyor).** Qwen3-8B ile uçtan uca ilk sürüm: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim3_cevap.ipynb)
+- [ ] **Adım 3: Cevap üretimi (sürüyor).** İlk sürüm (Qwen3-8B, transformers): 84 sorunun %57'si doğru; darboğaz dil modeli ([değerlendirme](eval/sonuclar/adim3_qwen3-8b_degerlendirme.json)). Şimdi: vLLM ile Qwen3-8B ve Qwen3-30B-A3B karşılaştırması, hedef ilk kelime < 2 sn, cevap < 10 sn: [Colab'da aç](https://colab.research.google.com/github/Cnrygt11/uu-asistan/blob/main/notebooks/adim3_cevap.ipynb)
 - [ ] **Adım 4:** Değerlendirme
 - [ ] **Adım 5:** Arayüz
 

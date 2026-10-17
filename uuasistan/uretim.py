@@ -1,19 +1,19 @@
-"""Adım 3 üretim deneyi: test setindeki her soruyu asistana sorar, cevapları kaydeder.
+"""Adım 3 üretim deneyi: test setindeki her soruyu asistana sorar, cevapları ve süreleri kaydeder.
 
 Netleştirmeli sorularda iki tur çalışır: önce soru, sonra test setindeki öğrenci yanıtı.
 Otomatik ölçümler kabadır (getirme, madde atfı, netleştirme sorusu); içerik doğruluğu
 cevaplar okunarak değerlendirilir.
 
-Kullanım (Colab, GPU):
-  python -m uuasistan.uretim --cikti eval/sonuclar/adim3_qwen3-8b.jsonl
-  python -m uuasistan.uretim --sinir 3        # hızlı deneme
+Kullanım (Colab, GPU, vLLM):
+  python -m uuasistan.uretim --model qwen3-30b-a3b --cikti eval/sonuclar/adim3_qwen3-30b-a3b.jsonl
+  python -m uuasistan.uretim --model qwen3-8b --sinir 3     # hızlı deneme
 """
 import argparse
 import json
-import time
+import statistics
 
 from . import KOK
-from .cevap import DIL_MODELI, PARCA_SAYISI, atif_yapilan_maddeler, gercek_asistan
+from .cevap import DIL_MODELLERI, PARCA_SAYISI, atif_yapilan_maddeler, gercek_asistan
 from .degerlendirme import hedefler
 
 
@@ -22,15 +22,15 @@ def calistir(asistan, sorular: list) -> list:
     konum = {id(p): i for i, p in enumerate(asistan.parcalar)}
     kayitlar = []
     for s in sorular:
-        t = time.time()
         diyalog = [{"rol": "ogrenci", "metin": s["soru"]}]
-        cevap1, parcalar = asistan.cevapla(diyalog)
-        kayit = {"id": s["id"], "kategori": s["kategori"], "soru": s["soru"], "tur1": cevap1}
+        cevap1, parcalar, olcum = asistan.cevapla(diyalog)
+        kayit = {"id": s["id"], "kategori": s["kategori"], "soru": s["soru"], "tur1": cevap1, "olcum": [olcum]}
         n = s.get("netlestirme")
         if n:
             diyalog += [{"rol": "asistan", "metin": cevap1}, {"rol": "ogrenci", "metin": n["ogrenci_yaniti"]}]
             kayit["ogrenci_yaniti"] = n["ogrenci_yaniti"]
-            kayit["tur2"], parcalar = asistan.cevapla(diyalog)
+            kayit["tur2"], parcalar, olcum = asistan.cevapla(diyalog)
+            kayit["olcum"].append(olcum)
         son = kayit.get("tur2", cevap1)
         kayit["parcalar"] = [p["id"] for p in parcalar]
         if s["id"] in hedef:
@@ -41,10 +41,26 @@ def calistir(asistan, sorular: list) -> list:
         davranis = s.get("beklenen_davranis", [])
         if "netlestirme_sorar" in davranis or "netlestirme_sormaz" in davranis:
             kayit["ilk_turda_soru_sordu"] = "?" in cevap1
-        kayit["sure_sn"] = round(time.time() - t, 1)
         kayitlar.append(kayit)
-        print(f"{s['id']} ({kayit['sure_sn']} sn) {son[:100]!r}")
+        print(f"{s['id']} ({sum(o['arama_sn'] + o['uretim_sn'] for o in kayit['olcum']):.1f} sn) {son[:100]!r}")
     return kayitlar
+
+
+def hiz(olcumler: list) -> dict:
+    """uretim_sn = a + b * token doğrusal uyumu: a ~ ilk token süresi (istem işleme), 1/b ~ token/sn.
+    Akış (streaming) açıkken öğrencinin ilk kelimeyi görme süresi ~ arama + a."""
+    x = [o["token"] for o in olcumler]
+    y = [o["uretim_sn"] for o in olcumler]
+    arama = statistics.median(o["arama_sn"] for o in olcumler)
+    sonuc = {
+        "arama_sn_medyan": round(arama, 2),
+        "token_medyan": statistics.median(x),
+        "toplam_sn_medyan": round(statistics.median(o["arama_sn"] + o["uretim_sn"] for o in olcumler), 1),
+    }
+    if len(set(x)) > 1:
+        b, a = statistics.linear_regression(x, y)
+        sonuc |= {"tahmini_ilk_kelime_sn": round(arama + a, 2), "token_per_sn": round(1 / b, 1) if b > 0 else None}
+    return sonuc
 
 
 def ozet(kayitlar: list, sorular: list) -> dict:
@@ -57,20 +73,21 @@ def ozet(kayitlar: list, sorular: list) -> dict:
         "dogru_madde_atfi": round(sum(k["dogru_madde_atfi"] for k in g) / len(g), 3),
         "netlestirme_sordu": f"{sum(k['ilk_turda_soru_sordu'] for k in sorar)}/{len(sorar)}",
         "gereksiz_netlestirme": f"{sum(k['ilk_turda_soru_sordu'] for k in sormaz)}/{len(sormaz)}",
-        "ortalama_sure_sn": round(sum(k["sure_sn"] for k in kayitlar) / len(kayitlar), 1),
+        "hiz": hiz([o for k in kayitlar for o in k["olcum"]]),
     }
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--model", choices=list(DIL_MODELLERI), default="qwen3-8b")
     ap.add_argument("--cikti", default=None, help="cevapların yazılacağı JSONL dosyası")
     ap.add_argument("--sinir", type=int, default=None, help="yalnızca ilk N soru (hızlı deneme)")
     args = ap.parse_args()
 
     sorular = json.loads((KOK / "eval" / "test_seti.json").read_text("utf-8"))[: args.sinir]
-    asistan = gercek_asistan()
+    asistan = gercek_asistan(args.model)
     kayitlar = calistir(asistan, sorular)
-    o = ozet(kayitlar, sorular) | {"model": DIL_MODELI, "tarih": asistan.gun.isoformat(), "soru_sayisi": len(kayitlar)}
+    o = ozet(kayitlar, sorular) | {"model": DIL_MODELLERI[args.model][0], "tarih": asistan.gun.isoformat(), "soru_sayisi": len(kayitlar)}
     print("\nÖzet:", json.dumps(o, ensure_ascii=False))
     if args.cikti:
         with open(KOK / args.cikti, "w", encoding="utf-8", newline="\n") as f:
