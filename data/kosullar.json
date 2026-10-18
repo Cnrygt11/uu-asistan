@@ -1,0 +1,51 @@
+{
+  "aciklama": "Sonucu öğrencinin durumuna göre değişen kurallar. Aramanın en alakalı bulduğu parça burada etiketliyse ve öğrenci gereken bilgiyi vermediyse asistan cevap vermeden önce o bilgiyi sorar. Etiket belgelerin metnine göre konur, test sorularına göre değil. fikra verilmişse yalnızca o fıkra etiketlidir ve parçalamada ayrı parça olur (aynı maddenin koşulsuz fıkralarında gereksiz soru sorulmasın); verilmemişse maddenin tamamı etiketlidir. bagli: bu kural seçildiğinde bağlama eklenecek parçalar (kuralı değiştiren geçici maddeler ve gereken tarih). okuma_notu: modele kaynakla birlikte verilen, yönetmelik metni olmayan okuma yardımı; her biri bir insan tarafından kaynağa göre doğrulanmalı.",
+  "kurallar": [
+    {
+      "belge": "EOY", "madde": "18", "fikra": 3, "konu": "fakulte",
+      "neden": "Tekrar alınan derste devam muafiyeti, fıkrada sayılan birimlerde uygulanmaz.",
+      "okuma_notu": "Listede sayılan birimlerde, tekrar alınan derslerde de devam zorunludur. Listede sayılmayan birimlerde, devam şartı daha önce bir kez sağlanmış salt teorik dersler ile derse bağlı uygulama ve laboratuvar dersleri tekrar alınırken devam aranmaz."
+    },
+    {
+      "belge": "EOY", "madde": "37", "fikra": 1, "konu": "fakulte",
+      "neden": "Mezuniyet için gereken AKTS birime göre değişir (önlisans 120, lisans 240, Diş Hekimliği ve Veteriner 300, Tıp 360)."
+    },
+    {
+      "belge": "EOY", "madde": "35", "fikra": 2, "konu": "kayit_yili",
+      "neden": "Geçici 4: %10 değerlendirmesindeki YANO sınırı 2019-2020 ve öncesinde kayıt olanlar için 2.50.",
+      "bagli": ["EOY-g4"]
+    },
+    {
+      "belge": "GEC", "madde": "18", "konu": "cap_yandal_kayit_tarihi",
+      "neden": "Çift anadal uygulaması; Geçici 1: yönerge yürürlüğe girmeden önce kaydolanlara kayıt anındaki esaslar uygulanır.",
+      "bagli": ["GEC-g1", "GEC-m32"]
+    },
+    {
+      "belge": "GEC", "madde": "19", "konu": "cap_yandal_kayit_tarihi",
+      "neden": "Çift anadal başarı ve mezuniyet; Geçici 1.",
+      "bagli": ["GEC-g1", "GEC-m32"]
+    },
+    {
+      "belge": "GEC", "madde": "20", "konu": "cap_yandal_kayit_tarihi",
+      "neden": "Çift anadal kayıt silme ve ayrılma; Geçici 1.",
+      "bagli": ["GEC-g1", "GEC-m32"]
+    },
+    {
+      "belge": "GEC", "madde": "23", "konu": "cap_yandal_kayit_tarihi",
+      "neden": "Yan dal uygulaması; Geçici 1.",
+      "bagli": ["GEC-g1", "GEC-m32"]
+    },
+    {
+      "belge": "GEC", "madde": "24", "konu": "cap_yandal_kayit_tarihi",
+      "neden": "Yan dal başarı, mezuniyet ve kayıt silme; Geçici 1.",
+      "bagli": ["GEC-g1", "GEC-m32"]
+    }
+  ],
+  "etiketlenmeyenler": [
+    {"belge": "EOY", "madde": "38", "neden": "Önlisans diploması koşulu (ilk 4 yarıyıl ve en az 120 AKTS) bütün lisans programlarında aynı; 5-6 yıllık programlardaki ek lisans diploması imkânı cevapta koşullu olarak söylenebilir."},
+    {"belge": "EOY", "madde": "15", "neden": "Azami süre program süresine göre değişir ama tablo kısa; cevapta bütün süreler verilebilir."},
+    {"belge": "GEC", "madde": "17", "neden": "Çift anadal başvurusu: başvuran öğrenciye yürürlükteki yönerge uygulanır, kayıt tarihi sorulmaz."},
+    {"belge": "GEC", "madde": "22", "neden": "Yan dal başvurusu: başvuran öğrenciye yürürlükteki yönerge uygulanır, kayıt tarihi sorulmaz."},
+    {"belge": "EOY", "madde": "Geçici 3", "neden": "2015-2016 ve öncesinde kaydolanlar azami süreleri doldurmuş durumda; kayıt yılı sorulmaz."}
+  ]
+}

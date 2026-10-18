@@ -5,7 +5,7 @@ import sys
 import pytest
 
 from uuasistan import DATA, KOK
-from uuasistan.hazirla import INDEKS_KAPSAMI, belge_maddeleri, katalog, madde_durumlari, parcalar_uret
+from uuasistan.hazirla import INDEKS_KAPSAMI, ayri_fikralar, belge_maddeleri, katalog, madde_durumlari, parcalar_uret
 from uuasistan.metin import temizle
 from uuasistan.parcalama import (
     BENT, BOLUM, EKLER, MADDE_BASI, UZUNLUK_SINIRI, Madde, madde_parcalari, maddelere_ayir, paragraflar,
@@ -16,6 +16,7 @@ import test_seti_dogrula  # noqa: E402
 
 BELGELER = katalog()
 DURUMLAR = madde_durumlari()
+AYRI = ayri_fikralar()
 
 
 def bosluksuz(s: str) -> str:
@@ -27,7 +28,7 @@ def parcalar():
     tum = []
     for b in BELGELER:
         if b.get("kapsam") in INDEKS_KAPSAMI:
-            tum.extend(parcalar_uret(b, DURUMLAR)[0])
+            tum.extend(parcalar_uret(b, DURUMLAR, AYRI)[0])
     return tum
 
 

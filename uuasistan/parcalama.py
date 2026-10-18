@@ -2,10 +2,12 @@
 
 Her madde bir parçadır. UZUNLUK_SINIRI'nı aşan maddeler fıkra sınırlarından,
 tek başına sınırı aşan fıkralar bent sınırlarından bölünür; bentlere bölünen
-fıkranın giriş cümlesi her alt parçanın başına eklenir.
+fıkranın giriş cümlesi her alt parçanın başına eklenir. Koşula bağlı olarak
+etiketlenen fıkralar (data/kosullar.json) uzunluktan bağımsız olarak ayrı parça olur.
 """
 import re
 from dataclasses import dataclass, field
+from itertools import groupby
 
 UZUNLUK_SINIRI = 1500  # karakter; yaklaşık 350-400 token
 
@@ -144,11 +146,11 @@ def _paketle(birimler: list, sinir: int) -> list:
     return paketler
 
 
-def madde_parcalari(madde: Madde, sinir: int = UZUNLUK_SINIRI) -> list:
-    """[(fikra_numaralari, metin)]"""
+def madde_parcalari(madde: Madde, sinir: int = UZUNLUK_SINIRI, ayri: frozenset = frozenset()) -> list:
+    """[(fikra_numaralari, metin)]. ayri: kendi parçasında tutulacak fıkra numaraları (data/kosullar.json)."""
     paras = paragraflar(madde.satirlar)
     tam = "\n".join(paras)
-    if len(tam) <= sinir:
+    if len(tam) <= sinir and not ayri & {f for f, _ in _fikralar(paras)}:
         return [([f for f, _ in _fikralar(paras) if f is not None], tam)]
 
     birimler = []  # (fikra_no, metin)
@@ -164,9 +166,12 @@ def madde_parcalari(madde: Madde, sinir: int = UZUNLUK_SINIRI) -> list:
             onek = giris if k == 0 else f"{giris} (devam)" if giris else ""
             birimler.append((no, "\n".join(([onek] if onek else []) + [b for _, b in grup])))
 
+    # Ayrı tutulacak her fıkra kendi grubunu oluşturur; aradaki fıkralar eskisi gibi paketlenir.
+    gruplar = [list(g) for _, g in groupby(birimler, key=lambda b: b[0] if b[0] in ayri else None)]
     return [
         (sorted({f for f, _ in grup if f is not None}), "\n".join(m for _, m in grup))
-        for grup in _paketle(birimler, sinir)
+        for g in gruplar
+        for grup in _paketle(g, sinir)
     ]
 
 

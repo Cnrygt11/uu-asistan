@@ -42,28 +42,26 @@ def calistir(asistan, sorular: list) -> list:
         if "netlestirme_sorar" in davranis or "netlestirme_sormaz" in davranis:
             kayit["ilk_turda_soru_sordu"] = "?" in cevap1
         kayitlar.append(kayit)
-        print(f"{s['id']} ({sum(o['arama_sn'] + o.get('karar_sn', 0) + o.get('uretim_sn', 0) for o in kayit['olcum']):.1f} sn) {son[:100]!r}")
+        print(f"{s['id']} ({sum(o['arama_sn'] + o.get('uretim_sn', 0) for o in kayit['olcum']):.1f} sn) {son[:100]!r}")
     return kayitlar
 
 
 def hiz(olcumler: list) -> dict:
     """uretim_sn = a + b * token doğrusal uyumu: a ~ ilk token süresi (istem işleme), 1/b ~ token/sn.
-    Akış (streaming) açıkken öğrencinin ilk kelimeyi görme süresi ~ arama + karar + a.
+    Akış (streaming) açıkken öğrencinin ilk kelimeyi görme süresi ~ arama + a.
     Netleştirme sorusu sorulan ölçümlerde cevap üretilmez; uyum yalnızca üretilen cevaplardan yapılır."""
     uretilen = [o for o in olcumler if "token" in o]
     x = [o["token"] for o in uretilen]
     y = [o["uretim_sn"] for o in uretilen]
     arama = statistics.median(o["arama_sn"] for o in olcumler)
-    karar = statistics.median(o.get("karar_sn", 0) for o in olcumler)
     sonuc = {
         "arama_sn_medyan": round(arama, 2),
-        "karar_sn_medyan": round(karar, 2),
         "token_medyan": statistics.median(x),
-        "toplam_sn_medyan": round(statistics.median(o["arama_sn"] + o.get("karar_sn", 0) + o.get("uretim_sn", 0) for o in olcumler), 1),
+        "toplam_sn_medyan": round(statistics.median(o["arama_sn"] + o.get("uretim_sn", 0) for o in olcumler), 1),
     }
     if len(set(x)) > 1:
         b, a = statistics.linear_regression(x, y)
-        sonuc |= {"tahmini_ilk_kelime_sn": round(arama + karar + a, 2), "token_per_sn": round(1 / b, 1) if b > 0 else None}
+        sonuc |= {"tahmini_ilk_kelime_sn": round(arama + a, 2), "token_per_sn": round(1 / b, 1) if b > 0 else None}
     return sonuc
 
 

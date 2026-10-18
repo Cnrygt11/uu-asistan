@@ -23,19 +23,20 @@ DIL_MODELLERI = {
     "qwen3-30b-a3b": ("RedHatAI/Qwen3-30B-A3B-Instruct-2507-quantized.w4a16", {}),
 }
 
-# Netleştirme ayrı bir adımda kararlaştırılır: istemdeki "önce sor" kuralına model iki koşuda da hiç uymadı (0/6).
-# Karar kısıtlı JSON çıktısıyla verilir (önce kısa gerekçe, sonra karar); soru metni sabittir.
-# İlk deneme (gerekçesiz, 8 parça) neredeyse her soruda soru sordu, fakültesini söyleyen öğrenciye bile.
+# Netleştirme: sonucu öğrencinin durumuna göre değişen kurallar data/kosullar.json'da etiketli. Aramanın ilk
+# sıradaki parçası etiketliyse ve öğrenci gereken bilgiyi vermediyse cevap üretilmez, sabit soru sorulur.
+# Kararı dil modeline bıraktığımız denemeler başarısızdı: istemle 0/6; ayrı karar adımında 1/6 doğru, 12/78 gereksiz soru.
 NETLESTIRME_SORULARI = {
     "fakulte": "Bu konudaki kural fakülteye ya da yüksekokula göre değişiyor. Hangi fakültede ya da yüksekokulda okuyorsun?",
-    "kayit_tarihi": "Bu konudaki kural kayıt tarihine göre değişiyor. Üniversiteye ya da ilgili programa (çift anadal, yan dal gibi) ne zaman kaydoldun?",
+    "kayit_yili": "Bu konudaki kural üniversiteye kayıt yılına göre değişiyor. Üniversiteye hangi yıl kaydoldun?",
+    "cap_yandal_kayit_tarihi": "Bu konudaki kural çift anadal ya da yan dal programına kayıt tarihine göre değişiyor. Programa hangi dönem kaydoldun?",
 }
-KARARLAR = ("yok", *NETLESTIRME_SORULARI)
-KARAR_PARCA_SAYISI = 3  # karar yalnızca en alakalı parçalara bakar; alt sıralardaki ilgisiz istisna listeleri yanıltıyordu
-# Öğrenci bilgiyi zaten verdiyse model ne derse desin tekrar sorulmaz.
+_YIL = r"\b(?:19|20)\d{2}\b"
+# Öğrencinin bilgiyi verdiğini gösteren ifadeler; eşleşirse tekrar sorulmaz.
 SOYLENDI = {
     "fakulte": re.compile(r"(?i)fakülte|yüksekokul|\bmyo\b|konservatuvar|iibf|İİBF"),
-    "kayit_tarihi": re.compile(r"\b(?:19|20)\d{2}\b"),
+    "kayit_yili": re.compile(_YIL),
+    "cap_yandal_kayit_tarihi": re.compile(_YIL),
 }
 
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
@@ -65,7 +66,43 @@ Kurallar:
 10. Soru hangi dilde sorulduysa cevabı o dilde yaz: İngilizce soruya İngilizce cevap ver (alıntı Türkçe kalabilir)."""
 
 
-def kaynak_metni(parcalar: list) -> str:
+def kosul_kurallari() -> dict:
+    """{(belge, madde, fıkra | None): kural}; fıkra None ise maddenin tamamı etiketlidir."""
+    kurallar = json.loads((DATA / "kosullar.json").read_text("utf-8"))["kurallar"]
+    return {(k["belge"], k["madde"], k.get("fikra")): k for k in kurallar}
+
+
+def parca_kurali(parca: dict, kurallar: dict) -> dict | None:
+    for f in (None, *parca.get("fikralar", [])):
+        if (k := kurallar.get((parca["belge"], parca["madde"], f))) is not None:
+            return k
+    return None
+
+
+def netlestirme_konusu(diyalog: list, parca: dict, kurallar: dict) -> str | None:
+    """Cevaptan önce sorulması gereken konu; gerek yoksa None."""
+    kural = parca_kurali(parca, kurallar)
+    if kural is None:
+        return None
+    asistan = [m["metin"] for m in diyalog if m["rol"] == "asistan"]
+    if asistan and asistan[-1] in NETLESTIRME_SORULARI.values():
+        return None  # az önce sorduk: öğrencinin yanıtıyla cevap verilir, aynı soru tekrarlanmaz
+    ogrenci = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
+    return None if SOYLENDI[kural["konu"]].search(ogrenci) else kural["konu"]
+
+
+def bagli_ekle(secilen: list, parcalar: list, kurallar: dict) -> list:
+    """Seçilen kuralları değiştiren hükümleri (geçici maddeler, yürürlük tarihi) sona ekler; arama bunları kaçırabiliyor."""
+    kimlik = {p["id"]: p for p in parcalar}
+    sonuc = list(secilen)
+    for p in secilen:
+        for pid in (parca_kurali(p, kurallar) or {}).get("bagli", []):
+            if all(q["id"] != pid for q in sonuc):
+                sonuc.append(kimlik[pid])
+    return sonuc
+
+
+def kaynak_metni(parcalar: list, kurallar: dict | None = None) -> str:
     bloklar = []
     for n, p in enumerate(parcalar, 1):
         ek = []
@@ -74,55 +111,33 @@ def kaynak_metni(parcalar: list) -> str:
         if p.get("kayit_yili_en_gec"):
             ek.append(f"yalnızca {p['kayit_yili_en_gec']} ve öncesinde kayıt olanlara uygulanır")
         baslik = f"[{n}] {p['belge_adi']}, Madde {p['madde']}" + (f" ({p['baslik']})" if p["baslik"] else "")
-        bloklar.append(baslik + (f" [{'; '.join(ek)}]" if ek else "") + "\n" + p["metin"])
+        if ek:
+            baslik += f" [{'; '.join(ek)}]"
+        if kurallar and (k := parca_kurali(p, kurallar)) and k.get("okuma_notu"):
+            baslik += f"\n(Okuma notu; yönetmelik metni değildir, alıntılama: {k['okuma_notu']})"
+        bloklar.append(baslik + "\n" + p["metin"])
     return "KAYNAKLAR:\n\n" + "\n\n".join(bloklar)
 
 
-def karar_istemi() -> str:
-    return """Sana bir öğrenci sorusu ve soruyla ilgili yönetmelik maddeleri verilecek. Görevin cevap yazmak değil, yalnızca şunu belirlemek: sorunun doğru cevabı, öğrencinin henüz söylemediği bir bilgiye bağlı mı?
-
-- fakulte: Soruyu cevaplayan kural fakülteye, yüksekokula ya da programa göre farklı sonuç veriyor (kural bazı birimleri ayrıca sayıyor ya da birimlere göre farklı değerler veriyor) ve öğrenci fakültesini, yüksekokulunu ya da programını söylemedi.
-- kayit_tarihi: Soruyu cevaplayan kural, öğrencinin üniversiteye ya da bir programa (çift anadal, yan dal gibi) kaydolduğu tarihe göre farklı sonuç veriyor (bir hüküm yalnızca belirli bir tarihten önce ya da sonra kaydolanlara uygulanıyor) ve öğrenci kayıt tarihini söylemedi.
-- yok: Cevap öğrencinin durumuna göre değişmiyor, gereken bilgiyi öğrenci zaten verdi ya da soru kaynaklarla ilgili değil.
-
-Yalnızca soruyu cevaplayan kurala bak; kaynaklarda geçen ama soruyla ilgisi olmayan maddeleri dikkate alma. Çoğu soru için doğru karar yok'tur: kural bütün öğrencilere aynı uygulanıyorsa ya da kuraldaki istisna listesi sorulan durumla ilgili değilse yok de. Emin değilsen yok de.
-
-Önce gerekce alanına bir iki cümleyle soruyu hangi kuralın cevapladığını ve bu kuralın sonucunun öğrencinin fakültesine ya da kayıt tarihine göre değişip değişmediğini yaz; sonra karar alanını doldur."""
-
-
-def karar_mesajlari(diyalog: list, parcalar: list) -> list:
-    soru = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
-    kaynak = kaynak_metni(parcalar[:KARAR_PARCA_SAYISI])
-    return [{"role": "system", "content": karar_istemi()}, {"role": "user", "content": f"{kaynak}\n\nSORU:\n{soru}"}]
-
-
-def netlestirme_gerekli(karar: str, diyalog: list) -> bool:
-    if karar not in NETLESTIRME_SORULARI:
-        return False
-    ogrenci = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
-    return not SOYLENDI[karar].search(ogrenci)
-
-
-def mesajlar(diyalog: list, parcalar: list, gun: dt.date) -> list:
+def mesajlar(diyalog: list, parcalar: list, gun: dt.date, kurallar: dict | None = None) -> list:
     """diyalog: [{"rol": "ogrenci"|"asistan", "metin": ...}]; kaynaklar son öğrenci mesajına eklenir."""
     sonuc = [{"role": "system", "content": sistem_istemi(gun)}]
     for i, m in enumerate(diyalog):
         icerik = m["metin"]
         if i == len(diyalog) - 1:
-            icerik = f"{kaynak_metni(parcalar)}\n\nSORU:\n{icerik}"
+            icerik = f"{kaynak_metni(parcalar, kurallar)}\n\nSORU:\n{icerik}"
         sonuc.append({"role": "user" if m["rol"] == "ogrenci" else "assistant", "content": icerik})
     return sonuc
 
 
 class Asistan:
-    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, karar=None):
-        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı);
-        karar(mesajlar) -> (KARARLAR'dan biri, gerekçe) (verilmezse netleştirme adımı atlanır)."""
+    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, kurallar: dict | None = None):
+        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı)."""
         self.parcalar = parcalar
         self.getir = getir
         self.uret = uret
-        self.karar = karar
         self.gun = gun or dt.date.today()
+        self.kurallar = kosul_kurallari() if kurallar is None else kurallar
 
     def cevapla(self, diyalog: list) -> tuple:
         """(cevap, kullanılan parçalar, ölçüm). Arama sorgusu öğrencinin bütün mesajlarından oluşur."""
@@ -131,15 +146,10 @@ class Asistan:
         secilen = [self.parcalar[i] for i in self.getir(sorgu)[:PARCA_SAYISI]]
         t1 = time.perf_counter()
         olcum = {"arama_sn": round(t1 - t0, 3)}
-        # Netleştirme yalnızca ilk turda: asistan bir kez sorduysa öğrencinin yanıtıyla cevap verilir.
-        if self.karar and not any(m["rol"] == "asistan" for m in diyalog):
-            k, gerekce = self.karar(karar_mesajlari(diyalog, secilen))
-            simdi = time.perf_counter()
-            olcum |= {"karar_sn": round(simdi - t1, 3), "karar": k, "karar_gerekce": gerekce}
-            t1 = simdi
-            if netlestirme_gerekli(k, diyalog):
-                return NETLESTIRME_SORULARI[k], secilen, olcum | {"netlestirme": k}
-        cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun))
+        if secilen and (konu := netlestirme_konusu(diyalog, secilen[0], self.kurallar)):
+            return NETLESTIRME_SORULARI[konu], secilen, olcum | {"netlestirme": konu}
+        secilen = bagli_ekle(secilen, self.parcalar, self.kurallar)
+        cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun, self.kurallar))
         t2 = time.perf_counter()
         return cevap, secilen, olcum | {"uretim_sn": round(t2 - t1, 3), "token": token}
 
@@ -152,26 +162,11 @@ def atif_yapilan_maddeler(cevap: str) -> set:
     return sonuc
 
 
-def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0) -> Asistan:
-    """Colab'da (GPU) gerçek modellerle asistanı kurar. vLLM önce yüklenir; fp16 arama modelleri kalan belleğe sığar."""
+def arama_kur(cihaz: str = "cuda") -> tuple:
+    """(parcalar, getir): turkish-e5-large ile 30 aday, modernbert-tr-reranker ile sıralama; arama modelleri fp16."""
     import torch
-    from vllm import LLM, SamplingParams
-    from vllm.sampling_params import StructuredOutputsParams
 
     from .arama import YENIDEN_SIRALAYICILAR, YOGUN_MODELLER, Yogun, YenidenSiralayici
-
-    ad, sablon_ek = DIL_MODELLERI[model]
-    # Bellek (L4, 22 GB): ilk denemede vLLM %85'i aldı, fp32 arama modelleri kalan 3 GB'ı doldurdu ve ilk soruda OOM.
-    # KV önbelleği sabit 1 GiB (8B'de ~7.000, 30B'de ~10.000 token; istem en fazla ~5.000 token: 8 parça × 1.500 karakter + 600 cevap) ve ön doldurma 2.048'lik
-    # parçalarla yapılır (etkinleştirme belleği ~1 GB'tan ~0,25 GB'a); arama modelleri fp16 (~3 GB yerine ~1,5 GB).
-    llm = LLM(model=ad, max_model_len=6144, kv_cache_memory_bytes=1 << 30, max_num_batched_tokens=2048, seed=tohum)
-    tok = llm.get_tokenizer()
-    # İki model kartının önerisi; açgözlü çözümleme uzun metinde tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
-    ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=tohum)
-    # Karar bir sınıflandırma: açgözlü; çıktı {"gerekce", "karar"} JSON'u, karar yalnızca KARARLAR'dan biri olabilir.
-    sema = {"type": "object", "required": ["gerekce", "karar"],
-            "properties": {"gerekce": {"type": "string", "maxLength": 400}, "karar": {"enum": list(KARARLAR)}}}
-    karar_ornekleme = SamplingParams(temperature=0.0, max_tokens=200, structured_outputs=StructuredOutputsParams(json=sema))
 
     parcalar = [json.loads(s) for s in (DATA / "parcalar.jsonl").read_text("utf-8").splitlines()]
     metinler = [p["arama_metni"] for p in parcalar]
@@ -183,18 +178,26 @@ def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0)
         adaylar = yogun.ara_toplu([sorgu], ADAY_SAYISI)[0]
         return ys.sirala(sorgu, adaylar, metinler)
 
+    return parcalar, getir
+
+
+def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0) -> Asistan:
+    """Colab'da (GPU) gerçek modellerle asistanı kurar. vLLM önce yüklenir; fp16 arama modelleri kalan belleğe sığar."""
+    from vllm import LLM, SamplingParams
+
+    ad, sablon_ek = DIL_MODELLERI[model]
+    # Bellek (L4, 22 GB): ilk denemede vLLM %85'i aldı, fp32 arama modelleri kalan 3 GB'ı doldurdu ve ilk soruda OOM.
+    # KV önbelleği sabit 1 GiB (8B'de ~7.000, 30B'de ~10.000 token; istem en fazla ~5.000 token: 8 parça × 1.500 karakter + 600 cevap) ve ön doldurma 2.048'lik
+    # parçalarla yapılır (etkinleştirme belleği ~1 GB'tan ~0,25 GB'a); arama modelleri fp16 (~3 GB yerine ~1,5 GB).
+    llm = LLM(model=ad, max_model_len=6144, kv_cache_memory_bytes=1 << 30, max_num_batched_tokens=2048, seed=tohum)
+    tok = llm.get_tokenizer()
+    # İki model kartının önerisi; açgözlü çözümleme uzun metinde tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
+    ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=tohum)
+    parcalar, getir = arama_kur(cihaz)
+
     def uret(msj: list) -> tuple:
         istem = tok.apply_chat_template(msj, tokenize=False, add_generation_prompt=True, **sablon_ek)
         cikti = llm.generate([istem], ornekleme, use_tqdm=False)[0].outputs[0]
         return cikti.text.strip(), len(cikti.token_ids)
 
-    def karar(msj: list) -> str:
-        istem = tok.apply_chat_template(msj, tokenize=False, add_generation_prompt=True, **sablon_ek)
-        metin = llm.generate([istem], karar_ornekleme, use_tqdm=False)[0].outputs[0].text
-        try:
-            j = json.loads(metin)
-            return j["karar"], j["gerekce"]
-        except (json.JSONDecodeError, KeyError):  # 200 tokende kesilirse
-            return "yok", metin
-
-    return Asistan(parcalar, getir, uret, karar=karar)
+    return Asistan(parcalar, getir, uret)

@@ -26,19 +26,29 @@ def madde_durumlari() -> dict:
     return {(m["belge"], m["madde"]): m for m in durum["maddeler"]}
 
 
+def ayri_fikralar() -> dict:
+    """{(belge, madde): {fıkra no}}: koşula bağlı fıkralar ayrı parça olur (data/kosullar.json)."""
+    sonuc = {}
+    for k in json.loads((DATA / "kosullar.json").read_text("utf-8"))["kurallar"]:
+        if "fikra" in k:
+            sonuc.setdefault((k["belge"], k["madde"]), set()).add(k["fikra"])
+    return sonuc
+
+
 def belge_maddeleri(belge: dict) -> list:
     return maddelere_ayir((DATA / belge["metin"]).read_text("utf-8"))
 
 
-def parcalar_uret(belge: dict, durumlar: dict) -> tuple:
+def parcalar_uret(belge: dict, durumlar: dict, ayri: dict | None = None) -> tuple:
     """(parcalar, dislananlar)"""
+    ayri = ayri or {}
     parcalar, dislananlar = [], []
     for madde in belge_maddeleri(belge):
         d = durumlar.get((belge["id"], madde.etiket))
         if d and d["durum"] == "suresi_dolmus":
             dislananlar.append(f"{belge['id']} {madde.etiket} (süresi dolmuş)")
             continue
-        bolumler = madde_parcalari(madde)
+        bolumler = madde_parcalari(madde, ayri=frozenset(ayri.get((belge["id"], madde.etiket), ())))
         kok_id = f"{belge['id']}-{'g' if madde.gecici else 'm'}{madde.no}"
         for k, (fikralar, metin) in enumerate(bolumler, 1):
             baslik_satiri = f"{belge['ad']} — Madde {madde.etiket}" + (f": {madde.baslik}" if madde.baslik else "")
@@ -65,7 +75,7 @@ def parcalar_uret(belge: dict, durumlar: dict) -> tuple:
 
 
 def main() -> None:
-    durumlar = madde_durumlari()
+    durumlar, ayri = madde_durumlari(), ayri_fikralar()
     tum, dislanan = [], []
     print(f"{'belge':8} {'madde':>5} {'parça':>5}  kapsam")
     for belge in katalog():
@@ -76,7 +86,7 @@ def main() -> None:
             dislanan.append(f"{belge['id']} (kapsam {belge.get('kapsam')})")
             print(f"{belge['id']:8} {'-':>5} {'-':>5}  {belge.get('kapsam')} (indekslenmez)")
             continue
-        parcalar, d = parcalar_uret(belge, durumlar)
+        parcalar, d = parcalar_uret(belge, durumlar, ayri)
         tum.extend(parcalar)
         dislanan.extend(d)
         print(f"{belge['id']:8} {len(belge_maddeleri(belge)):5} {len(parcalar):5}  {belge.get('kapsam')}")
