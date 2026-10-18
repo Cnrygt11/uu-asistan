@@ -1118,7 +1118,7 @@
   {
     "id": "S087",
     "soru": "2024'te çift anadala başladım. Yeni ÇAP yönergesindeki ortalama şartları bana da uygulanıyor mu?",
-    "beklenen_cevap": "Hayır. Yeni yönerge 20 Mart 2025'te yürürlüğe girdi ve bu tarihten önce ÇAP'a kaydolan öğrencilere, kaydoldukları tarihteki esaslar uygulanmaya devam ediyor. Yani sana yeni yönergenin değil, 2014 tarihli eski yönergenin ÇAP kuralları geçerli. Bu eski kurallar elimdeki güncel belgelerde yer almadığı için ayrıntılar (ortalama şartları, ek süre gibi) için ÇAP danışmanına ya da Öğrenci İşleri'ne danış.",
+    "beklenen_cevap": "Hayır. Yeni yönerge 20 Mart 2025'te yürürlüğe girdi; bu tarihten önce ÇAP'a kaydolan öğrencilere kaydoldukları tarihteki esaslar, yani 2014 tarihli (artık mülga) yönerge uygulanıyor. Eski yönergeye göre ÇAP süresince anadal ortalaman bir defaya mahsus 2,50'ye kadar düşebilir; ikinci kez 2,50'nin altına düşerse ÇAP kaydın silinir (yeni yönergede bu ikinci sınır 2,72). İkinci anadal diplomasını almak için de ikinci anadalı en az 2,72 ortalamayla tamamlaman gerekir. Kendi durumunu ÇAP danışmanınla da teyit edebilirsin.",
     "beklenen_davranis": ["yonlendirir"],
     "kaynaklar": [
       {"belge": "GEC", "madde": "Geçici 1", "alinti": "kayıt olan çift anadal ve yan dal programı öğrencilerine giriş esnasında tabii oldukları esaslar uygulanır"},
@@ -1126,8 +1126,8 @@
     ],
     "kategori": "kosullu",
     "zorluk": "zor",
-    "not": "Eş: S075 (2025 sonrası kayıt). Belirleyici olan üniversiteye giriş yılı değil, ÇAP/yan dala kayıt tarihi. 2014 yönergesi indekste değil (mülga); cevap yönlendirmeli.",
+    "not": "Eş: S075 (2025 sonrası kayıt). Belirleyici olan üniversiteye giriş yılı değil, ÇAP/yan dala kayıt tarihi. 2014 yönergesi aramaya girmez; Geçici 1 kapsamındaki öğrenciye koşul notuyla birlikte bağlam olarak verilir (GEC_2014 m17 a, m18 c). Beklenen cevap bu değişiklikle güncellendi (Ekim 2026), onay bekliyor.",
     "kaynak_tipi": "sentetik",
-    "dogrulandi": true
+    "dogrulandi": false
   }
 ]

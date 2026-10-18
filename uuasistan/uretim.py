@@ -34,7 +34,7 @@ def calistir(asistan, sorular: list) -> list:
         son = kayit.get("tur2", cevap1)
         kayit["parcalar"] = [p["id"] for p in parcalar]
         if s["id"] in hedef:
-            verilen = {konum[id(p)] for p in parcalar}
+            verilen = {konum[id(p)] for p in parcalar if id(p) in konum}  # eski yönerge parçaları dizinde değil
             kayit["getirildi"] = [bool(kume & verilen) for kume in hedef[s["id"]]]
             altin = {str(k["madde"]) for k in s["kaynaklar"]}
             kayit["dogru_madde_atfi"] = bool(atif_yapilan_maddeler(son) & altin)

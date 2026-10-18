@@ -9,6 +9,16 @@ import re
 import time
 
 from . import DATA
+from .arama import sozluk_genislet
+from .kosul import (
+    bagli_ekle,
+    eski_parcalar,
+    kosul_kurallari,
+    kosul_notlari,
+    netlestirme_konusu,
+    netlestirme_sorusu,
+    parca_kurali,
+)
 
 YOGUN_MODEL = "turkish-e5-large"
 YENIDEN_SIRALAYICI = "modernbert-tr-reranker"
@@ -23,21 +33,9 @@ DIL_MODELLERI = {
     "qwen3-30b-a3b": ("RedHatAI/Qwen3-30B-A3B-Instruct-2507-quantized.w4a16", {}),
 }
 
-# Netleştirme: sonucu öğrencinin durumuna göre değişen kurallar data/kosullar.json'da etiketli. Aramanın ilk
-# sıradaki parçası etiketliyse ve öğrenci gereken bilgiyi vermediyse cevap üretilmez, sabit soru sorulur.
-# Kararı dil modeline bıraktığımız denemeler başarısızdı: istemle 0/6; ayrı karar adımında 1/6 doğru, 12/78 gereksiz soru.
-NETLESTIRME_SORULARI = {
-    "fakulte": "Bu konudaki kural fakülteye ya da yüksekokula göre değişiyor. Hangi fakültede ya da yüksekokulda okuyorsun?",
-    "kayit_yili": "Bu konudaki kural üniversiteye kayıt yılına göre değişiyor. Üniversiteye hangi yıl kaydoldun?",
-    "cap_yandal_kayit_tarihi": "Bu konudaki kural çift anadal ya da yan dal programına kayıt tarihine göre değişiyor. Programa hangi dönem kaydoldun?",
-}
-_YIL = r"\b(?:19|20)\d{2}\b"
-# Öğrencinin bilgiyi verdiğini gösteren ifadeler; eşleşirse tekrar sorulmaz.
-SOYLENDI = {
-    "fakulte": re.compile(r"(?i)fakülte|yüksekokul|\bmyo\b|konservatuvar|iibf|İİBF"),
-    "kayit_yili": re.compile(_YIL),
-    "cap_yandal_kayit_tarihi": re.compile(_YIL),
-}
+# Netleştirme, bağlı hükümler ve koşul notları kosul.py'de (etiketler: data/kosullar.json).
+# Öğrenci sözlüğüyle sorgu genişletme (arama.sozluk_genislet); açılmadan önce netlestirme_deneyi ile ölçülür.
+SORGU_GENISLETME = False
 
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
@@ -56,7 +54,7 @@ Bugün {gun.day} {AYLAR[gun.month - 1]} {gun.year}; {egitim_yili(gun)} eğitim-�
 Kurallar:
 1. Yalnızca KAYNAKLAR bölümündeki maddelere dayan. Kaynaklarda olmayan bir bilgiyi, sayıyı, tarihi, tutarı, karar ya da birim adını asla uydurma. Cevap kaynaklarda yoksa bunu açıkça söyle ve öğrenciyi doğru birime (Öğrenci İşleri, bölüm başkanlığı, ilgili yüksekokul) yönlendir.
 2. Kaynaklarda sorunun cevabını doğrudan veren bir kural cümlesi varsa, cevabına o cümleyi tırnak içinde aynen alıntılayarak başla; ardından parantez içinde belgenin adını ve madde numarasını yaz. Böyle bir cümle yoksa alıntı yapma; soruyla ilgisiz bir cümleyi asla alıntılama. Sonra alıntıyla tutarlı sonucu en fazla üç cümleyle söyle. Toplam en fazla beş cümle; madde işaretli liste, başlık, "Sonuç" bölümü yazma, aynı bilgiyi tekrarlama, daha fazla anlatmayı teklif etme.
-3. Kuralı dikkatle oku: "aşağıda sayılanlar hariç" ya da "... dışında" diye başlayan bir kural, listede sayılanlara uygulanmaz, listede olmayanlara uygulanır. Öğrencinin birimi listede mi, ona göre karar ver. Bir hüküm öğrencinin kaydolduğu tarihe göre eski kuralların uygulanacağını söylüyorsa, öğrencinin söylediği tarihi bu hükümle karşılaştır; eski kurallar kaynaklarda yoksa ayrıntı verme, öğrenciyi doğru birime yönlendir.
+3. Kuralı dikkatle oku: "aşağıda sayılanlar hariç" ya da "... dışında" diye başlayan bir kural, listede sayılanlara uygulanmaz, listede olmayanlara uygulanır. Öğrencinin birimi listede mi, ona göre karar ver. Bir hüküm öğrencinin kaydolduğu tarihe göre eski kuralların uygulanacağını söylüyorsa, öğrencinin söylediği tarihi bu hükümle karşılaştır; eski kurallar kaynaklarda yoksa ayrıntı verme, öğrenciyi doğru birime yönlendir. Bir kaynağın altında "Koşul notu" varsa bu karşılaştırma kodla yapılmıştır: notun sonucunu kullan, yeniden karşılaştırma yapma. Mülga olarak işaretli bir kaynak yalnızca etiketinde yazan öğrencilere uygulanır; koşul notu öğrenciye uygulandığını söylüyorsa cevabı o kaynağa dayandır ve bunu belirt.
 4. Öğrenciye her zaman "sen" diye hitap et; "siz", "-iniz", "-sınız" gibi ifadeler kullanma. Samimi ve net ol.
 5. Cevap öğrencinin durumuna göre değişiyorsa öğrencinin söylediği bilgiyi kullan; söylemediği bir durumu varsayma.
 6. Öğrenci hakkında yalnızca öğrencinin kendi söylediklerini bilirsin; bu bilgiye dayanırken bunu belirt ("... olduğunu söylediğin için"). Öğrenci kayıtlarına erişimin yok.
@@ -66,43 +64,7 @@ Kurallar:
 10. Soru hangi dilde sorulduysa cevabı o dilde yaz: İngilizce soruya İngilizce cevap ver (alıntı Türkçe kalabilir)."""
 
 
-def kosul_kurallari() -> dict:
-    """{(belge, madde, fıkra | None): kural}; fıkra None ise maddenin tamamı etiketlidir."""
-    kurallar = json.loads((DATA / "kosullar.json").read_text("utf-8"))["kurallar"]
-    return {(k["belge"], k["madde"], k.get("fikra")): k for k in kurallar}
-
-
-def parca_kurali(parca: dict, kurallar: dict) -> dict | None:
-    for f in (None, *parca.get("fikralar", [])):
-        if (k := kurallar.get((parca["belge"], parca["madde"], f))) is not None:
-            return k
-    return None
-
-
-def netlestirme_konusu(diyalog: list, parca: dict, kurallar: dict) -> str | None:
-    """Cevaptan önce sorulması gereken konu; gerek yoksa None."""
-    kural = parca_kurali(parca, kurallar)
-    if kural is None:
-        return None
-    asistan = [m["metin"] for m in diyalog if m["rol"] == "asistan"]
-    if asistan and asistan[-1] in NETLESTIRME_SORULARI.values():
-        return None  # az önce sorduk: öğrencinin yanıtıyla cevap verilir, aynı soru tekrarlanmaz
-    ogrenci = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
-    return None if SOYLENDI[kural["konu"]].search(ogrenci) else kural["konu"]
-
-
-def bagli_ekle(secilen: list, parcalar: list, kurallar: dict) -> list:
-    """Seçilen kuralları değiştiren hükümleri (geçici maddeler, yürürlük tarihi) sona ekler; arama bunları kaçırabiliyor."""
-    kimlik = {p["id"]: p for p in parcalar}
-    sonuc = list(secilen)
-    for p in secilen:
-        for pid in (parca_kurali(p, kurallar) or {}).get("bagli", []):
-            if all(q["id"] != pid for q in sonuc):
-                sonuc.append(kimlik[pid])
-    return sonuc
-
-
-def kaynak_metni(parcalar: list, kurallar: dict | None = None) -> str:
+def kaynak_metni(parcalar: list, kurallar: dict | None = None, notlar: dict | None = None) -> str:
     bloklar = []
     for n, p in enumerate(parcalar, 1):
         ek = []
@@ -110,48 +72,60 @@ def kaynak_metni(parcalar: list, kurallar: dict | None = None) -> str:
             ek.append(f"güncellik: {p['guncellik']}")
         if p.get("kayit_yili_en_gec"):
             ek.append(f"yalnızca {p['kayit_yili_en_gec']} ve öncesinde kayıt olanlara uygulanır")
+        if p.get("uygulama_kosulu"):
+            ek.append(p["uygulama_kosulu"])
         baslik = f"[{n}] {p['belge_adi']}, Madde {p['madde']}" + (f" ({p['baslik']})" if p["baslik"] else "")
         if ek:
             baslik += f" [{'; '.join(ek)}]"
         if kurallar and (k := parca_kurali(p, kurallar)) and k.get("okuma_notu"):
             baslik += f"\n(Okuma notu; yönetmelik metni değildir, alıntılama: {k['okuma_notu']})"
+        for n_ in (notlar or {}).get(p.get("id"), []):
+            baslik += f"\n(Koşul notu; öğrencinin söylediğine göre kodla hesaplandı, yönetmelik metni değildir: {n_})"
         bloklar.append(baslik + "\n" + p["metin"])
     return "KAYNAKLAR:\n\n" + "\n\n".join(bloklar)
 
 
-def mesajlar(diyalog: list, parcalar: list, gun: dt.date, kurallar: dict | None = None) -> list:
+def mesajlar(diyalog: list, parcalar: list, gun: dt.date, kurallar: dict | None = None, notlar: dict | None = None) -> list:
     """diyalog: [{"rol": "ogrenci"|"asistan", "metin": ...}]; kaynaklar son öğrenci mesajına eklenir."""
     sonuc = [{"role": "system", "content": sistem_istemi(gun)}]
     for i, m in enumerate(diyalog):
         icerik = m["metin"]
         if i == len(diyalog) - 1:
-            icerik = f"{kaynak_metni(parcalar, kurallar)}\n\nSORU:\n{icerik}"
+            icerik = f"{kaynak_metni(parcalar, kurallar, notlar)}\n\nSORU:\n{icerik}"
         sonuc.append({"role": "user" if m["rol"] == "ogrenci" else "assistant", "content": icerik})
     return sonuc
 
 
 class Asistan:
-    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, kurallar: dict | None = None):
-        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı)."""
+    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, kurallar: dict | None = None,
+                 eski: list | None = None, genislet: bool = SORGU_GENISLETME):
+        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı).
+        eski: aramaya girmeyen, yalnızca koşulu sağlayan öğrenciye verilen parçalar (kosul.eski_parcalar)."""
         self.parcalar = parcalar
         self.getir = getir
         self.uret = uret
         self.gun = gun or dt.date.today()
         self.kurallar = kosul_kurallari() if kurallar is None else kurallar
+        self.eski = eski_parcalar() if eski is None else eski
+        self.genislet = genislet
 
     def cevapla(self, diyalog: list) -> tuple:
         """(cevap, kullanılan parçalar, ölçüm). Arama sorgusu öğrencinin bütün mesajlarından oluşur."""
         sorgu = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
+        if self.genislet:
+            sorgu = sozluk_genislet(sorgu)
         t0 = time.perf_counter()
         secilen = [self.parcalar[i] for i in self.getir(sorgu)[:PARCA_SAYISI]]
         t1 = time.perf_counter()
         olcum = {"arama_sn": round(t1 - t0, 3)}
-        if secilen and (konu := netlestirme_konusu(diyalog, secilen[0], self.kurallar)):
-            return NETLESTIRME_SORULARI[konu], secilen, olcum | {"netlestirme": konu}
+        if secilen and (konu := netlestirme_konusu(diyalog, secilen[0], self.kurallar, self.gun)):
+            return netlestirme_sorusu(konu, diyalog), secilen, olcum | {"netlestirme": konu}
         secilen = bagli_ekle(secilen, self.parcalar, self.kurallar)
-        cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun, self.kurallar))
+        notlar, ekler = kosul_notlari(diyalog, secilen, self.kurallar, self.eski, self.gun)
+        secilen += ekler
+        cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun, self.kurallar, notlar))
         t2 = time.perf_counter()
-        return cevap, secilen, olcum | {"uretim_sn": round(t2 - t1, 3), "token": token}
+        return cevap, secilen, olcum | {"uretim_sn": round(t2 - t1, 3), "token": token} | ({"notlar": notlar} if notlar else {})
 
 
 def atif_yapilan_maddeler(cevap: str) -> set:

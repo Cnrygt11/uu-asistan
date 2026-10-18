@@ -3,6 +3,7 @@
 Çıktılar:
   data/text/kaysis/<id>.txt   tüm belgelerin temiz metni (test seti doğrulaması bunu kullanır)
   data/parcalar.jsonl         indekslenecek parçalar (yalnızca v1 kapsamı, süresi dolmuşlar hariç)
+  data/eski_parcalar.jsonl    aramaya girmeyen, yalnızca koşulu sağlayan öğrenciye verilen parçalar (bagli_kullanim)
 
 Kullanım: python -m uuasistan.hazirla
 """
@@ -15,6 +16,7 @@ from .parcalama import degisiklikler, madde_parcalari, maddelere_ayir
 
 INDEKS_KAPSAMI = {"v1", "v1-ikincil"}
 CIKTI = DATA / "parcalar.jsonl"
+ESKI_CIKTI = DATA / "eski_parcalar.jsonl"
 
 
 def katalog() -> list:
@@ -68,6 +70,8 @@ def parcalar_uret(belge: dict, durumlar: dict, ayri: dict | None = None) -> tupl
             }
             if belge.get("guncellik"):
                 parca["guncellik"] = belge["guncellik"]
+            if belge.get("bagli_kullanim"):
+                parca["uygulama_kosulu"] = belge["bagli_kullanim"]
             if d and d["durum"] == "sureli":
                 parca["kayit_yili_en_gec"] = d["kayit_yili_en_gec"]
             parcalar.append(parca)
@@ -76,13 +80,15 @@ def parcalar_uret(belge: dict, durumlar: dict, ayri: dict | None = None) -> tupl
 
 def main() -> None:
     durumlar, ayri = madde_durumlari(), ayri_fikralar()
-    tum, dislanan = [], []
+    tum, dislanan, eski = [], [], []
     print(f"{'belge':8} {'madde':>5} {'parça':>5}  kapsam")
     for belge in katalog():
         ham = DATA / belge["ham"]
         hedef = DATA / belge["metin"]
         hedef.write_text(temizle(pdf_metni(ham)), "utf-8", newline="\n")
         if belge.get("kapsam") not in INDEKS_KAPSAMI:
+            if belge.get("bagli_kullanim"):
+                eski.extend(parcalar_uret(belge, durumlar)[0])
             dislanan.append(f"{belge['id']} (kapsam {belge.get('kapsam')})")
             print(f"{belge['id']:8} {'-':>5} {'-':>5}  {belge.get('kapsam')} (indekslenmez)")
             continue
@@ -91,12 +97,14 @@ def main() -> None:
         dislanan.extend(d)
         print(f"{belge['id']:8} {len(belge_maddeleri(belge)):5} {len(parcalar):5}  {belge.get('kapsam')}")
 
-    with CIKTI.open("w", encoding="utf-8", newline="\n") as f:
-        for p in tum:
-            f.write(json.dumps(p, ensure_ascii=False) + "\n")
+    for dosya, liste in ((CIKTI, tum), (ESKI_CIKTI, eski)):
+        with dosya.open("w", encoding="utf-8", newline="\n") as f:
+            for p in liste:
+                f.write(json.dumps(p, ensure_ascii=False) + "\n")
     uzunluklar = sorted(len(p["metin"]) for p in tum)
     print(f"\n{len(tum)} parça -> {CIKTI.relative_to(DATA.parent)}")
     print(f"parça uzunluğu (karakter): min {uzunluklar[0]}, medyan {uzunluklar[len(uzunluklar) // 2]}, max {uzunluklar[-1]}")
+    print(f"{len(eski)} bağlı kullanım parçası -> {ESKI_CIKTI.relative_to(DATA.parent)}")
     print("dışlananlar:", ", ".join(dislanan))
 
 

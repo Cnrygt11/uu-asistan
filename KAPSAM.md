@@ -29,7 +29,7 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 | UYG | Uygulamalı Eğitimler (Staj) Yönergesi | 2022 | ✅ |
 | OZEL | Özel Öğrenci Yönergesi | 2022 | ✅ |
 | GEC | Yatay Geçiş / ÇAP / Yan Dal / Kredi Transferi Yönergesi | 2025 | ✅ |
-| GEC_2014 | Eski Yatay Geçiş / ÇAP / Yandal Yönergesi | 2014 | mülga; yalnızca 20.03.2025 öncesi ÇAP/yan dal kayıtlılarına uygulanır (GEC Geçici 1); indekslenmez |
+| GEC_2014 | Eski Yatay Geçiş / ÇAP / Yandal Yönergesi | 2014 | mülga; yalnızca 20.03.2025 öncesi ÇAP/yan dal kayıtlılarına uygulanır (GEC Geçici 1). Aramaya girmez; ÇAP/yan dal kayıt tarihi bu tarihten önce olan öğrenciye, ilgili maddeleri koşul notuyla bağlam olarak verilir ([data/kosullar.json](data/kosullar.json)) |
 | YAB | Yabancı Uyruklu Öğrenci Kabul Yönergesi | 2022 | v2 (aday öğrencilere yönelik; hedef kitle dışı) |
 | LU_YON, LU_UE, TIP_INT, DIS | Lisansüstü, Tıp, Diş | — | v2 |
 
@@ -37,7 +37,7 @@ Tam liste ve kaynak bağlantıları: [data/belgeler.json](data/belgeler.json). *
 | # | Sorun | Durum |
 |---|---|---|
 | 1 | **Eski sürüm tuzağı.** EOY'nin 2014 ve 2020 orijinal kopyaları internette dolaşıyor; 2023 ve 2024 değişiklikleri önemli kuralları değiştirdi. | ✅ Yalnızca KAYSIS konsolide metni kullanılıyor; parçalar `degisiklikler` alanında RG değişiklik bilgisini taşıyor. |
-| 2 | **GEC 2014 tarihliydi ve yürürlükten kalkmıştı.** 20.03.2025 tarihli yönerge (KAYSIS 206792) yerini aldı; KAYSIS eskisini (61283) hâlâ yayında tutuyor. **Ders: KAYSIS'te olmak yürürlükte olmak demek değil.** | ✅ 2025 yönergesi indekslendi; 2014 yönergesi `mulga`. Eski kurallar 2025 öncesi ÇAP/yan dal öğrencileri için geçerli (Geçici 1); asistan bu öğrencileri ÇAP'a kayıt tarihini sorarak ayırt eder ve Öğrenci İşleri'ne yönlendirir. |
+| 2 | **GEC 2014 tarihliydi ve yürürlükten kalkmıştı.** 20.03.2025 tarihli yönerge (KAYSIS 206792) yerini aldı; KAYSIS eskisini (61283) hâlâ yayında tutuyor. **Ders: KAYSIS'te olmak yürürlükte olmak demek değil.** | ✅ 2025 yönergesi indekslendi; 2014 yönergesi `mulga`. Eski kurallar 2025 öncesi ÇAP/yan dal öğrencileri için geçerli (Geçici 1); asistan bu öğrencileri ÇAP'a kayıt tarihini sorarak ayırt eder; tarihi 20.03.2025'ten önceyse 2014 yönergesinin karşılık gelen maddeleri bağlama eklenir (yalnızca o öğrenciye). |
 | 3 | **YAZ, mülga yönetmeliğe atıf yapıyor.** Madde 7 ve 13 "Önlisans ve Lisans Öğretim Yönetmeliği"ni (2014) anıyor; fiilen EOY kastediliyor. | 🔲 Adım 3 (sistem istemi). |
 | 4 | **Süreli (geçici) maddeler.** Durumları [data/madde_durumu.json](data/madde_durumu.json) dosyasında. | ✅ Süresi dolanlar (Geçici 1, 2) indekse alınmıyor; süreli olanlar (Geçici 3, 4) `kayit_yili_en_gec` etiketi taşıyor. **Her eğitim-öğretim yılı başında gözden geçirilmeli** (Geçici 3'ün süresi 2026-2027 sonunda doluyor). |
 | 5 | **PDF kodlama hatası.** 61283'te `Ġ/ġ/Ģ` bozulması. | ✅ `uuasistan/metin.py` içinde kural; testle korunuyor. |

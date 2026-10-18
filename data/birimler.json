@@ -1,0 +1,23 @@
+{
+  "aciklama": "Öğrencinin hangi birimde okuduğunu anlamak için birim adları ve öğrencilerin kullandığı kısa adlar. Asistan bunu iki yerde kullanır: öğrenci birimini söylediyse tekrar sormamak ve fakülteye bağlı listelerde (ör. EOY 18/3) öğrencinin biriminin listede olup olmadığını kodla belirlemek. Bir ad, ardından fakülte/yüksekokul sözcüğü, bulunma eki (Tıp'tayım, hukukta) ya da 'öğrencisi/okuyorum' geldiğinde eşleşir; başka anlamda da kullanılan adlar (eğitim) fakülte sözcüğüyle birlikte yazılır. Taslak: buradaki birimler KAYSIS metinlerinde geçenlerdir. Eksik birimleri (özellikle meslek yüksekokulları) ve öğrencilerin kullandığı kısaltmaları ekle; emin olmadığın bölüm-fakülte eşleştirmesi ekleme, yanlış eşleşme yanlış koşul notu üretir.",
+  "birimler": [
+    {"ad": "Tıp Fakültesi", "tur": "fakulte", "adlar": ["tıp"]},
+    {"ad": "Diş Hekimliği Fakültesi", "tur": "fakulte", "adlar": ["diş hekimliği", "dişhekimliği"]},
+    {"ad": "Veteriner Fakültesi", "tur": "fakulte", "adlar": ["veteriner", "veterinerlik"]},
+    {"ad": "Sağlık Bilimleri Fakültesi", "tur": "fakulte", "adlar": ["sağlık bilimleri"]},
+    {"ad": "Güzel Sanatlar Fakültesi", "tur": "fakulte", "adlar": ["güzel sanatlar", "gsf"]},
+    {"ad": "Devlet Konservatuvarı", "tur": "konservatuvar", "adlar": ["konservatuvar", "konservatuar"]},
+    {"ad": "Eğitim Fakültesi", "tur": "fakulte", "adlar": ["eğitim fakülte"]},
+    {"ad": "Spor Bilimleri Fakültesi", "tur": "fakulte", "adlar": ["spor bilimleri"]},
+    {"ad": "İlahiyat Fakültesi", "tur": "fakulte", "adlar": ["ilahiyat"]},
+    {"ad": "Hukuk Fakültesi", "tur": "fakulte", "adlar": ["hukuk"]},
+    {"ad": "Mühendislik Fakültesi", "tur": "fakulte", "adlar": ["mühendislik"]},
+    {"ad": "Ziraat Fakültesi", "tur": "fakulte", "adlar": ["ziraat"]},
+    {"ad": "Fen-Edebiyat Fakültesi", "tur": "fakulte", "adlar": ["fen-edebiyat", "fen edebiyat"]},
+    {"ad": "Mimarlık Fakültesi", "tur": "fakulte", "adlar": ["mimarlık"]},
+    {"ad": "İktisadi ve İdari Bilimler Fakültesi", "tur": "fakulte", "adlar": ["iktisadi ve idari bilimler", "iibf"]},
+    {"ad": "İnegöl İşletme Fakültesi", "tur": "fakulte", "adlar": ["inegöl işletme"]},
+    {"ad": "Yabancı Diller Yüksekokulu", "tur": "yuksekokul", "adlar": ["yabancı diller yüksekokul", "ydyo"]},
+    {"ad": "Sağlık Hizmetleri Meslek Yüksekokulu", "tur": "myo", "adlar": ["sağlık hizmetleri"]}
+  ]
+}

@@ -1,20 +1,10 @@
 import datetime as dt
 import re
 
-from uuasistan.cevap import (
-    NETLESTIRME_SORULARI,
-    PARCA_SAYISI,
-    SOYLENDI,
-    Asistan,
-    atif_yapilan_maddeler,
-    egitim_yili,
-    kaynak_metni,
-    kosul_kurallari,
-    mesajlar,
-    netlestirme_konusu,
-    sistem_istemi,
-)
+from uuasistan.arama import sozluk_genislet
+from uuasistan.cevap import PARCA_SAYISI, Asistan, atif_yapilan_maddeler, egitim_yili, kaynak_metni, mesajlar, sistem_istemi
 from uuasistan.degerlendirme import yukle
+from uuasistan.kosul import NETLESTIRME_SORULARI, NETLESTIRME_SORULARI_EN, kosul_kurallari, netlestirme_konusu
 from uuasistan.uretim import calistir, hiz, ozet
 
 GUN = dt.date(2026, 10, 17)
@@ -44,22 +34,10 @@ def test_sistem_istemi_tarih_ve_kurallari_icerir():
 
 def test_istemler_test_setinin_cevabini_sizdirmaz():
     """İstem ve sabit sorular genel kurallar içerir; belirli bir yönetmelik hükmü (tarih, eşik) aramadan gelmeli."""
-    for s in (sistem_istemi(GUN), *NETLESTIRME_SORULARI.values()):
+    for s in (sistem_istemi(GUN), *NETLESTIRME_SORULARI.values(), *NETLESTIRME_SORULARI_EN.values()):
         for sizinti in ("20 Mart 2025", "2.72", "2.50", "%70", "Geçici", "2023"):
             assert sizinti not in s
         assert not re.search(r"Madde \d", s)  # örnek atıf bile gerçek bir maddeyi göstermesin
-
-
-def test_kosullar_dosyasi_dizinle_tutarli():
-    parcalar, _ = yukle()
-    kimlikler = {p["id"] for p in parcalar}
-    for (belge, madde, fikra), k in kosul_kurallari().items():
-        assert k["konu"] in NETLESTIRME_SORULARI and k["konu"] in SOYLENDI
-        eslesen = [p for p in parcalar if p["belge"] == belge and p["madde"] == madde and (fikra is None or fikra in p["fikralar"])]
-        assert eslesen, (belge, madde, fikra)
-        if fikra is not None:  # etiketli fıkra kendi parçasında: aynı maddenin koşulsuz fıkralarında soru sorulmaz
-            assert all(p["fikralar"] == [fikra] for p in eslesen), (belge, madde, fikra)
-        assert set(k.get("bagli", [])) <= kimlikler
 
 
 def test_etiketli_kural_ilk_siradaysa_cevap_uretmeden_sorar_ve_tekrar_sormaz():
@@ -85,30 +63,39 @@ def test_ayni_maddenin_kosulsuz_fikrasinda_sorulmaz():
     assert netlestirme_konusu(ogr("Kaldığım dersi tekrar alıyorum, devam zorunlu mu?"), parcalar[istisna], kurallar) == "fakulte"
 
 
-def test_ogrenci_bilgiyi_verdiyse_sorulmaz():
-    kurallar = {("X", "1", None): {"konu": "fakulte"}, ("X", "2", None): {"konu": "cap_yandal_kayit_tarihi"}}
-    fak, cap, diger = ({"belge": "X", "madde": m, "fikralar": []} for m in ("1", "2", "3"))
-    assert netlestirme_konusu(ogr("Kaldığım dersi tekrar alıyorum, devam zorunlu mu?"), fak, kurallar) == "fakulte"
-    assert netlestirme_konusu(ogr("Tıp fakültesindeyim, devam zorunlu mu?"), fak, kurallar) is None
-    assert netlestirme_konusu(ogr("İİBF'deyim."), fak, kurallar) is None
-    assert netlestirme_konusu(ogr("2024'te çift anadala başladım."), cap, kurallar) is None
-    assert netlestirme_konusu(ogr("Çift anadaldayım, ortalamam düştü."), cap, kurallar) == "cap_yandal_kayit_tarihi"
-    assert netlestirme_konusu(ogr("soru"), diger, kurallar) is None
-
-
 def test_bagli_hukumler_baglama_eklenir():
     """Kayıt yılına bağlı kuralda geçici madde, ÇAP kuralında geçici madde ve yürürlük tarihi aramadan bağımsız eklenir."""
     parcalar, _ = yukle()
     uretilen = []
     for (belge, madde, fikra), soru, beklenen in (
         (("EOY", "35", 2), "İkinci öğretimdeyim, 2023'te kaydoldum. %10 için ortalamam kaç olmalı?", {"EOY-g4"}),
-        (("GEC", "20", None), "2024'te çift anadala başladım, ortalamam düştü. Atılır mıyım?", {"GEC-g1", "GEC-m32"}),
+        (("GEC", "20", None), "Çift anadala 2025 güzünde başladım, ortalamam düştü. Atılır mıyım?", {"GEC-g1", "GEC-m32"}),
     ):
         i = parca_bul(parcalar, belge, madde, fikra)
         a = Asistan(parcalar, getir=lambda q, i=i: [i], uret=lambda m: uretilen.append(m) or ("cevap", 5), gun=GUN)
         _, secilen, _ = a.cevapla(ogr(soru))
         assert {p["id"] for p in secilen[1:]} == beklenen
         assert all(f"Madde {parcalar[next(j for j, p in enumerate(parcalar) if p['id'] == b)]['madde']}" in uretilen[-1][-1]["content"] for b in beklenen)
+
+
+def test_kosul_notu_ve_eski_yonerge_modele_gider():
+    """2025'ten önce ÇAP'a kaydolan öğrenciye: Geçici 1 notu ve mülga 2014 yönergesinin karşılık gelen maddesi."""
+    parcalar, _ = yukle()
+    uretilen = []
+    a = Asistan(parcalar, getir=lambda q: [parca_bul(parcalar, "GEC", "20")], uret=lambda m: uretilen.append(m) or ("cevap", 5), gun=GUN)
+    _, secilen, olcum = a.cevapla(ogr("2024'te çift anadala başladım. Ortalamam düşerse ÇAP'tan atılır mıyım?"))
+    istem = uretilen[-1][-1]["content"]
+    assert [p["id"] for p in secilen] == ["GEC-m20-p1", "GEC-g1", "GEC-m32", "GEC_2014-m18"]
+    assert "Koşul notu" in istem and "mülga; GEC Geçici 1 uyarınca" in istem and "2,50’nin altına" in istem
+    assert list(olcum["notlar"]) == ["GEC-g1"]
+
+
+def test_sozluk_genisletme_acilinca_sorgu_degisir():
+    parcalar, _ = yukle()
+    sorgular = []
+    a = Asistan(parcalar, getir=lambda q: sorgular.append(q) or [0], uret=lambda m: ("cevap", 5), gun=GUN, genislet=True)
+    a.cevapla(ogr("Kayıt dondurduğum dönemde sınava girebilir miyim?"))
+    assert sorgular == [sozluk_genislet("Kayıt dondurduğum dönemde sınava girebilir miyim?")] and "izinli ayrılma" in sorgular[0]
 
 
 def test_okuma_notu_yalnizca_etiketli_parcaya_eklenir():

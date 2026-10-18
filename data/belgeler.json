@@ -77,7 +77,8 @@
     "metin": "text/kaysis/61283.txt",
     "ham": "raw/kaysis/61283.pdf",
     "kaynak_url": "https://kms.kaysis.gov.tr/Home/Goster/61283",
-    "not": "20.03.2025'te yürürlükten kaldırıldı (GEC m.31) ama KAYSIS'te hâlâ yayında. Yalnızca o tarihten önce ÇAP/yan dala kaydolanlara uygulanır (GEC Geçici 1). İndekslenmez. PDF'te Ġ/ġ/Ģ kodlama hatası var (metin.py düzeltiyor)."
+    "bagli_kullanim": "mülga; GEC Geçici 1 uyarınca yalnızca 20 Mart 2025'ten önce çift anadal ya da yan dala kaydolan öğrencilere uygulanır",
+    "not": "20.03.2025'te yürürlükten kaldırıldı (GEC m.31) ama KAYSIS'te hâlâ yayında. Yalnızca o tarihten önce ÇAP/yan dala kaydolanlara uygulanır (GEC Geçici 1). Aramaya girmez; parçaları data/eski_parcalar.jsonl'de, yalnızca ÇAP/yan dal kayıt tarihi 20.03.2025'ten önce olan öğrenciye bağlam olarak verilir (data/kosullar.json gecis_hukumleri). PDF'te Ġ/ġ/Ģ kodlama hatası var (metin.py düzeltiyor)."
   },
   {
     "id": "YAB",

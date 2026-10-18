@@ -3,12 +3,15 @@
 Yoğun arama ve yeniden sıralama `sentence-transformers` ister (Colab'da GPU ile çalıştırılır);
 BM25 ve RRF yalnızca `rank-bm25` ve `snowballstemmer` ile yerelde çalışır.
 """
+import json
 import re
 from dataclasses import dataclass
 from functools import lru_cache
 
 import numpy as np
 from rank_bm25 import BM25Okapi
+
+from . import DATA
 
 # Mevzuat metinlerinde ayırt ediciliği olmayan sık sözcükler
 DURAK = set("""
@@ -17,7 +20,8 @@ mi mı mu mü ne nasıl nedir neden hangi kaç midir mıdır var yok olur olup
 ben benim bana sen senin sana biz bizim
 """.split())
 
-KELIME = re.compile(r"[0-9a-zçğıöşüâîû]+")
+HARF = "0-9a-zçğıöşüâîû"  # küçük harfe çevrilmiş Türkçe metnin sözcük karakterleri
+KELIME = re.compile(f"[{HARF}]+")
 
 
 def kucuk(metin: str) -> str:
@@ -38,6 +42,30 @@ def tokenlar(metin: str, kok: str | None = "snowball") -> list:
     if kok == "onek5":  # Türkçe IR'da bilinen basit yöntem: ilk 5 harf
         return [k[:5] for k in kelimeler]
     return kelimeler
+
+
+# Kısa terimler yalnızca bu eklerle eşleşir: "büte", "bütten" evet, "bütün" (her şey) hayır.
+_KISA_EK = r"(?:'?(?:e|a|ye|ya|de|da|te|ta|den|dan|ten|tan|i|ı|u|ü|yi|yı|yu|yü))?"
+
+
+@lru_cache(maxsize=1)
+def _sozluk() -> tuple:
+    """[(öğrenci ifadesi deseni, mevzuat terimi)], data/ogrenci_sozlugu.json'dan."""
+    sonuc = []
+    for t in json.loads((DATA / "ogrenci_sozlugu.json").read_text("utf-8"))["terimler"]:
+        for ifade in map(kucuk, t["ogrenci"]):
+            if " " in ifade and ifade.endswith(("mak", "mek", "ma", "me")):
+                ifade = ifade.removesuffix("k")[:-2]  # fiil: "dersten kalmak" -> "dersten kal", "kayıt dondurma" -> "kayıt dondur"
+            ek = _KISA_EK if len(ifade) <= 3 else f"[{HARF}']*"
+            sonuc.append((re.compile(f"(?<![{HARF}]){re.escape(ifade)}{ek}(?![{HARF}])"), t["mevzuat"]))
+    return tuple(sonuc)
+
+
+def sozluk_genislet(sorgu: str) -> str:
+    """Öğrenci ifadelerinin mevzuat karşılıklarını sorgunun sonuna ekler: "kayıt dondurma" -> "(izinli ayrılma)"."""
+    k = kucuk(sorgu)
+    ekler = list(dict.fromkeys(m for desen, m in _sozluk() if desen.search(k) and kucuk(m) not in k))
+    return f"{sorgu} ({'; '.join(ekler)})" if ekler else sorgu
 
 
 def _en_iyi(skorlar: np.ndarray, k: int) -> list:
