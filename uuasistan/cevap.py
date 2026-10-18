@@ -23,6 +23,14 @@ DIL_MODELLERI = {
     "qwen3-30b-a3b": ("RedHatAI/Qwen3-30B-A3B-Instruct-2507-quantized.w4a16", {}),
 }
 
+# Netleştirme ayrı bir adımda kararlaştırılır: istemdeki "önce sor" kuralına model iki koşuda da hiç uymadı (0/6).
+# Karar, kısıtlı çıktıyla (yalnızca bu üç seçenek) verilir; soru metni sabittir.
+NETLESTIRME_SORULARI = {
+    "fakulte": "Bu konudaki kural fakülteye ya da yüksekokula göre değişiyor. Hangi fakültede ya da yüksekokulda okuyorsun?",
+    "kayit_tarihi": "Bu konudaki kural kayıt tarihine göre değişiyor. Üniversiteye ya da ilgili programa (çift anadal, yan dal gibi) ne zaman kaydoldun?",
+}
+KARARLAR = ("yok", *NETLESTIRME_SORULARI)
+
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
 
@@ -39,10 +47,10 @@ Bugün {gun.day} {AYLAR[gun.month - 1]} {gun.year}; {egitim_yili(gun)} eğitim-�
 
 Kurallar:
 1. Yalnızca KAYNAKLAR bölümündeki maddelere dayan. Kaynaklarda olmayan bir bilgiyi, sayıyı, tarihi, tutarı, karar ya da birim adını asla uydurma. Cevap kaynaklarda yoksa bunu açıkça söyle ve öğrenciyi doğru birime (Öğrenci İşleri, bölüm başkanlığı, ilgili yüksekokul) yönlendir.
-2. Önce öğrencinin durumunu kontrol et: cevap öğrencinin durumuna göre değişiyorsa ve öğrenci bu bilgiyi vermediyse, henüz cevap verme; yalnızca o bilgiyi soran tek bir soru yaz. Kaynaktaki kural bazı fakülteleri, yüksekokulları ya da programları ayrıca sayıyorsa fakültesini sor. Kural kayıt tarihine göre farklıysa (bir hüküm yalnızca belirli bir tarihten önce ya da sonra kaydolanlara uygulanıyorsa) üniversiteye ya da ilgili programa ne zaman kaydolduğunu sor. Bilgi zaten verilmişse tekrar sorma.
-3. Cevap verirken ilk cümlen, sorunun cevabını veren kural cümlesinin kaynaktan tırnak içinde aynen alıntılayarak verilmesi olsun; ardından parantez içinde belgenin adını ve madde numarasını yaz. Sonra alıntıyla tutarlı sonucu en fazla üç cümleyle söyle. Toplam en fazla beş cümle; madde işaretli liste, başlık, "Sonuç" bölümü yazma, aynı bilgiyi tekrarlama, daha fazla anlatmayı teklif etme.
-4. Kuralı dikkatle oku: "aşağıda sayılanlar hariç" ya da "... dışında" diye başlayan bir kural, listede sayılanlara uygulanmaz, listede olmayanlara uygulanır. Öğrencinin birimi listede mi, ona göre karar ver. Bir hüküm öğrencinin kaydolduğu tarihe göre eski kuralların uygulanacağını söylüyorsa, öğrencinin söylediği tarihi bu hükümle karşılaştır; eski kurallar kaynaklarda yoksa ayrıntı verme, öğrenciyi doğru birime yönlendir.
-5. Öğrenciye "sen" diye hitap et; samimi ve net ol.
+2. Kaynaklarda sorunun cevabını doğrudan veren bir kural cümlesi varsa, cevabına o cümleyi tırnak içinde aynen alıntılayarak başla; ardından parantez içinde belgenin adını ve madde numarasını yaz. Böyle bir cümle yoksa alıntı yapma; soruyla ilgisiz bir cümleyi asla alıntılama. Sonra alıntıyla tutarlı sonucu en fazla üç cümleyle söyle. Toplam en fazla beş cümle; madde işaretli liste, başlık, "Sonuç" bölümü yazma, aynı bilgiyi tekrarlama, daha fazla anlatmayı teklif etme.
+3. Kuralı dikkatle oku: "aşağıda sayılanlar hariç" ya da "... dışında" diye başlayan bir kural, listede sayılanlara uygulanmaz, listede olmayanlara uygulanır. Öğrencinin birimi listede mi, ona göre karar ver. Bir hüküm öğrencinin kaydolduğu tarihe göre eski kuralların uygulanacağını söylüyorsa, öğrencinin söylediği tarihi bu hükümle karşılaştır; eski kurallar kaynaklarda yoksa ayrıntı verme, öğrenciyi doğru birime yönlendir.
+4. Öğrenciye her zaman "sen" diye hitap et; "siz", "-iniz", "-sınız" gibi ifadeler kullanma. Samimi ve net ol.
+5. Cevap öğrencinin durumuna göre değişiyorsa öğrencinin söylediği bilgiyi kullan; söylemediği bir durumu varsayma.
 6. Öğrenci hakkında yalnızca öğrencinin kendi söylediklerini bilirsin; bu bilgiye dayanırken bunu belirt ("... olduğunu söylediğin için"). Öğrenci kayıtlarına erişimin yok.
 7. Bir kaynak eski olabilir ya da güncelliği şüpheliyse bunu belirt.
 8. Kaynaklarda geçen "Önlisans ve Lisans Öğretim Yönetmeliği" ifadesi, bugün yürürlükte olan Önlisans ve Lisans Eğitim Öğretim Yönetmeliği anlamına gelir.
@@ -63,6 +71,21 @@ def kaynak_metni(parcalar: list) -> str:
     return "KAYNAKLAR:\n\n" + "\n\n".join(bloklar)
 
 
+def karar_istemi() -> str:
+    return """Sana bir öğrenci sorusu ve soruyla ilgili yönetmelik maddeleri verilecek. Görevin cevap yazmak değil, yalnızca şunu belirlemek: sorunun doğru cevabı, öğrencinin henüz söylemediği bir bilgiye bağlı mı?
+
+- fakulte: Soruyu cevaplayan kural fakülteye, yüksekokula ya da programa göre farklı sonuç veriyor (kural bazı birimleri ayrıca sayıyor ya da birimlere göre farklı değerler veriyor) ve öğrenci fakültesini, yüksekokulunu ya da programını söylemedi.
+- kayit_tarihi: Soruyu cevaplayan kural, öğrencinin üniversiteye ya da bir programa (çift anadal, yan dal gibi) kaydolduğu tarihe göre farklı sonuç veriyor (bir hüküm yalnızca belirli bir tarihten önce ya da sonra kaydolanlara uygulanıyor) ve öğrenci kayıt tarihini söylemedi.
+- yok: Cevap öğrencinin durumuna göre değişmiyor, gereken bilgiyi öğrenci zaten verdi ya da soru kaynaklarla ilgili değil.
+
+Yalnızca soruyu cevaplayan kurala bak; kaynaklarda geçen ama soruyla ilgisi olmayan maddeleri dikkate alma. Emin değilsen yok de."""
+
+
+def karar_mesajlari(diyalog: list, parcalar: list) -> list:
+    soru = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
+    return [{"role": "system", "content": karar_istemi()}, {"role": "user", "content": f"{kaynak_metni(parcalar)}\n\nSORU:\n{soru}"}]
+
+
 def mesajlar(diyalog: list, parcalar: list, gun: dt.date) -> list:
     """diyalog: [{"rol": "ogrenci"|"asistan", "metin": ...}]; kaynaklar son öğrenci mesajına eklenir."""
     sonuc = [{"role": "system", "content": sistem_istemi(gun)}]
@@ -75,11 +98,13 @@ def mesajlar(diyalog: list, parcalar: list, gun: dt.date) -> list:
 
 
 class Asistan:
-    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None):
-        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı)."""
+    def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, karar=None):
+        """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı);
+        karar(mesajlar) -> KARARLAR'dan biri (verilmezse netleştirme adımı atlanır)."""
         self.parcalar = parcalar
         self.getir = getir
         self.uret = uret
+        self.karar = karar
         self.gun = gun or dt.date.today()
 
     def cevapla(self, diyalog: list) -> tuple:
@@ -88,9 +113,17 @@ class Asistan:
         t0 = time.perf_counter()
         secilen = [self.parcalar[i] for i in self.getir(sorgu)[:PARCA_SAYISI]]
         t1 = time.perf_counter()
+        olcum = {"arama_sn": round(t1 - t0, 3)}
+        # Netleştirme yalnızca ilk turda: asistan bir kez sorduysa öğrencinin yanıtıyla cevap verilir.
+        if self.karar and not any(m["rol"] == "asistan" for m in diyalog):
+            k = self.karar(karar_mesajlari(diyalog, secilen))
+            simdi = time.perf_counter()
+            olcum["karar_sn"], t1 = round(simdi - t1, 3), simdi
+            if k in NETLESTIRME_SORULARI:
+                return NETLESTIRME_SORULARI[k], secilen, olcum | {"netlestirme": k}
         cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun))
         t2 = time.perf_counter()
-        return cevap, secilen, {"arama_sn": round(t1 - t0, 3), "uretim_sn": round(t2 - t1, 3), "token": token}
+        return cevap, secilen, olcum | {"uretim_sn": round(t2 - t1, 3), "token": token}
 
 
 def atif_yapilan_maddeler(cevap: str) -> set:
@@ -101,10 +134,11 @@ def atif_yapilan_maddeler(cevap: str) -> set:
     return sonuc
 
 
-def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda") -> Asistan:
+def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0) -> Asistan:
     """Colab'da (GPU) gerçek modellerle asistanı kurar. vLLM önce yüklenir; fp16 arama modelleri kalan belleğe sığar."""
     import torch
     from vllm import LLM, SamplingParams
+    from vllm.sampling_params import StructuredOutputsParams
 
     from .arama import YENIDEN_SIRALAYICILAR, YOGUN_MODELLER, Yogun, YenidenSiralayici
 
@@ -112,10 +146,12 @@ def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda") -> Asistan:
     # Bellek (L4, 22 GB): ilk denemede vLLM %85'i aldı, fp32 arama modelleri kalan 3 GB'ı doldurdu ve ilk soruda OOM.
     # KV önbelleği sabit 1 GiB (8B'de ~7.000, 30B'de ~10.000 token; istem en fazla ~5.000 token: 8 parça × 1.500 karakter + 600 cevap) ve ön doldurma 2.048'lik
     # parçalarla yapılır (etkinleştirme belleği ~1 GB'tan ~0,25 GB'a); arama modelleri fp16 (~3 GB yerine ~1,5 GB).
-    llm = LLM(model=ad, max_model_len=6144, kv_cache_memory_bytes=1 << 30, max_num_batched_tokens=2048, seed=0)
+    llm = LLM(model=ad, max_model_len=6144, kv_cache_memory_bytes=1 << 30, max_num_batched_tokens=2048, seed=tohum)
     tok = llm.get_tokenizer()
-    # İki model kartının önerisi; açgözlü çözümleme tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
-    ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=0)
+    # İki model kartının önerisi; açgözlü çözümleme uzun metinde tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
+    ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=tohum)
+    # Karar tek seçimlik bir sınıflandırma: açgözlü, ve yalnızca KARARLAR'dan biri üretilebilir.
+    karar_ornekleme = SamplingParams(temperature=0.0, max_tokens=8, structured_outputs=StructuredOutputsParams(choice=list(KARARLAR)))
 
     parcalar = [json.loads(s) for s in (DATA / "parcalar.jsonl").read_text("utf-8").splitlines()]
     metinler = [p["arama_metni"] for p in parcalar]
@@ -132,4 +168,8 @@ def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda") -> Asistan:
         cikti = llm.generate([istem], ornekleme, use_tqdm=False)[0].outputs[0]
         return cikti.text.strip(), len(cikti.token_ids)
 
-    return Asistan(parcalar, getir, uret)
+    def karar(msj: list) -> str:
+        istem = tok.apply_chat_template(msj, tokenize=False, add_generation_prompt=True, **sablon_ek)
+        return llm.generate([istem], karar_ornekleme, use_tqdm=False)[0].outputs[0].text.strip()
+
+    return Asistan(parcalar, getir, uret, karar=karar)
