@@ -10,6 +10,7 @@ from uuasistan.cevap import (
     egitim_yili,
     kaynak_metni,
     karar_istemi,
+    netlestirme_gerekli,
     mesajlar,
     sistem_istemi,
 )
@@ -49,7 +50,7 @@ def test_netlestirme_karari_cevap_uretmeden_soru_sorar():
     parcalar = [{"id": "p0", "belge_adi": "Y", "madde": "1", "baslik": "", "metin": "M"}]
     uretilen, kararlar = [], []
     a = Asistan(parcalar, getir=lambda q: [0], uret=lambda m: uretilen.append(m) or ("cevap", 5),
-                gun=GUN, karar=lambda m: kararlar.append(m) or "fakulte")
+                gun=GUN, karar=lambda m: kararlar.append(m) or ("fakulte", "g"))
     cevap, _, olcum = a.cevapla([{"rol": "ogrenci", "metin": "soru"}])
     assert cevap == NETLESTIRME_SORULARI["fakulte"] and not uretilen
     assert olcum["netlestirme"] == "fakulte" and "token" not in olcum and olcum["karar_sn"] >= 0
@@ -61,7 +62,7 @@ def test_netlestirme_karari_cevap_uretmeden_soru_sorar():
 
 def test_karar_yok_ise_cevap_uretilir():
     parcalar = [{"id": "p0", "belge_adi": "Y", "madde": "1", "baslik": "", "metin": "M"}]
-    a = Asistan(parcalar, getir=lambda q: [0], uret=lambda m: ("cevap", 5), gun=GUN, karar=lambda m: "yok")
+    a = Asistan(parcalar, getir=lambda q: [0], uret=lambda m: ("cevap", 5), gun=GUN, karar=lambda m: ("yok", "g"))
     cevap, _, olcum = a.cevapla([{"rol": "ogrenci", "metin": "soru"}])
     assert cevap == "cevap" and "netlestirme" not in olcum and olcum["token"] == 5
 
@@ -125,3 +126,13 @@ def test_hiz_netlestirme_olcumlerini_uyumdan_cikarir_ve_karar_suresini_ekler():
     olc.append({"arama_sn": 0.2, "karar_sn": 0.1, "netlestirme": "fakulte"})
     h = hiz(olc)
     assert h["tahmini_ilk_kelime_sn"] == 0.8 and h["token_per_sn"] == 50.0 and h["karar_sn_medyan"] == 0.1
+
+
+def test_ogrenci_bilgiyi_verdiyse_tekrar_sorulmaz():
+    ogr = lambda t: [{"rol": "ogrenci", "metin": t}]
+    assert netlestirme_gerekli("fakulte", ogr("Kaldığım dersi tekrar alıyorum, devam zorunlu mu?"))
+    assert not netlestirme_gerekli("fakulte", ogr("Tıp fakültesindeyim, devam zorunlu mu?"))
+    assert not netlestirme_gerekli("fakulte", ogr("İİBF'deyim."))
+    assert not netlestirme_gerekli("kayit_tarihi", ogr("2024'te çift anadala başladım."))
+    assert netlestirme_gerekli("kayit_tarihi", ogr("Çift anadaldayım, ortalamam düştü."))
+    assert not netlestirme_gerekli("yok", ogr("soru"))

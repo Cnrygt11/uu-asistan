@@ -24,12 +24,19 @@ DIL_MODELLERI = {
 }
 
 # Netleştirme ayrı bir adımda kararlaştırılır: istemdeki "önce sor" kuralına model iki koşuda da hiç uymadı (0/6).
-# Karar, kısıtlı çıktıyla (yalnızca bu üç seçenek) verilir; soru metni sabittir.
+# Karar kısıtlı JSON çıktısıyla verilir (önce kısa gerekçe, sonra karar); soru metni sabittir.
+# İlk deneme (gerekçesiz, 8 parça) neredeyse her soruda soru sordu, fakültesini söyleyen öğrenciye bile.
 NETLESTIRME_SORULARI = {
     "fakulte": "Bu konudaki kural fakülteye ya da yüksekokula göre değişiyor. Hangi fakültede ya da yüksekokulda okuyorsun?",
     "kayit_tarihi": "Bu konudaki kural kayıt tarihine göre değişiyor. Üniversiteye ya da ilgili programa (çift anadal, yan dal gibi) ne zaman kaydoldun?",
 }
 KARARLAR = ("yok", *NETLESTIRME_SORULARI)
+KARAR_PARCA_SAYISI = 3  # karar yalnızca en alakalı parçalara bakar; alt sıralardaki ilgisiz istisna listeleri yanıltıyordu
+# Öğrenci bilgiyi zaten verdiyse model ne derse desin tekrar sorulmaz.
+SOYLENDI = {
+    "fakulte": re.compile(r"(?i)fakülte|yüksekokul|\bmyo\b|konservatuvar|iibf|İİBF"),
+    "kayit_tarihi": re.compile(r"\b(?:19|20)\d{2}\b"),
+}
 
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
@@ -78,12 +85,22 @@ def karar_istemi() -> str:
 - kayit_tarihi: Soruyu cevaplayan kural, öğrencinin üniversiteye ya da bir programa (çift anadal, yan dal gibi) kaydolduğu tarihe göre farklı sonuç veriyor (bir hüküm yalnızca belirli bir tarihten önce ya da sonra kaydolanlara uygulanıyor) ve öğrenci kayıt tarihini söylemedi.
 - yok: Cevap öğrencinin durumuna göre değişmiyor, gereken bilgiyi öğrenci zaten verdi ya da soru kaynaklarla ilgili değil.
 
-Yalnızca soruyu cevaplayan kurala bak; kaynaklarda geçen ama soruyla ilgisi olmayan maddeleri dikkate alma. Emin değilsen yok de."""
+Yalnızca soruyu cevaplayan kurala bak; kaynaklarda geçen ama soruyla ilgisi olmayan maddeleri dikkate alma. Çoğu soru için doğru karar yok'tur: kural bütün öğrencilere aynı uygulanıyorsa ya da kuraldaki istisna listesi sorulan durumla ilgili değilse yok de. Emin değilsen yok de.
+
+Önce gerekce alanına bir iki cümleyle soruyu hangi kuralın cevapladığını ve bu kuralın sonucunun öğrencinin fakültesine ya da kayıt tarihine göre değişip değişmediğini yaz; sonra karar alanını doldur."""
 
 
 def karar_mesajlari(diyalog: list, parcalar: list) -> list:
     soru = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
-    return [{"role": "system", "content": karar_istemi()}, {"role": "user", "content": f"{kaynak_metni(parcalar)}\n\nSORU:\n{soru}"}]
+    kaynak = kaynak_metni(parcalar[:KARAR_PARCA_SAYISI])
+    return [{"role": "system", "content": karar_istemi()}, {"role": "user", "content": f"{kaynak}\n\nSORU:\n{soru}"}]
+
+
+def netlestirme_gerekli(karar: str, diyalog: list) -> bool:
+    if karar not in NETLESTIRME_SORULARI:
+        return False
+    ogrenci = " ".join(m["metin"] for m in diyalog if m["rol"] == "ogrenci")
+    return not SOYLENDI[karar].search(ogrenci)
 
 
 def mesajlar(diyalog: list, parcalar: list, gun: dt.date) -> list:
@@ -100,7 +117,7 @@ def mesajlar(diyalog: list, parcalar: list, gun: dt.date) -> list:
 class Asistan:
     def __init__(self, parcalar: list, getir, uret, gun: dt.date | None = None, karar=None):
         """getir(sorgu) -> parça indeksleri (en alakalı önce); uret(mesajlar) -> (metin, üretilen token sayısı);
-        karar(mesajlar) -> KARARLAR'dan biri (verilmezse netleştirme adımı atlanır)."""
+        karar(mesajlar) -> (KARARLAR'dan biri, gerekçe) (verilmezse netleştirme adımı atlanır)."""
         self.parcalar = parcalar
         self.getir = getir
         self.uret = uret
@@ -116,10 +133,11 @@ class Asistan:
         olcum = {"arama_sn": round(t1 - t0, 3)}
         # Netleştirme yalnızca ilk turda: asistan bir kez sorduysa öğrencinin yanıtıyla cevap verilir.
         if self.karar and not any(m["rol"] == "asistan" for m in diyalog):
-            k = self.karar(karar_mesajlari(diyalog, secilen))
+            k, gerekce = self.karar(karar_mesajlari(diyalog, secilen))
             simdi = time.perf_counter()
-            olcum["karar_sn"], t1 = round(simdi - t1, 3), simdi
-            if k in NETLESTIRME_SORULARI:
+            olcum |= {"karar_sn": round(simdi - t1, 3), "karar": k, "karar_gerekce": gerekce}
+            t1 = simdi
+            if netlestirme_gerekli(k, diyalog):
                 return NETLESTIRME_SORULARI[k], secilen, olcum | {"netlestirme": k}
         cevap, token = self.uret(mesajlar(diyalog, secilen, self.gun))
         t2 = time.perf_counter()
@@ -150,8 +168,10 @@ def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0)
     tok = llm.get_tokenizer()
     # İki model kartının önerisi; açgözlü çözümleme uzun metinde tekrar döngüsüne yol açıyor. Sabit tohum: tekrarlanabilirlik.
     ornekleme = SamplingParams(temperature=0.7, top_p=0.8, top_k=20, min_p=0.0, max_tokens=600, seed=tohum)
-    # Karar tek seçimlik bir sınıflandırma: açgözlü, ve yalnızca KARARLAR'dan biri üretilebilir.
-    karar_ornekleme = SamplingParams(temperature=0.0, max_tokens=8, structured_outputs=StructuredOutputsParams(choice=list(KARARLAR)))
+    # Karar bir sınıflandırma: açgözlü; çıktı {"gerekce", "karar"} JSON'u, karar yalnızca KARARLAR'dan biri olabilir.
+    sema = {"type": "object", "required": ["gerekce", "karar"],
+            "properties": {"gerekce": {"type": "string", "maxLength": 400}, "karar": {"enum": list(KARARLAR)}}}
+    karar_ornekleme = SamplingParams(temperature=0.0, max_tokens=200, structured_outputs=StructuredOutputsParams(json=sema))
 
     parcalar = [json.loads(s) for s in (DATA / "parcalar.jsonl").read_text("utf-8").splitlines()]
     metinler = [p["arama_metni"] for p in parcalar]
@@ -170,6 +190,11 @@ def gercek_asistan(model: str = "qwen3-8b", cihaz: str = "cuda", tohum: int = 0)
 
     def karar(msj: list) -> str:
         istem = tok.apply_chat_template(msj, tokenize=False, add_generation_prompt=True, **sablon_ek)
-        return llm.generate([istem], karar_ornekleme, use_tqdm=False)[0].outputs[0].text.strip()
+        metin = llm.generate([istem], karar_ornekleme, use_tqdm=False)[0].outputs[0].text
+        try:
+            j = json.loads(metin)
+            return j["karar"], j["gerekce"]
+        except (json.JSONDecodeError, KeyError):  # 200 tokende kesilirse
+            return "yok", metin
 
     return Asistan(parcalar, getir, uret, karar=karar)
