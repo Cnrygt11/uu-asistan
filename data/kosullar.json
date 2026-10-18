@@ -46,6 +46,6 @@
     {"belge": "EOY", "madde": "15", "neden": "Azami süre program süresine göre değişir ama tablo kısa; cevapta bütün süreler verilebilir."},
     {"belge": "GEC", "madde": "17", "neden": "Çift anadal başvurusu: başvuran öğrenciye yürürlükteki yönerge uygulanır, kayıt tarihi sorulmaz."},
     {"belge": "GEC", "madde": "22", "neden": "Yan dal başvurusu: başvuran öğrenciye yürürlükteki yönerge uygulanır, kayıt tarihi sorulmaz."},
-    {"belge": "EOY", "madde": "Geçici 3", "neden": "2015-2016 ve öncesinde kaydolanlar azami süreleri doldurmuş durumda; kayıt yılı sorulmaz."}
+    {"belge": "EOY", "madde": "Geçici 3", "neden": "Yalnızca 2015-2016 ve öncesinde kaydolanlara uygulanır; madde_durumu.json ölçütüne göre son olası yılı 2026-2027, yani bu öğrenciler ancak en uzun süreleri kullanmışsa hâlâ kayıtlı. Bu kadar nadir bir durum için her ders yükü sorusunda kayıt yılı sorulmaz; madde bağlamda kayıt yılı etiketiyle durur."}
   ]
 }
